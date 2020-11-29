@@ -1,0 +1,91 @@
+room_1:
+  name: Комната 1
+  entities:
+    - sensor.room_1
+    - sensor.room_1_floor
+    - sensor.heating_1
+    - sensor.co2
+    - sensor.humidity
+    - sensor.light
+    - light.bulbs
+    - light.led
+room_2:
+  name: Комната 2
+  entities:
+    - sensor.room_2_door
+    - sensor.room_2_pc
+room_3:
+  name: Комната 3
+  entities:
+    - sensor.room_3_bed
+    - sensor.room_3_door
+    - sensor.heating_2
+kitchen:
+  name: Кухня
+  entities:
+    - sensor.kitchen
+    - sensor.heating_3
+other:
+  name: Прочее
+  entities:
+    - sun.sun
+    - weather.home
+    - person.admin
+    - binary_sensor.updater
+    - sensor.co2_temp
+    - sensor.bmp280_temp
+    - sensor.sht31_temp
+
+hall:
+  name: Коридор
+  entities:
+    - sensor.hall_light
+    - sensor.hall_corner_light
+    - binary_sensor.main_door 
+    - light.force_4
+    - light.force_5
+    - light.force_7
+    - input_number.led_4_bri
+    - input_number.led_5_bri
+    - input_number.led_7_bri
+
+hall_block:
+  name: Коридор (блокировка света)
+  entities:
+    - switch.lock_4
+    - switch.lock_5
+    - switch.lock_7
+
+
+outdoor:
+  name: Улица
+  entities:
+    - sensor.outdoor
+    - sensor.vent
+    - sensor.pressure
+
+room_1_relay:
+  name: Комната 1 (блок реле)
+  entities:
+    -  switch.relay_1
+    -  switch.relay_2
+    -  switch.relay_3
+    -  switch.relay_4
+
+ups_data:
+  name: UPS
+  entities:
+    - sensor.apc1500_battery_charge
+    - sensor.apc1500_battery_voltage
+    - sensor.apc1500_input_voltage
+    - sensor.apc1500_load
+    - sensor.apc1500_output_current
+    - sensor.apc1500_output_frequency
+    - sensor.apc1500_output_voltage
+    - sensor.apc1500_status
+    - sensor.apc1500_status_data
+
+
+
+
+

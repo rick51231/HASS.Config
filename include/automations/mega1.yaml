@@ -1,0 +1,46 @@
+  - alias: Mega-1 Query 1W Bus
+    trigger:
+      platform: time_pattern
+      minutes: '*'
+    action:
+      service: mqtt.publish
+      data_template:
+        topic: "mega1/cmd"
+        payload: 'get:36'
+
+  - alias: Query Mega-1 on start
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      repeat:
+        count: '37'
+        sequence:
+          - service: mqtt.publish
+            data_template:
+              topic: "mega1/cmd"
+              payload: 'get:{{ repeat.index }}'
+          - delay:
+              milliseconds: 300
+
+  - alias: Mega-1 CMD Fix
+    mode: queued
+    trigger:
+      platform: mqtt
+      topic: "mega1/cmd-ext/#"
+    action:
+      service: mqtt.publish
+      data_template:
+        topic: "mega1/cmd"
+        payload: '{{ trigger.topic|replace("mega1/cmd-ext/","") }}:{{ trigger.payload }}'
+
+  - alias: Mega-1 CMD Fix BRI
+    mode: queued
+    trigger:
+      platform: mqtt
+      topic: "mega1/cmd-ext-bri/#"
+    action:
+      service: mqtt.publish
+      data_template:
+        topic: "mega1/cmd"
+        payload: "{{ trigger.topic|replace('mega1/cmd-ext-bri/','') }}:{% set bri = trigger.payload | int %}{% set out =  ((bri / 6.4262) **  (1 / 0.33)) | round(1, 'floor') | int %}{% if out == 0 and bri > 0%}1{% else %}{{ out }}{% endif %}"

@@ -1,0 +1,9 @@
+  - alias: UPS status notification
+    trigger:
+      platform: state
+      entity_id: sensor.apc1500_status
+    action:
+      - service: notify.notify_all
+        data:
+          message:  >
+            UPS state changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}

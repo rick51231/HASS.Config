@@ -1,0 +1,19 @@
+light_slow_on:
+  alias: "Slowly turn on light"
+  fields:
+    entity_id:
+      description: 'Name(s) of entity to turn on'
+      example: 'light.kitchen'
+    brightness_pct:
+      description: 'Target brightness in percentage'
+      example: '20'
+  sequence:
+    - repeat:
+        count: "{% set curr_bri = state_attr(entity_id, 'brightness') | int %}{% if curr_bri >= brightness_pct | int %}0{% else %}{{ (brightness_pct | int) - curr_bri }}{% endif %}" 
+        sequence:
+          - service: light.turn_on
+            data:
+              entity_id: "{{ entity_id }}"
+              brightness_pct: "{{ repeat.index }}"
+          - delay:
+              milliseconds: 50

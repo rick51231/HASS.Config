@@ -29,10 +29,17 @@ tts:
     cache: true
     cache_dir: /tmp
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+light: !include include/light.yaml
+switch: !include include/switch.yaml
+binary_sensor: !include include/binary_sensor.yaml
+sensor: !include_dir_merge_list include/sensor
+input_boolean: !include include/input_boolean.yaml
+input_number: !include include/input_number.yaml
+notify: !include include/notity.yaml
+group: !include include/groups.yaml
+automation: !include_dir_merge_list include/automations
+script: !include include/scripts.yaml
+scene: !include include/scenes.yaml
 
 http:
 #  api_password: !secret http_api
@@ -61,13 +68,6 @@ mqtt:
   password: !secret mqtt_password
   client_id: !secret mqtt_client_id
 
-light: !include include/light.yaml
-switch: !include include/switch.yaml
-binary_sensor: !include include/binary_sensor.yaml
-sensor: !include_dir_merge_list include/sensor
-input_boolean: !include include/input_boolean.yaml
-input_number: !include include/input_number.yaml
-notify: !include include/notity.yaml
 
 media_player:
   - platform: yamaha
