@@ -6,7 +6,7 @@
     action:
       - service: notify.notify_all_all
         data:
-          message:  "ALARM! The alarm has been triggered by the {{ states('input_text.trigger_source') }} at {{ states('sensor.date_time')"
+          message:  "ALARM! The alarm has been triggered by the {{ states('input_text.trigger_source') }} at {{ states('sensor.date_time') }}"
 
 
 
@@ -28,7 +28,7 @@
     action:
       - service: notify.notify_all
         data:
-          message: "ALARM! The alarm is in pending status by the {{ states('input_text.trigger_source') }} at {{ states('sensor.date_time')"
+          message: "ALARM! The alarm is in pending status by the {{ states('input_text.trigger_source') }} at {{ states('sensor.date_time') }}"
 
   - alias: 'Send notification when alarm is Armed in Away mode'
     trigger:
