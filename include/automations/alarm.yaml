@@ -17,11 +17,12 @@
       entity_id: alarm_control_panel.ha_alarm
 
   - alias: 'Send notification when alarm triggered'
-      trigger:
-        - platform: state
-          entity_id: alarm_control_panel.ha_alarm
-         to: 'triggered'
-     action:
-       - service: notify.notify_all
-          data:
-            message:  "ALARM! The alarm has been triggered"
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.ha_alarm
+        to: 'triggered'
+    action:
+      - service: notify.notify_all
+        data:
+          message:  "ALARM! The alarm has been triggered"
+
