@@ -4,7 +4,7 @@
         entity_id: alarm_control_panel.alarm
         to: 'triggered'
     action:
-      - service: notify.notify_all_all
+      - service: notify.notify_all
         data:
           message:  "ALARM! The alarm has been triggered by the {{ states('input_text.trigger_source') }} at {{ states('sensor.date_time') }}"
 
