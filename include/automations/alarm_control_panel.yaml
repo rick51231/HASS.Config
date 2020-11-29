@@ -1,0 +1,6 @@
+  - platform: manual
+      name: "Alarm"
+      code: "1234"
+      code_arm_required: false
+      delay_time: 30
+      arming_time: 10

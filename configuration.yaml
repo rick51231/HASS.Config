@@ -40,6 +40,7 @@ group: !include include/groups.yaml
 automation: !include_dir_merge_list include/automations
 script: !include include/scripts.yaml
 scene: !include include/scenes.yaml
+alarm_control_panel: !include include/alarm_control_panel.yaml
 
 http:
 #  api_password: !secret http_api
