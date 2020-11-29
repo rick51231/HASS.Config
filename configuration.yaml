@@ -1,0 +1,113 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  name: !secret homeassistant_name
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  elevation: !secret homeassistant_elevation
+  unit_system: metric
+  time_zone: !secret homeassistant_timezone
+  external_url: !secret homeassistant_external_url
+  internal_url: !secret homeassistant_internal_url
+  
+
+#lovelace:
+#  mode: yaml
+#logger:
+#  default: critical
+
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+    cache: true
+    cache_dir: /tmp
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+http:
+#  api_password: !secret http_api
+#  base_url: http://srv-hass:8123
+  use_x_forwarded_for: true
+  trusted_proxies: "192.168.1.5"
+
+history:
+  exclude:
+    domains:
+      - automation
+      - group
+
+logbook:
+  exclude:
+    entities:
+      - automation.mega_1_query_1w_bus
+      - automation.mega_1_cmd_fix
+      - automation.mega_1_cmd_fix_bri
+      - binary_sensor.toilet_motion
+      - binary_sensor.bathroom_motion
+
+mqtt:
+  broker: !secret mqtt_host
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+  client_id: !secret mqtt_client_id
+
+light: !include include/light.yaml
+switch: !include include/switch.yaml
+binary_sensor: !include include/binary_sensor.yaml
+sensor: !include_dir_merge_list include/sensor
+input_boolean: !include include/input_boolean.yaml
+input_number: !include include/input_number.yaml
+notify: !include include/notity.yaml
+
+media_player:
+  - platform: yamaha
+    host: !secret media_yahaha_host
+    source_names:
+      AUDIO1: "HDMI ARC"
+      HDMI1: "NVIDIA SHIELD"
+    source_ignore:
+      - "Alexa"
+      - "Amazon Music"
+      - "Deezer"
+      - "Napster"
+      - "PHONO"
+      - "Qobuz"
+      - "TIDAL"
+    zone_ignore:
+      - "Zone_2"
+
+webostv:
+  host: !secret media_lgtv_host
+  name: "LG TV"
+
+home_connect:
+  client_id: !secret homeconnect_client_id
+  client_secret: !secret homeconnect_client_secret
+
+
+homekit:
+  name: "HASS Bridge"
+  filter:
+    include_entities:
+      - sensor.outdoor
+      - light.bulbs
+      - light.led
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chatid_my
+
+
+
