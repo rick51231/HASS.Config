@@ -54,6 +54,8 @@ history:
     domains:
       - automation
       - group
+    entities:
+      - sensor.date_time
 
 logbook:
   exclude:
@@ -63,6 +65,7 @@ logbook:
       - automation.mega_1_cmd_fix_bri
       - binary_sensor.toilet_motion
       - binary_sensor.bathroom_motion
+      - sensor.date_time
 
 mqtt:
   broker: !secret mqtt_host
