@@ -35,6 +35,7 @@ binary_sensor: !include include/binary_sensor.yaml
 sensor: !include_dir_merge_list include/sensor
 input_boolean: !include include/input_boolean.yaml
 input_number: !include include/input_number.yaml
+input_text: !include include/input_text.yaml
 notify: !include include/notity.yaml
 group: !include include/groups.yaml
 automation: !include_dir_merge_list include/automations

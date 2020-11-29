@@ -1,0 +1,36 @@
+  - alias: 'Trigger alarm while armed away'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.bathroom_door
+          - binary_sensor.toilet_door
+          - binary_sensor.main_door
+          - binary_sensor.bathroom_motion
+          - binary_sensor.toilet_motion
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.alarm
+        state: armed_away
+    action:
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.trigger_source
+          value: "{{ trigger.to_state.attributes.friendly_name }}"
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.alarm
+
+  - alias: 'Trigger alarm while armed home'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.main_door
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.alarm
+        state: armed_home
+    action:
+      service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.alarm
+
