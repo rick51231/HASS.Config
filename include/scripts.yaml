@@ -9,7 +9,7 @@ light_slow_on:
       example: '20'
   sequence:
     - repeat:
-        count: "{% set curr_bri = state_attr(entity_id, 'brightness') | int %}{% if curr_bri >= brightness_pct | int %}0{% else %}{{ (brightness_pct | int) - curr_bri }}{% endif %}" 
+        count: "{% set curr_bri = state_attr(entity_id, 'brightness') | int %}{% if curr_bri >= brightness_pct | int %}0{% else %}{{ (brightness_pct | int) - curr_bri }}{% endif %}"
         sequence:
           - service: light.turn_on
             data:

@@ -1,0 +1,41 @@
+- platform: mqtt
+  name: Relay 1
+  state_topic: s3home/clunet/relay_0
+  command_topic: s3home/clunet/relay_0/set
+  unique_id: "switch.relay_1"
+
+- platform: mqtt
+  name: Relay 2
+  state_topic: s3home/clunet/relay_1
+  command_topic: s3home/clunet/relay_1/set
+  unique_id: "switch.relay_2"
+
+- platform: mqtt
+  name: Relay 3
+  state_topic: s3home/clunet/relay_2
+  command_topic: s3home/clunet/relay_2/set
+  unique_id: "switch.relay_3"
+
+- platform: mqtt
+  name: Relay 4
+  state_topic: s3home/clunet/relay_3
+  command_topic: s3home/clunet/relay_3/set
+  unique_id: "switch.relay_4"
+
+- platform: mqtt
+  name: "Блокировка угол"
+  state_topic: s3home/clunet/led_lock_4
+  command_topic: s3home/clunet/led_lock_4/set
+  unique_id: "switch.led_lock_4"
+
+- platform: mqtt
+  name: "Блокировка дверь"
+  state_topic: s3home/clunet/led_lock_5
+  command_topic: s3home/clunet/led_lock_5/set
+  unique_id: "switch.led_lock_5"
+
+- platform: mqtt
+  name: "Блокировка коридор"
+  state_topic: s3home/clunet/led_lock_7
+  command_topic: s3home/clunet/led_lock_7/set
+  unique_id: "switch.led_lock_7"
