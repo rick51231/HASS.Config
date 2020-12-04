@@ -1,0 +1,13 @@
+  - platform: telegram
+    name: tg_me
+    chat_id: !secret telegram_chatid_my
+
+  - name: "Notify all"
+    platform: group
+    services:
+#      - service: notify
+      - service: lg_tv
+      - service: mobile_app_iphone_12_pro_max_512_graphite
+      - service: mobile_app_iphone_xs_512_gray
+      - service: mobile_app_zs620kl
+      - service: tg_me
