@@ -41,7 +41,7 @@ hall:
   entities:
     - sensor.hall_light
     - sensor.hall_corner_light
-    - binary_sensor.main_door 
+    - binary_sensor.main_door
     - light.force_4
     - light.force_5
     - light.force_7
@@ -67,10 +67,10 @@ outdoor:
 room_1_relay:
   name: Комната 1 (блок реле)
   entities:
-    -  switch.relay_1
-    -  switch.relay_2
-    -  switch.relay_3
-    -  switch.relay_4
+    - switch.relay_1
+    - switch.relay_2
+    - switch.relay_3
+    - switch.relay_4
 
 ups_data:
   name: UPS
@@ -84,8 +84,3 @@ ups_data:
     - sensor.apc1500_output_voltage
     - sensor.apc1500_status
     - sensor.apc1500_status_data
-
-
-
-
-

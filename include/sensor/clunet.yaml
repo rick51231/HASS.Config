@@ -1,0 +1,68 @@
+- platform: mqtt
+  state_topic: "s3home/clunet/hall_light"
+  name: "Hall light"
+  unit_of_measurement: "p"
+  device_class: illuminance
+  unique_id: "sensor.hall_light"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/hall_corner_light"
+  name: "Hall corner light"
+  unit_of_measurement: "p"
+  device_class: illuminance
+  unique_id: "sensor.hall_corner_light"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/hall_corner_light_2"
+  name: "Hall corner light 2"
+  unit_of_measurement: "p"
+  device_class: illuminance
+  unique_id: "sensor.hall_corner_light_2"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/room1_press"
+  name: "Pressure"
+  unit_of_measurement: "kPa"
+  device_class: pressure
+  unique_id: "sensor.pressure"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/room1_press_temp"
+  name: "BMP280 temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.room_1_press_temp"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/room1_light"
+  name: "Light"
+  unit_of_measurement: "lx"
+  device_class: illuminance
+  unique_id: "sensor.light"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/room1_humidity"
+  name: "Humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.humidity"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/room1_humidity_temp"
+  name: "SHT31 temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.room_1_humidity_temp"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/co2_val"
+  name: "CO2"
+  unit_of_measurement: "ppm"
+  unique_id: "sensor.room_1_co2_val"
+
+- platform: mqtt
+  state_topic: "s3home/clunet/co2_temp"
+  name: "CO2 temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.room_1_co2_temp"

@@ -1,27 +1,26 @@
-  - alias: Door open notification
-    trigger:
-      platform: state
-      entity_id: binary_sensor.main_door
-    action:
-      - service: notify.notify_all
-        data:
-          message: >
-            {% if trigger.to_state.state == 'on' %}
-              Door has been open.
-            {% else %}
-              Door has been closed.
-            {% endif %}
+- alias: Door open notification
+  trigger:
+    platform: state
+    entity_id: binary_sensor.main_door
+  action:
+    - service: notify.notify_all
+      data:
+        message: >
+          {% if trigger.to_state.state == 'on' %}
+            Door has been open.
+          {% else %}
+            Door has been closed.
+          {% endif %}
 
 
-
-  - alias: Door open notification
-    trigger:
-      platform: state
-      entity_id: binary_sensor.main_door
-      to: 'on'
-      for:
-        minutes: 1
-    action:
-      - service: notify.notify_all
-        data:
-          message: "Warning! Door is opened for too long"
+- alias: Door open notification
+  trigger:
+    platform: state
+    entity_id: binary_sensor.main_door
+    to: 'on'
+    for:
+      minutes: 1
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Door is opened for too long"

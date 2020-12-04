@@ -1,0 +1,21 @@
+- platform: rest
+  resource: !secret mega1_light_bathroom
+  name: "Bathroom light"
+  unit_of_measurement: "lx"
+  device_class: illuminance
+
+- platform: mqtt
+  state_topic: "mega1/30"
+  value_template: "{{ value_json.value.temp }}"
+  name: "Bathroom temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.bathroom_temp"
+
+- platform: mqtt
+  state_topic: "mega1/30"
+  value_template: "{{ value_json.value.hum }}"
+  name: "Bathroom humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.bathroom_humidity"

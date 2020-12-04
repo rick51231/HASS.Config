@@ -1,0 +1,56 @@
+- platform: mqtt
+  state_topic: "s3home/clunet/door"
+  name: "Main door"
+  device_class: door
+  unique_id: "binary_sensor.main_door"
+
+- platform: mqtt
+  state_topic: "mega1/31"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet door"
+  device_class: door
+  unique_id: "binary_sensor.toilet_door"
+
+- platform: mqtt
+  state_topic: "mega1/35"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet motion"
+  device_class: motion
+  unique_id: "binary_sensor.toilet_motion"
+
+- platform: mqtt
+  state_topic: "mega1/15"
+  value_template: "{{ value_json.value }}"
+  name: "Bathroom moisture"
+  device_class: moisture
+  unique_id: "binary_sensor.bathroom_moisture"
+
+- platform: mqtt
+  state_topic: "mega1/16"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet moisture"
+  device_class: moisture
+  unique_id: "binary_sensor.toilet_moisture"
+
+- platform: mqtt
+  state_topic: "mega1/17"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen moisture"
+  device_class: moisture
+  unique_id: "binary_sensor.kitchen_moisture"
+
+- platform: mqtt
+  state_topic: "mega1/19"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Bathroom door"
+  device_class: door
+  unique_id: "binary_sensor.bathroom_door"
+
+- platform: mqtt
+  state_topic: "mega1/18"
+  value_template: "{{ value_json.value }}"
+  name: "Bathroom motion"
+  device_class: motion
+  unique_id: "binary_sensor.bathroom_motion"

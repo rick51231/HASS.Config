@@ -1,0 +1,29 @@
+- platform: rest
+  resource: !secret mega1_light_toilet
+  name: "Toilet light"
+  unit_of_measurement: "lx"
+  device_class: illuminance
+
+- platform: mqtt
+  state_topic: "mega1/34"
+  value_template: "{{ value_json.value.temp }}"
+  name: "Toilet temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.toilet_temp"
+
+- platform: mqtt
+  state_topic: "mega1/34"
+  value_template: "{{ value_json.value.hum }}"
+  name: "Toilet humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.toilet_humidity"
+
+- platform: mqtt
+  state_topic: "mega1/30"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet pressure"
+  unit_of_measurement: "Bar"
+  device_class: pressure
+  unique_id: "sensor.toilet_pressure"

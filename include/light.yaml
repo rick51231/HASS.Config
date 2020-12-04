@@ -1,0 +1,53 @@
+- platform: mqtt
+  name: "Toilet light LED"
+  unique_id: "bathroom.toilet_light_led"
+  command_topic: "mega1/cmd"
+  payload_off: "32e15:0"
+  brightness_command_topic: "mega1/cmd-ext-bri/32e15"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "Bathroom light LED"
+  unique_id: "light.bathroom_light_led"
+  command_topic: "mega1/cmd"
+  payload_off: "32e14:0"
+  brightness_command_topic: "mega1/cmd-ext-bri/32e14"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "LED"
+  state_topic: "s3home/clunet/led_6"
+  command_topic: "s3home/clunet/led_6/set"
+  brightness_command_topic: "s3home/clunet/led_6/bri/set"
+  brightness_state_topic: "s3home/clunet/led_6/bri"
+  brightness_scale: 100
+  unique_id: "light.led"
+
+- platform: mqtt
+  name: "Bulbs"
+  state_topic: "s3home/clunet/bulbs_3"
+  command_topic: "s3home/clunet/bulbs_3/set"
+  brightness_command_topic: "s3home/clunet/bulbs_3/bri/set"
+  brightness_state_topic: "s3home/clunet/bulbs_3/bri"
+  brightness_scale: 5
+  unique_id: "light.bulbs"
+
+- platform: mqtt
+  name: LED угол
+  state_topic: s3home/clunet/led_force_4
+  command_topic: s3home/clunet/led_force_4/set
+  unique_id: "light.force_4"
+
+- platform: mqtt
+  name: LED дверь
+  state_topic: s3home/clunet/led_force_5
+  command_topic: s3home/clunet/led_force_5/set
+  unique_id: "light.force_5"
+
+- platform: mqtt
+  name: LED коридор
+  state_topic: s3home/clunet/led_force_7
+  command_topic: s3home/clunet/led_force_7/set
+  unique_id: "light.force_7"

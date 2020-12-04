@@ -1,8 +1,8 @@
-  - alias: HA start notification
-    trigger:
-      platform: homeassistant
-      event: start
-    action:
-      - service: notify.notify_all
-        data:
-          message: "Home assistant started."
+- alias: HA start notification
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Home assistant started."

@@ -1,13 +1,13 @@
-  - alias: Moisture notification
-    trigger:
-      platform: state
-      entity_id:
-        - binary_sensor.bathroom_moisture
-        - binary_sensor.kitchen_moisture
-        - binary_sensor.toilet_moisture 
-      to: 'on'
-    action:
-      - service: notify.notify_all
-        data:
-          message:  >
-            Moisture {{ trigger.to_state.attributes.friendly_name }} triggered!
+- alias: Moisture notification
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.bathroom_moisture
+      - binary_sensor.kitchen_moisture
+      - binary_sensor.toilet_moisture
+    to: 'on'
+  action:
+    - service: notify.notify_all
+      data:
+        message: >
+          Moisture {{ trigger.to_state.attributes.friendly_name }} triggered!
