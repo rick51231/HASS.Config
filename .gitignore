@@ -9,5 +9,3 @@ secrets.yaml
 known_devices.yaml
 webostv.conf
 
-#Project specific
-.yamllint-config.yml
