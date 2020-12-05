@@ -52,6 +52,7 @@ history:
       - group
     entities:
       - sensor.date_time
+      - sensor.time
 
 logbook:
   exclude:
@@ -62,6 +63,7 @@ logbook:
       - binary_sensor.toilet_motion
       - binary_sensor.bathroom_motion
       - sensor.date_time
+      - sensor.time
 
 mqtt:
   broker: !secret mqtt_host
