@@ -19,11 +19,3 @@
   unit_of_measurement: "%"
   device_class: humidity
   unique_id: "sensor.toilet_humidity"
-
-- platform: mqtt
-  state_topic: "mega1/30"
-  value_template: "{{ value_json.value }}"
-  name: "Toilet pressure"
-  unit_of_measurement: "Bar"
-  device_class: pressure
-  unique_id: "sensor.toilet_pressure"
