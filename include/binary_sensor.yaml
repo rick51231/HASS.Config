@@ -54,3 +54,11 @@
   name: "Bathroom motion"
   device_class: motion
   unique_id: "binary_sensor.bathroom_motion"
+
+- platform: mqtt
+  state_topic: "mega1/#"
+  value_template: "{{ value_json.value }}"
+  name: "Mega 1 online"
+  device_class: connectivity
+  off_delay: 60
+  unique_id: "binary_sensor.mega1_online"
