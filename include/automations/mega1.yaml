@@ -44,3 +44,15 @@
     data_template:
       topic: "mega1/cmd"
       payload: "{{ trigger.topic|replace('mega1/cmd-ext-bri/','') }}:{% set bri = trigger.payload | int %}{% set out =  ((bri / 6.4262) **  (1 / 0.33)) | round(1, 'floor') | int %}{% if out == 0 and bri > 0%}1{% else %}{{ out }}{% endif %}"
+
+- alias: Mega-1 online monitor
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_online
+    to: 'off'
+    for:
+      seconds: 5
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-1 is offline"
