@@ -73,7 +73,7 @@
     energy_cheap:
       friendly_name: "Cheap energy"
       device_class: power
-      value_template: "{% set hour = states('sensor.time').split(':')[0] | int %}{% if is_state('binary_sensor.workday_sensor', 'on') and hour >= 17 and hour < 22 %}on{% else %}off{% endif %}"
+      value_template: "{% set hour = states('sensor.time').split(':')[0] | int %}{% if is_state('binary_sensor.workday_sensor', 'on') and hour >= 17 and hour < 22 %}off{% else %}on{% endif %}"
 
 - platform: ping
   host: !secret sw1_ip
