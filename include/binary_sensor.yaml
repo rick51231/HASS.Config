@@ -62,3 +62,8 @@
   device_class: connectivity
   off_delay: 60
   unique_id: "binary_sensor.mega1_online"
+
+- platform: workday
+  country: BY
+  workdays: [mon, tue, wed, thu, fri]
+  excludes: [sat, sun, holiday]
