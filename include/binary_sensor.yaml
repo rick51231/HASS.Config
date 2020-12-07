@@ -81,8 +81,6 @@
 - platform: mqtt
   state_topic: "mega2/31"
   value_template: "{{ value_json.value }}"
-  payload_off: "ON"
-  payload_on: "OFF"
   name: "Main door"
   device_class: door
   unique_id: "binary_sensor.main_door"
