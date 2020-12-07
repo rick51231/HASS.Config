@@ -5,3 +5,11 @@ bathroom_led_auto:
 toilet_led_auto:
   name: "Авто свет туалет"
   icon: mdi:brightness-5
+
+door_led_auto:
+  name: "Авто свет дверь"
+  icon: mdi:brightness-5
+
+corner_led_auto:
+  name: "Авто свет угол"
+  icon: mdi:brightness-5

@@ -1,0 +1,25 @@
+- alias: Corner motion trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.corner_motion
+    to: 'on'
+  condition:
+    - "{{ is_state('input_boolean.corner_led_auto', 'on') }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.corner_light_led
+      brightness_pct: "{{ states('input_number.corner_led_bri') | int }}"
+
+- alias: Corner motion off trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.corner_motion
+    to: 'off'
+    for:
+      seconds: 10
+  condition:
+    - "{{ is_state('input_boolean.corner_led_auto', 'on') }}"
+  action:
+    service: light.turn_off
+    entity_id: light.corner_light_led

@@ -1,3 +1,63 @@
+- alias: Main door trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.main_door
+    to: 'on'
+  condition: "{{ is_state('input_boolean.door_led_auto', 'on') }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.door_light_led
+      brightness_pct: "{{ states('input_number.door_led_bri') | int }}"
+
+- alias: Main door off trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.main_door
+    to: 'off'
+    for:
+      seconds: 7
+  condition:
+    - "{{ is_state('input_boolean.door_led_auto', 'on') }}"
+    - condition: state
+      entity_id: binary_sensor.door_motion
+      state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.door_light_led
+
+- alias: Door motion trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_motion
+    to: 'on'
+  condition:
+    - "{{ is_state('input_boolean.door_led_auto', 'on') }}"
+    - condition: state
+      entity_id: binary_sensor.main_door
+      state: 'off'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.door_light_led
+      brightness_pct: "{{ states('input_number.door_led_bri') | int }}"
+
+- alias: Door motion off trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_motion
+    to: 'off'
+    for:
+      seconds: 25
+  condition:
+    - "{{ is_state('input_boolean.door_led_auto', 'on') }}"
+    - condition: state
+      entity_id: binary_sensor.main_door
+      state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.door_light_led
+
 - alias: Door open notification
   trigger:
     platform: state

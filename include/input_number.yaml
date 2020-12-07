@@ -34,4 +34,18 @@ toilet_led_bri:
   min: 0
   max: 100
   step: 1
+
+corner_led_bri:
+  name: LED угол
+  icon: mdi:brightness-5
+  min: 0
+  max: 100
+  step: 1
+
+door_led_bri:
+  name: LED дверь
+  icon: mdi:brightness-5
+  min: 0
+  max: 100
+  step: 1
 #    unit_of_measurement: "%"
