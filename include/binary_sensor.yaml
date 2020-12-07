@@ -1,10 +1,4 @@
 - platform: mqtt
-  state_topic: "s3home/clunet/door"
-  name: "Main door"
-  device_class: door
-  unique_id: "binary_sensor.main_door"
-
-- platform: mqtt
   state_topic: "mega1/31"
   value_template: "{{ value_json.value }}"
   name: "Toilet door"
@@ -62,6 +56,23 @@
   device_class: connectivity
   off_delay: 60
   unique_id: "binary_sensor.mega1_online"
+
+- platform: mqtt
+  state_topic: "mega2/31"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Main door"
+  device_class: door
+  unique_id: "binary_sensor.main_door"
+
+- platform: mqtt
+  state_topic: "mega2/#"
+  value_template: "{% if value[0] == '{' %}ON{% else %}{% endif %}"
+  name: "Mega 2 online"
+  device_class: connectivity
+  off_delay: 60
+  unique_id: "binary_sensor.mega2_online"
 
 - platform: workday
   country: BY

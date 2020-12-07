@@ -17,13 +17,31 @@
   on_command_type: 'brightness'
 
 - platform: mqtt
-  name: "LED"
-  state_topic: "s3home/clunet/led_6"
-  command_topic: "s3home/clunet/led_6/set"
-  brightness_command_topic: "s3home/clunet/led_6/bri/set"
-  brightness_state_topic: "s3home/clunet/led_6/bri"
+  name: "Door light LED"
+  unique_id: "light.door_light_led"
+  command_topic: "mega2/cmd"
+  payload_off: "38e1:0"
+  brightness_command_topic: "mega2/cmd-ext-bri/38e1"
   brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "Corner light LED"
+  unique_id: "light.corner_light_led"
+  command_topic: "mega2/cmd"
+  payload_off: "38e0:0"
+  brightness_command_topic: "mega2/cmd-ext-bri/38e0"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "LED"
   unique_id: "light.led"
+  command_topic: "mega2/cmd"
+  payload_off: "38e2:0"
+  brightness_command_topic: "mega2/cmd-ext-bri/38e2"
+  brightness_scale: 100
+  on_command_type: 'brightness'
 
 - platform: mqtt
   name: "Bulbs"

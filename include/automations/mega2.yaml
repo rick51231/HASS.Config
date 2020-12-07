@@ -1,0 +1,48 @@
+- alias: Query Mega-1 on start
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    repeat:
+      count: '45'
+      sequence:
+        - service: mqtt.publish
+          data_template:
+            topic: "mega2/cmd"
+            payload: 'get:{{ repeat.index }}'
+        - delay:
+            milliseconds: 300
+
+- alias: Mega-2 CMD Fix
+  mode: queued
+  trigger:
+    platform: mqtt
+    topic: "mega2/cmd-ext/#"
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "mega2/cmd"
+      payload: '{{ trigger.topic|replace("mega2/cmd-ext/","") }}:{{ trigger.payload }}'
+
+- alias: Mega-2 CMD Fix BRI
+  mode: queued
+  trigger:
+    platform: mqtt
+    topic: "mega2/cmd-ext-bri/#"
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "mega2/cmd"
+      payload: "{{ trigger.topic|replace('mega2/cmd-ext-bri/','') }}:{% set bri = trigger.payload | int %}{% set out =  ((bri / 6.4262) **  (1 / 0.33)) | round(1, 'floor') | int %}{% if out == 0 and bri > 0%}1{% else %}{{ out }}{% endif %}"
+
+- alias: Mega-2 online monitor
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_2_online
+    to: 'off'
+    for:
+      seconds: 5
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-2 is offline"
