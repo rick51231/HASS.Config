@@ -58,6 +58,27 @@
   unique_id: "binary_sensor.mega1_online"
 
 - platform: mqtt
+  state_topic: "mega2/41"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 motion"
+  device_class: motion
+  unique_id: "binary_sensor.room1_motion"
+
+- platform: mqtt
+  state_topic: "mega2/43"
+  value_template: "{{ value_json.value }}"
+  name: "Corner motion"
+  device_class: motion
+  unique_id: "binary_sensor.corner_motion"
+
+- platform: mqtt
+  state_topic: "mega2/30"
+  value_template: "{{ value_json.value }}"
+  name: "Door motion"
+  device_class: motion
+  unique_id: "binary_sensor.door_motion"
+
+- platform: mqtt
   state_topic: "mega2/31"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"

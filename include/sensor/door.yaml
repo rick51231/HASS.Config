@@ -5,7 +5,7 @@
   device_class: illuminance
 
 - platform: mqtt
-  state_topic: "mega2/42"
+  state_topic: "mega2/44"
   value_template: "{{ value_json.value.temp }}"
   name: "Door temp"
   unit_of_measurement: "°C"
@@ -13,7 +13,7 @@
   unique_id: "sensor.door_temp"
 
 - platform: mqtt
-  state_topic: "mega2/42"
+  state_topic: "mega2/44"
   value_template: "{{ value_json.value.hum }}"
   name: "Door humidity"
   unit_of_measurement: "%"
