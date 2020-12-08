@@ -44,6 +44,15 @@
   on_command_type: 'brightness'
 
 - platform: mqtt
+  name: "LED yellow"
+  unique_id: "light.led_yellow"
+  command_topic: "mega2/cmd"
+  payload_off: "38e3:0"
+  brightness_command_topic: "mega2/cmd-ext-bri/38e3"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
   name: "Bulbs"
   state_topic: "s3home/clunet/bulbs_3"
   command_topic: "s3home/clunet/bulbs_3/set"

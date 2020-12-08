@@ -9,6 +9,7 @@ room_1:
     - sensor.light
     - light.bulbs
     - light.led
+    - light.led_yellow
 room_2:
   name: Комната 2
   entities:

@@ -103,7 +103,7 @@ homekit:
   filter:
     include_entities:
       - sensor.outdoor
-      - light.bulbs
+      - light.led_yellow
       - light.led
 
 telegram_bot:
