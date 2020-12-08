@@ -1,4 +1,4 @@
-- alias: Query Mega-1 on start
+- alias: Query Mega-2 on start
   trigger:
     platform: homeassistant
     event: start
