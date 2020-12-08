@@ -93,6 +93,20 @@
   off_delay: 60
   unique_id: "binary_sensor.mega2_online"
 
+- platform: mqtt
+  state_topic: "mega2/6"
+  value_template: "{{ value_json.value }}"
+  name: "Mega 2 AC"
+  device_class: power
+  unique_id: "binary_sensor.mega2_ac"
+
+- platform: mqtt
+  state_topic: "mega2/5"
+  value_template: "{{ value_json.value }}"
+  name: "Mega 2 Battery low"
+  device_class: battery
+  unique_id: "binary_sensor.mega2_battery"
+
 - platform: workday
   country: BY
   workdays: [mon, tue, wed, thu, fri]
