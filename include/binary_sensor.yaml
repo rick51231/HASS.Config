@@ -107,6 +107,18 @@
   device_class: battery
   unique_id: "binary_sensor.mega2_battery"
 
+- platform: mqtt
+  state_topic: "mega2/2"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 Switch Left"
+  unique_id: "binary_sensor.room1_switch_l"
+
+- platform: mqtt
+  state_topic: "mega2/0"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 Switch Right"
+  unique_id: "binary_sensor.room1_switch_r"
+
 - platform: workday
   country: BY
   workdays: [mon, tue, wed, thu, fri]
