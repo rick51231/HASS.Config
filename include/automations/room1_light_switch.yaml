@@ -1,0 +1,41 @@
+- alias: Room 1 switch left ON
+  trigger:
+    platform: state
+    entity_id: binary_sensor.room_1_switch_left
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.led_yellow
+      brightness_pct: 100
+
+- alias: Room 1 switch left OFF
+  trigger:
+    platform: state
+    entity_id: binary_sensor.room_1_switch_left
+    to: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.led_yellow
+
+- alias: Room 1 switch right ON
+  trigger:
+    platform: state
+    entity_id: binary_sensor.room_1_switch_right
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.led
+      brightness_pct: 100
+
+- alias: Room 1 switch right OFF
+  trigger:
+    platform: state
+    entity_id: binary_sensor.room_1_switch_right
+    to: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.led
