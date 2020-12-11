@@ -29,3 +29,27 @@
             data:
               button: "{% if (trigger.from_state.state | int - trigger.to_state.state | int) > 0 %}DOWN{% else %}UP{% endif %}"
           - delay: '00:00:01'
+
+- alias: Tion power on
+  trigger:
+    platform: state
+    entity_id: sensor.room_1_co2
+  condition:
+    - "{{ trigger.to_state.state | int >  900 }}"
+    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_on', 'last_triggered')) |int(0) ) > 180 }}"
+    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_off', 'last_triggered')) |int(0) ) > 180 }}"
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.tion_power
+
+- alias: Tion power off
+  trigger:
+    platform: state
+    entity_id: sensor.room_1_co2
+  condition:
+    - "{{ trigger.to_state.state | int <  900 }}"
+    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_on', 'last_triggered')) |int(0) ) > 180 }}"
+    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_off', 'last_triggered')) |int(0) ) > 180 }}"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.tion_power
