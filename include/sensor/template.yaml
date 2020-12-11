@@ -1,11 +1,13 @@
 - platform: template
   sensors:
-    room_1_co2_val:
+    co2:
       value_template: "{% set list = states.sensor.co2_raw.state.split('|') %} {{ list[0] }}"
       friendly_name: 'CO2'
       unit_of_measurement: "ppm"
-    room_1_co2_temp:
+      unique_id: "sensor.room_1_co2_val"
+    co2_temp:
       value_template: "{% set list = states.sensor.co2_raw.state.split('|') %} {{ list[1] }}"
       friendly_name: "CO2 temp"
       unit_of_measurement: "°C"
       device_class: temperature
+      unique_id: "sensor.room_1_co2_temp"
