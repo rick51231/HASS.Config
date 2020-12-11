@@ -40,6 +40,7 @@ automation: !include_dir_merge_list include/automations
 script: !include include/scripts.yaml
 scene: !include include/scenes.yaml
 alarm_control_panel: !include include/alarm_control_panel.yaml
+rest_command: !include include/rest_command.yaml
 
 http:
   use_x_forwarded_for: true

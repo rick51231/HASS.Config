@@ -1,2 +1,4 @@
 trigger_source:
   name: Trigger Source
+room1_ir_gate_url:
+  initial: !secret room1_ir_gate_url

@@ -1,0 +1,2 @@
+tion_remote:
+  url: "{% set u = states('input_text.room1_ir_gate_url') %}{% if button == 'UP' %}{% set d = 'ff00cf30' %}{% elif button == 'DOWN' %}{% set d = 'ff00ff00' %}{% elif button == 'SET' %}{% set d = 'ff00d728' %}{% else %}{% set d = 'ff00df20' %}{% endif %}{{ u|replace('%DATA%', d) }}"
