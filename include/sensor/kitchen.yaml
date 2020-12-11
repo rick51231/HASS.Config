@@ -1,0 +1,26 @@
+- platform: rest
+  resource: !secret mega1_light_kitchen
+  name: "Kitchen light"
+  unit_of_measurement: "lx"
+  device_class: illuminance
+
+- platform: mqtt
+  state_topic: "mega1/13"
+  value_template: "{{ value_json.value.temp }}"
+  name: "Kitchen temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.kitchen_temp"
+
+- platform: mqtt
+  state_topic: "mega1/13"
+  value_template: "{{ value_json.value.hum }}"
+  name: "Kitchen humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.kitchen_humidity"
+
+- platform: rest
+  resource: !secret mega1_co2_kitchen
+  name: "Kitchen CO2"
+  unit_of_measurement: "ppm"
