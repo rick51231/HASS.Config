@@ -33,9 +33,6 @@ other:
     - weather.home
     - person.admin
     - binary_sensor.updater
-    - sensor.co2_temp
-    - sensor.bmp280_temp
-    - sensor.sht31_temp
 
 hall:
   name: Коридор
@@ -43,20 +40,6 @@ hall:
     - sensor.hall_light
     - sensor.hall_corner_light
     - binary_sensor.main_door
-    - light.force_4
-    - light.force_5
-    - light.force_7
-    - input_number.led_4_bri
-    - input_number.led_5_bri
-    - input_number.led_7_bri
-
-hall_block:
-  name: Коридор (блокировка света)
-  entities:
-    - switch.lock_4
-    - switch.lock_5
-    - switch.lock_7
-
 
 outdoor:
   name: Улица

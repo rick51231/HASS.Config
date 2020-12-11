@@ -1,26 +1,3 @@
-led_4_bri:
-  name: LED угол
-  icon: mdi:brightness-5
-  min: 0
-  max: 100
-  step: 1
-#    unit_of_measurement: "%"
-
-led_5_bri:
-  name: LED дверь
-  icon: mdi:brightness-5
-  min: 0
-  max: 100
-  step: 1
-#    unit_of_measurement: "%"
-
-led_7_bri:
-  name: LED коридор
-  icon: mdi:brightness-5
-  min: 0
-  max: 100
-  step: 1
-
 bathroom_led_bri:
   name: LED ванна
   icon: mdi:brightness-5

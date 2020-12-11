@@ -60,30 +60,3 @@
   brightness_command_topic: "mega2/cmd-ext-bri/38e3"
   brightness_scale: 100
   on_command_type: 'brightness'
-
-- platform: mqtt
-  name: "Bulbs"
-  state_topic: "s3home/clunet/bulbs_3"
-  command_topic: "s3home/clunet/bulbs_3/set"
-  brightness_command_topic: "s3home/clunet/bulbs_3/bri/set"
-  brightness_state_topic: "s3home/clunet/bulbs_3/bri"
-  brightness_scale: 5
-  unique_id: "light.bulbs"
-
-- platform: mqtt
-  name: LED угол
-  state_topic: s3home/clunet/led_force_4
-  command_topic: s3home/clunet/led_force_4/set
-  unique_id: "light.force_4"
-
-- platform: mqtt
-  name: LED дверь
-  state_topic: s3home/clunet/led_force_5
-  command_topic: s3home/clunet/led_force_5/set
-  unique_id: "light.force_5"
-
-- platform: mqtt
-  name: LED коридор
-  state_topic: s3home/clunet/led_force_7
-  command_topic: s3home/clunet/led_force_7/set
-  unique_id: "light.force_7"
