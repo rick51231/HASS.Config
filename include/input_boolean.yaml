@@ -22,3 +22,7 @@ hall_led_auto:
 tion_power:
   name: "TION Power"
   icon: mdi:fan
+
+tion_auto:
+  name: "TION Auto"
+  icon: mdi:fan
