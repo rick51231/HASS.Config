@@ -5,9 +5,6 @@ room_1:
     - sensor.room_1_floor
     - sensor.heating_1
     - sensor.co2
-    - sensor.humidity
-    - sensor.light
-    - light.bulbs
     - light.led
     - light.led_yellow
 room_2:
@@ -46,15 +43,6 @@ outdoor:
   entities:
     - sensor.outdoor
     - sensor.vent
-    - sensor.pressure
-
-room_1_relay:
-  name: Комната 1 (блок реле)
-  entities:
-    - switch.relay_1
-    - switch.relay_2
-    - switch.relay_3
-    - switch.relay_4
 
 ups_data:
   name: UPS
