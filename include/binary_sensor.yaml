@@ -57,6 +57,13 @@
   unique_id: "binary_sensor.bathroom_motion"
 
 - platform: mqtt
+  state_topic: "mega1/5"
+  value_template: "{{ value_json.value }}"
+  name: "Hall motion"
+  device_class: motion
+  unique_id: "binary_sensor.hall_motion"
+
+- platform: mqtt
   state_topic: "mega1/#"
   value_template: "{% if value[0] == '{' %}ON{% else %}{% endif %}"
   name: "Mega 1 online"
