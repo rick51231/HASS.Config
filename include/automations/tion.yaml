@@ -1,3 +1,4 @@
+# Can be problem, if tion is still online and next automation will trigger
 - alias: Tion poweroff on AC loss
   trigger:
     platform: state
@@ -5,7 +6,7 @@
     to: 'off'
   action:
     service: input_boolean.turn_off
-    entity_id: input_boolean.tion_power #Can be problem, if tion is still online and next automation will trigger
+    entity_id: input_boolean.tion_power
 
 - alias: Tion send power command on power switch change
   trigger:
