@@ -23,9 +23,9 @@
     entity_id: input_number.tion_fan_speed
   action:
     - repeat:
-        count: "{{ (trigger.from_state.state - trigger.to_state.state) | abs + 1 }}"
+        count: "{{ (trigger.from_state.state | int - trigger.to_state.state | int) | abs + 1 }}"
         sequence:
           - service: rest_command.tion_remote
             data:
-              button: "{% if (trigger.from_state.state - trigger.to_state.state) > 0 %}DOWN{% else %}UP{% endif %}"
+              button: "{% if (trigger.from_state.state | int - trigger.to_state.state | int) > 0 %}DOWN{% else %}UP{% endif %}"
           - delay: '00:00:01'
