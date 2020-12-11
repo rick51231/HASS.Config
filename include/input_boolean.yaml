@@ -13,3 +13,7 @@ door_led_auto:
 corner_led_auto:
   name: "Авто свет угол"
   icon: mdi:brightness-5
+
+tion_power:
+  name: "TION Power"
+  icon: mdi:fan

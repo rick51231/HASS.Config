@@ -48,4 +48,11 @@ door_led_bri:
   min: 0
   max: 100
   step: 1
+
+tion_fan_speed:
+  name: TION Fan Speed
+  icon: mdi:fan
+  min: 1
+  max: 4
+  step: 1
 #    unit_of_measurement: "%"

@@ -1,0 +1,31 @@
+- alias: Tion poweroff on AC loss
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_2_ac
+    to: 'off'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.tion_power #Can be problem, if tion is still online and next automation will trigger
+
+- alias: Tion send power command on power switch change
+  trigger:
+    platform: state
+    entity_id: input_boolean.tion_power
+  action:
+    service: rest_command.tion_remote
+    data:
+      button: 'POWER'
+
+- alias: Tion send up-down command on fan speed change
+  mode: queued
+  trigger:
+    platform: state
+    entity_id: input_number.tion_fan_speed
+  action:
+    - repeat:
+        count: "{{ (trigger.from_state.state - trigger.to_state.state) | abs + 1 }}"
+        sequence:
+          - service: rest_command.tion_remote
+            data:
+              button: "{% if (trigger.from_state.state - trigger.to_state.state) > 0 %}DOWN{% else %}UP{% endif %}"
+          - delay: '00:00:01'
