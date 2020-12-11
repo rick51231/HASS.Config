@@ -5,7 +5,7 @@
   device_class: illuminance
 
 - platform: mqtt
-  state_topic: "mega1/30"
+  state_topic: "mega1/9"
   value_template: "{{ value_json.value.temp }}"
   name: "Bathroom temp"
   unit_of_measurement: "°C"
@@ -13,7 +13,7 @@
   unique_id: "sensor.bathroom_temp"
 
 - platform: mqtt
-  state_topic: "mega1/30"
+  state_topic: "mega1/9"
   value_template: "{{ value_json.value.hum }}"
   name: "Bathroom humidity"
   unit_of_measurement: "%"

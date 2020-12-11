@@ -6,11 +6,18 @@
   unique_id: "binary_sensor.toilet_door"
 
 - platform: mqtt
-  state_topic: "mega1/35"
+  state_topic: "mega1/7"
   value_template: "{{ value_json.value }}"
   name: "Toilet motion"
   device_class: motion
   unique_id: "binary_sensor.toilet_motion"
+
+- platform: mqtt
+  state_topic: "mega1/12"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen motion"
+  device_class: motion
+  unique_id: "binary_sensor.kitchen_motion"
 
 - platform: mqtt
   state_topic: "mega1/15"
@@ -34,7 +41,7 @@
   unique_id: "binary_sensor.kitchen_moisture"
 
 - platform: mqtt
-  state_topic: "mega1/19"
+  state_topic: "mega1/11"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"
   payload_on: "OFF"
@@ -43,7 +50,7 @@
   unique_id: "binary_sensor.bathroom_door"
 
 - platform: mqtt
-  state_topic: "mega1/18"
+  state_topic: "mega1/10"
   value_template: "{{ value_json.value }}"
   name: "Bathroom motion"
   device_class: motion
