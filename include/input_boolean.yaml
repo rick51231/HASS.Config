@@ -14,6 +14,11 @@ corner_led_auto:
   name: "Авто свет угол"
   icon: mdi:brightness-5
 
+hall_led_auto:
+  name: "Авто свет коридор"
+  icon: mdi:brightness-5
+
+
 tion_power:
   name: "TION Power"
   icon: mdi:fan
