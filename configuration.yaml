@@ -55,6 +55,7 @@ history:
       - sensor.date_time
       - sensor.time
       - input_text.room1_ir_gate_url
+      - sensor.co2_raw
 
 logbook:
   exclude:
@@ -67,6 +68,7 @@ logbook:
       - sensor.date_time
       - sensor.time
       - input_text.room1_ir_gate_url
+      - sensor.co2_raw
 
 mqtt:
   broker: !secret mqtt_host
