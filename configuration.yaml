@@ -56,6 +56,9 @@ history:
       - sensor.time
       - input_text.room1_ir_gate_url
       - sensor.co2_raw
+      - input_text.narodmon_mac
+      - input_text.narodmon_name
+      - input_text.homeassistant_elevation
 
 logbook:
   exclude:
@@ -69,6 +72,9 @@ logbook:
       - sensor.time
       - input_text.room1_ir_gate_url
       - sensor.co2_raw
+      - input_text.narodmon_mac
+      - input_text.narodmon_name
+      - input_text.homeassistant_elevation
 
 mqtt:
   broker: !secret mqtt_host
