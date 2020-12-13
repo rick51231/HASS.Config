@@ -2,3 +2,9 @@ trigger_source:
   name: Trigger Source
 room1_ir_gate_url:
   initial: !secret room1_ir_gate_url
+narodmon_mac:
+  initial: !secret narodmon_mac
+narodmon_name:
+  initial: !secret narodmon_name
+homeassistant_elevation:
+  initial: !secret homeassistant_elevation

@@ -1,2 +1,14 @@
 tion_remote:
   url: "{% set u = states('input_text.room1_ir_gate_url') %}{% if button == 'UP' %}{% set d = 'ff00cf30' %}{% elif button == 'DOWN' %}{% set d = 'ff00ff00' %}{% elif button == 'SET' %}{% set d = 'ff00d728' %}{% else %}{% set d = 'ff00df20' %}{% endif %}{{ u|replace('%DATA%', d) }}"
+
+send_narodmon:
+  url: "https://narodmon.ru/post"
+  method: POST
+  payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor') }}&P1={{ states('sensor.mega_2_pressure') }}&name={{ states('input_text.narodmon_name') }}"
+
+send_owm:
+  url: "http://openweathermap.org/data/post"
+  method: POST
+  headers:
+    authorization: !secret owm_auth
+  payload: "temp={{ states('sensor.outdoor') }}&pressure={{ states('sensor.mega_2_pressure') }}&lat={{ state_attr('zone.home', 'latitude') }}&long={{ state_attr('zone.home', 'longitude') }}&alt={{ states('input_text.homeassistant_elevation') }}&name={{ states('input_text.narodmon_name') }}"
