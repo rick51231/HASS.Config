@@ -29,6 +29,7 @@ tts:
 
 recorder:
   db_url: !secret db_url
+  auto_purge: false
 
 light: !include include/light.yaml
 switch: !include include/switch.yaml
