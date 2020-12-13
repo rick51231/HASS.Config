@@ -1,0 +1,13 @@
+- alias: "Send external: narodmon"
+  trigger:
+    platform: time_pattern
+    minutes: '/5'
+  action:
+    service: rest_command.send_narodmon
+
+- alias: "Send external: OWM"
+  trigger:
+    platform: time_pattern
+    minutes: '/5'
+  action:
+    service: rest_command.send_owm
