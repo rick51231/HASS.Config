@@ -27,6 +27,9 @@ tts:
     cache: true
     cache_dir: /tmp
 
+recorder:
+  db_url: !secret db_url
+
 light: !include include/light.yaml
 switch: !include include/switch.yaml
 binary_sensor: !include include/binary_sensor.yaml
