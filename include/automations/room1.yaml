@@ -1,0 +1,14 @@
+- alias: Room 1 auto light when back home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.room_1_motion
+    to: 'on'
+  condition:
+    - "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.main_door.last_changed)) |int(0) ) < 300 }}"
+    - "{{ states('sensor.room_1_light') | int < 1 }}"
+    - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour > 15 and hour < 24 }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.led_yellow
+      brightness_pct: 100
