@@ -62,3 +62,17 @@
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.tion_power
+
+- alias: Tion auto speed
+  trigger:
+    platform: state
+    entity_id: sensor.room_1_co2
+  condition:
+    - "{{ is_state('input_boolean.tion_auto', 'on') }}"
+    - "{{ is_state('input_boolean.tion_power', 'on') }}"
+    - "{{ trigger.to_state.state | int >  900 }}"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.tion_fan_speed
+      value: "{% set v = trigger.to_state.state | int %}{%if v < 1000%}1{%elif v < 1100%}2{%elif v < 1200%}3{%elif v < 1200%}4{%endif%}"
