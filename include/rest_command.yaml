@@ -7,7 +7,7 @@ send_narodmon:
   payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor') }}&P1={{ states('sensor.mega_2_pressure') }}&name={{ states('input_text.narodmon_name') }}"
 
 send_owm:
-  url: "http://openweathermap.org/data/post"
+  url: "https://openweathermap.org/data/post"
   method: POST
   headers:
     authorization: !secret owm_auth
