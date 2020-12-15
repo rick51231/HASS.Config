@@ -1,0 +1,10 @@
+- alias: Kitchen work light
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_work_light_button
+    to: 'on'
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.kitchen_work_light_led
+      brightness_pct: 100

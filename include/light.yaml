@@ -60,3 +60,12 @@
   brightness_command_topic: "mega2/cmd-ext-bri/38e3"
   brightness_scale: 100
   on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "Kitchen work light LED"
+  unique_id: "light.kitchen_work_light_led"
+  command_topic: "mega1/cmd"
+  payload_off: "32e12:0"
+  brightness_command_topic: "mega1/cmd-ext-bri/32e12"
+  brightness_scale: 100
+  on_command_type: 'brightness'

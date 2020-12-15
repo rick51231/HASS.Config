@@ -141,6 +141,12 @@
   name: "Room 1 Switch Right"
   unique_id: "binary_sensor.room1_switch_r"
 
+- platform: mqtt
+  state_topic: "mega1/3"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen work light button"
+  unique_id: "binary_sensor.kitchen_work_light_button"
+
 - platform: workday
   country: BY
   workdays: [mon, tue, wed, thu, fri]
