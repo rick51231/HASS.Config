@@ -144,6 +144,8 @@
 - platform: mqtt
   state_topic: "mega1/3"
   value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
   name: "Kitchen work light button"
   unique_id: "binary_sensor.kitchen_work_light_button"
 
