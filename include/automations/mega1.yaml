@@ -100,3 +100,21 @@
         value: 10
         entity_id:
           - input_number.hall_led_bri
+
+- alias: Mega-1 notify on AC change
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_ac
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-1 AC is {%if trigger.to_state.state == 'on'%}online{%else%}offline{%endif%}"
+
+- alias: Mega-1 notify on battery change
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_battery
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-1 battery is {%if trigger.to_state.state == 'on'%}low{%else%}normal{%endif%}"
