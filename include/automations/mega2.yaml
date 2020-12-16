@@ -89,3 +89,21 @@
         entity_id:
           - input_number.door_led_bri
           - input_number.corner_led_bri
+
+- alias: Mega-2 notify on AC change
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_ac
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-2 AC is {%if trigger.to_state.state == 'on'%}online{%else%}offline{%endif%}"
+
+- alias: Mega-2 notify on battery change
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_battery
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! Mega-2 battery is {%if trigger.to_state.state == 'on'%}low{%else%}normal{%endif%}"
