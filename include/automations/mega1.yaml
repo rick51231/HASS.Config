@@ -57,6 +57,26 @@
       data:
         message: "Warning! Mega-1 is offline"
 
+- alias: Mega-1 LED auto brightness
+  trigger:
+    platform: state
+    entity_id: sensor.corner_light
+  condition:
+    - "{{ is_state('binary_sensor.mega_1_ac', 'on') }}"
+    - "{{ is_state('light.door_light_led', 'off') }}"
+    - "{{ is_state('light.corner_light_led', 'off') }}"
+    - "{{ is_state('light.hall_light_led', 'off') }}"
+    - "{{ is_state('binary_sensor.bathroom_door', 'off') or is_state('light.bathroom_light_led', 'off') }}"
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.door_led_bri
+        value: "{%set l = states('sensor.corner_light') | float%}{% if l > 20%}0{%elif l > 10%}80{%else%}100{%endif%}"
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.corner_led_bri
+        value: "{%set l = states('sensor.corner_light') | float%}{% if l > 20%}0{%elif l > 10%}0{%else%}40{%endif%}"
+
 - alias: Mega-1 action on AC loss
   trigger:
     platform: state

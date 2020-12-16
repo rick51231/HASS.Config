@@ -72,7 +72,6 @@
             Door has been closed.
           {% endif %}
 
-
 - alias: Door open notification
   trigger:
     platform: state
