@@ -64,6 +64,7 @@ history:
       - input_text.narodmon_mac
       - input_text.narodmon_name
       - input_text.homeassistant_elevation
+      - binary_sensor.room_1_occupied
 
 logbook:
   exclude:
@@ -80,6 +81,7 @@ logbook:
       - input_text.narodmon_mac
       - input_text.narodmon_name
       - input_text.homeassistant_elevation
+      - binary_sensor.room_1_occupied
 
 mqtt:
   broker: !secret mqtt_host
