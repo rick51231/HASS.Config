@@ -1,4 +1,4 @@
-- alias: Room 1 auto light when back home
+- alias: Room 1 auto when back home
   trigger:
     platform: state
     entity_id: binary_sensor.room_1_motion
@@ -8,7 +8,43 @@
     - "{{ states('sensor.room_1_light') | int < 1 }}"
     - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour > 15 and hour < 24 }}"
   action:
-    service: light.turn_on
-    data:
-      entity_id: light.led_yellow
-      brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.led_yellow
+        brightness_pct: 100
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.yamaha_receiver
+    - service: media_player.volume_mute
+      data:
+        entity_id: media_player.yamaha_receiver
+        is_volume_muted: true
+    - delay: '00:00:20'
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.yamaha_receiver
+        source: AUDIO4
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yamaha_receiver
+        volume_level: 0.6
+    - delay: '00:00:01'
+    - service: shell_command.rpi_tts
+      data:
+        tts_data: "{{ states('sensor.room_1_temp') | round(1) }}"
+    - delay: '00:00:01'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.yamaha_receiver
+        volume_level: 0.45
+    - delay: '00:00:02'
+    - service: media_player.select_source
+      data:
+        entity_id: !secret spotify_media_player
+        source: Yamaha
+    - delay: '00:00:01'
+    - service: media_player.play_media
+      data:
+        entity_id: !secret spotify_media_player
+        media_content_id: !secret spotify_default_playlist
+        media_content_type: playlist
