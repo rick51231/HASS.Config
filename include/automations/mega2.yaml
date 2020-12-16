@@ -60,7 +60,8 @@
         - light.corner_light_led
         - light.door_light_led
     - service: input_number.set_value
-      value: 10
-      entity_id:
-        - input_number.door_led_bri
-        - input_number.corner_led_bri
+      data:
+        value: 10
+        entity_id:
+          - input_number.door_led_bri
+          - input_number.corner_led_bri

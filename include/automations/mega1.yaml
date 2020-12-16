@@ -70,11 +70,13 @@
         - light.kitchen_work_light_led
         - light.toilet_light_led
     - service: input_number.set_value
-      value: 40
-      entity_id:
-        - input_number.bathroom_led_bri
-        - input_number.toilet_led_bri
+      data:
+        value: 40
+        entity_id:
+          - input_number.bathroom_led_bri
+          - input_number.toilet_led_bri
     - service: input_number.set_value
-      value: 10
-      entity_id:
-        - input_number.hall_led_bri
+      data:
+        value: 10
+        entity_id:
+          - input_number.hall_led_bri
