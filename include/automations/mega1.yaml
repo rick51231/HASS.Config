@@ -56,3 +56,25 @@
     - service: notify.notify_all
       data:
         message: "Warning! Mega-1 is offline"
+
+- alias: Mega-1 action on AC loss
+  trigger:
+    platform: state
+    entity_id: binary_sensor.mega_1_ac
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.bathroom_light_led
+        - light.hall_light_led
+        - light.kitchen_work_light_led
+        - light.toilet_light_led
+    - service: input_number.set_value
+      value: 40
+      entity_id:
+        - input_number.bathroom_led_bri
+        - input_number.toilet_led_bri
+    - service: input_number.set_value
+      value: 10
+      entity_id:
+        - input_number.hall_led_bri
