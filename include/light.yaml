@@ -1,3 +1,5 @@
+# !!! Dont forget to add light to the "auto brightness" script (condition and actions) and to the "on mega ac loss" script.
+
 - platform: mqtt
   name: "Toilet light LED"
   unique_id: "bathroom.toilet_light_led"
