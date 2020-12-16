@@ -45,6 +45,7 @@ script: !include include/scripts.yaml
 scene: !include include/scenes.yaml
 alarm_control_panel: !include include/alarm_control_panel.yaml
 rest_command: !include include/rest_command.yaml
+shell_command: !include include/shell_command.yaml
 
 http:
   use_x_forwarded_for: true
