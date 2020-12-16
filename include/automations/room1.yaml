@@ -1,7 +1,7 @@
 - alias: Room 1 auto light when back home
   trigger:
     platform: state
-    entity_id: binary_sensor.room_1_motion
+    entity_id: binary_sensor.room_1_occupied
     to: 'on'
   condition:
     - "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.main_door.last_changed) |int(0) ) < 300 }}"
@@ -16,7 +16,7 @@
 - alias: Room 1 auto music when back home
   trigger:
     platform: state
-    entity_id: binary_sensor.room_1_motion
+    entity_id: binary_sensor.room_1_occupied
     to: 'on'
   condition:
     - "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.main_door.last_changed) |int(0) ) < 300 }}"
