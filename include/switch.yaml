@@ -1,0 +1,29 @@
+- platform: mqtt
+  unique_id: "switch.tion3s_power"
+  name: "Tion power"
+  state_topic: "bt_bridge/tion3s/state"
+  command_topic: "bt_bridge/tion3s/state/set"
+
+- platform: mqtt
+  unique_id: "switch.tion3s_heater"
+  name: "Tion heater"
+  state_topic: "bt_bridge/tion3s/heater"
+  command_topic: "bt_bridge/tion3s/heater/set"
+
+- platform: mqtt
+  unique_id: "tion3s_sound"
+  name: "Tion sound"
+  state_topic: "bt_bridge/tion3s/sound"
+  command_topic: "bt_bridge/tion3s/sound/set"
+
+- platform: mqtt
+  unique_id: "switch.tion3s_power"
+  name: "RHF-3310S power"
+  state_topic: "bt_bridge/rhf3310s/on"
+  command_topic: "bt_bridge/rhf3310s/on/set"
+
+- platform: mqtt
+  unique_id: "switch.tion3s_heater"
+  name: "RHF-3310S heater"
+  state_topic: "bt_bridge/rhf3310s/heater"
+  command_topic: "bt_bridge/rhf3310s/heater/set"
