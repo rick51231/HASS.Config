@@ -53,7 +53,7 @@
     platform: mqtt
     topic: "bt_bridge/rhf3310s/mode"
   action:
-    service: input_select.set_value
+    service: input_select.select_option
     data_template:
       entity_id: input_select.rhf3310s_mode
       value: '{% set t = trigger.payload | int %}{%if t==3%}Auto{%elif t==2%}Turbo{%elif t==1%}Timer{%else%}Normal{%endif%}'
