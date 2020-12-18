@@ -1,0 +1,28 @@
+- platform: mqtt
+  state_topic: "mega1/3"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen work light button"
+  unique_id: "binary_sensor.kitchen_work_light_button"
+
+- platform: mqtt
+  state_topic: "mega1/2"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Kitchen door"
+  device_class: door
+  unique_id: "binary_sensor.kitchen_door"
+
+- platform: mqtt
+  state_topic: "mega1/17"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen moisture"
+  device_class: moisture
+  unique_id: "binary_sensor.kitchen_moisture"
+
+- platform: mqtt
+  state_topic: "mega1/12"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen motion"
+  device_class: motion
+  unique_id: "binary_sensor.kitchen_motion"

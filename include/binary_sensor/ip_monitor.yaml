@@ -1,0 +1,23 @@
+- platform: ping
+  host: !secret sw1_ip
+  name: "SW1 ping"
+  count: 2
+  scan_interval: 60
+
+- platform: ping
+  host: !secret border_ip
+  name: "BORDER ping"
+  count: 2
+  scan_interval: 60
+
+- platform: ping
+  host: !secret gw1_ip
+  name: !secret gw1_name
+  count: 2
+  scan_interval: 60
+
+- platform: ping
+  host: !secret gw2_ip
+  name: !secret gw2_name
+  count: 2
+  scan_interval: 60

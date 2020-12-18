@@ -1,0 +1,18 @@
+- platform: mqtt
+  state_topic: "mega2/41"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 motion"
+  device_class: motion
+  unique_id: "binary_sensor.room1_motion"
+
+- platform: mqtt
+  state_topic: "mega2/2"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 Switch Left"
+  unique_id: "binary_sensor.room1_switch_l"
+
+- platform: mqtt
+  state_topic: "mega2/0"
+  value_template: "{{ value_json.value }}"
+  name: "Room 1 Switch Right"
+  unique_id: "binary_sensor.room1_switch_r"

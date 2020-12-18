@@ -1,0 +1,20 @@
+- platform: mqtt
+  state_topic: "mega1/16"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet moisture"
+  device_class: moisture
+  unique_id: "binary_sensor.toilet_moisture"
+
+- platform: mqtt
+  state_topic: "mega1/31"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet door"
+  device_class: door
+  unique_id: "binary_sensor.toilet_door"
+
+- platform: mqtt
+  state_topic: "mega1/7"
+  value_template: "{{ value_json.value }}"
+  name: "Toilet motion"
+  device_class: motion
+  unique_id: "binary_sensor.toilet_motion"

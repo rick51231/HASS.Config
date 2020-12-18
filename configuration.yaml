@@ -33,7 +33,7 @@ recorder:
 
 light: !include include/light.yaml
 switch: !include include/switch.yaml
-binary_sensor: !include include/binary_sensor.yaml
+binary_sensor: !include_dir_merge_list include/binary_sensor
 sensor: !include_dir_merge_list include/sensor
 input_boolean: !include include/input_boolean.yaml
 input_number: !include include/input_number.yaml

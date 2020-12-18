@@ -1,0 +1,7 @@
+- platform: mqtt
+  state_topic: "mega3/#"
+  value_template: "{% if value[0] == '{' %}ON{% else %}{% endif %}"
+  name: "Mega 3 online"
+  device_class: connectivity
+  off_delay: 70
+  unique_id: "binary_sensor.mega3_online"
