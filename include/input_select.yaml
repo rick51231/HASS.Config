@@ -1,0 +1,16 @@
+tion3s_mode:
+  name: "Tion mode"
+  options:
+    - Outdoor
+    - Mixed
+    - Indoor
+  icon: mdi:fan
+
+rhf3310s_mode:
+  name: "RHF-3310S mode"
+  options:
+    - Normal
+    - Timer
+    - Turbo
+    - Auto
+  icon: mdi:fan

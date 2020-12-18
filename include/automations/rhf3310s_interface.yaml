@@ -1,0 +1,59 @@
+- alias: RHF-3310S fan slider
+  trigger:
+    platform: state
+    entity_id: input_number.rhf3310s_power
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/rhf3310s/power/set'
+      payload: "{{ states('input_number.rhf3310s_power') | int }}"
+
+- alias: Set RHF-3310S fan slider
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/rhf3310s/power"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.rhf3310s_power
+      value: '{{ trigger.payload | int}}'
+
+- alias: RHF-3310S target temp slider
+  trigger:
+    platform: state
+    entity_id: input_number.rhf3310s_target_hum
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/rhf3310s/target_hum/set'
+      payload: "{{ states('input_number.rhf3310s_target_hum') | int }}"
+
+- alias: Set RHF-3310S target temp slider
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/rhf3310s/target_hum"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.rhf3310s_target_hum
+      value: '{{ trigger.payload | int}}'
+
+- alias: RHF-3310S mode
+  trigger:
+    platform: state
+    entity_id: input_select.rhf3310s_mode
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/rhf3310s/mode/set'
+      payload: '{%set t = states("input_select.rhf3310s_mode")%}{% if t=="Auto"%}3{%elif t=="Turbo"%}2{%elif t=="Timer"%}1{%else%}0{%endif%}'
+
+- alias: Set RHF-3310S mode
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/rhf3310s/mode"
+  action:
+    service: input_select.set_value
+    data_template:
+      entity_id: input_select.rhf3310s_mode
+      value: '{% set t = trigger.payload | int %}{%if t==3%}Auto{%elif t==2%}Turbo{%elif t==1%}Timer{%else%}Normal{%endif%}'

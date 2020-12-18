@@ -1,0 +1,13 @@
+- platform: mqtt
+  state_topic: "bt_bridge/rhf3310s/no_water"
+  name: "RHF-3310S water"
+  payload_off: "ON"
+  payload_on: "OFF"
+  device_class: moisture
+  unique_id: "binary_sensor.rhf3310s_water"
+
+- platform: mqtt
+  state_topic: "bt_bridge/rhf3310s/clean_required"
+  name: "RHF-3310S clean required"
+  device_class: problem
+  unique_id: "binary_sensor.rhf3310s_clean_required"

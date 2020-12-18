@@ -1,0 +1,59 @@
+- alias: Tion fan slider
+  trigger:
+    platform: state
+    entity_id: input_number.tion3s_fan_speed
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/tion3s/fan_speed/set'
+      payload: "{{ states('input_number.tion3s_fan_speed') | int }}"
+
+- alias: Set Tion fan slider
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/tion3s/fan_speed"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.tion3s_fan_speed
+      value: '{{ trigger.payload | int}}'
+
+- alias: Tion target temp slider
+  trigger:
+    platform: state
+    entity_id: input_number.tion3s_target_temp
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/tion3s/target_temp/set'
+      payload: "{{ states('input_number.tion3s_target_temp') | int }}"
+
+- alias: Set Tion target temp slider
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/tion3s/target_temp"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.tion3s_target_temp
+      value: '{{ trigger.payload | int}}'
+
+- alias: Tion mode
+  trigger:
+    platform: state
+    entity_id: input_select.tion3s_mode
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: 'bt_bridge/tion3s/mode/set'
+      payload: '{%set t = states("input_select.tion3s_mode")%}{% if t=="Indoor"%}0{%elif t=="Mixed"%}1{%else%}2{%endif%}'
+
+- alias: Set Tion mode
+  trigger:
+    platform: mqtt
+    topic: "bt_bridge/tion3s/mode"
+  action:
+    service: input_select.set_value
+    data_template:
+      entity_id: input_select.tion3s_mode
+      value: '{% set t = trigger.payload | int %}{%if t==0%}Indoor{%elif t==1%}Mixed{%else%}Outdoor{%endif%}'

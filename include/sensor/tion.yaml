@@ -1,0 +1,25 @@
+- platform: mqtt
+  state_topic: "bt_bridge/tion3s/out_temp"
+  name: "Tion out temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.tion3s_out_temp"
+
+- platform: mqtt
+  state_topic: "bt_bridge/tion3s/in_temp"
+  name: "Tion in temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.tion3s_in_temp"
+
+- platform: mqtt
+  state_topic: "bt_bridge/tion3s/filter_remain"
+  name: "Tion filter remain"
+  unit_of_measurement: "days"
+  device_class: timestamp
+  unique_id: "sensor.tion3s_filter_remain"
+
+- platform: mqtt
+  state_topic: "bt_bridge/tion3s/error_code"
+  name: "Tion error code"
+  unique_id: "sensor.tion3s_error_code"

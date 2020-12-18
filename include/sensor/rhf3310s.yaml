@@ -1,0 +1,6 @@
+- platform: mqtt
+  state_topic: "bt_bridge/rhf3310s/hum"
+  name: "RHF-3310S humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.rhf3310s_hum"
