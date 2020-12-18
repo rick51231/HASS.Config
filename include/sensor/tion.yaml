@@ -16,7 +16,6 @@
   state_topic: "bt_bridge/tion3s/filter_remain"
   name: "Tion filter remain"
   unit_of_measurement: "days"
-  device_class: timestamp
   unique_id: "sensor.tion3s_filter_remain"
 
 - platform: mqtt
