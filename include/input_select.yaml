@@ -4,7 +4,7 @@ tion3s_mode:
     - Outdoor
     - Mixed
     - Indoor
-  icon: mdi:fan
+  icon: mdi:cog
 
 rhf3310s_mode:
   name: "RHF-3310S mode"
@@ -13,4 +13,4 @@ rhf3310s_mode:
     - Timer
     - Turbo
     - Auto
-  icon: mdi:fan
+  icon: mdi:cog

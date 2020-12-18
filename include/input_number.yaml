@@ -42,7 +42,7 @@ tion3s_fan_speed:
 
 tion3s_target_temp:
   name: TION Target Temp
-  icon: mdi:fan
+  icon: mdi:thermometer
   min: 0
   max: 30
   step: 1
@@ -57,7 +57,7 @@ rhf3310s_power:
 
 rhf3310s_target_hum:
   name: RHF-3310S Target Hum
-  icon: mdi:fan
+  icon: mdi:water-percent
   min: 30
   max: 75
   step: 1
