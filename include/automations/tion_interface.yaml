@@ -56,4 +56,4 @@
     service: input_select.select_option
     data_template:
       entity_id: input_select.tion3s_mode
-      value: '{% set t = trigger.payload | int %}{%if t==0%}Indoor{%elif t==1%}Mixed{%else%}Outdoor{%endif%}'
+      option: '{% set t = trigger.payload | int %}{%if t==0%}Indoor{%elif t==1%}Mixed{%else%}Outdoor{%endif%}'
