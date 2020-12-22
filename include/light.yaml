@@ -55,6 +55,15 @@
   on_command_type: 'brightness'
 
 - platform: mqtt
+  name: "Bulbs"
+  unique_id: "light.bulbs"
+  command_topic: "mega2/cmd"
+  payload_off: "14:0"
+  payload_on: "14:1"
+  state_topic: "mega2/14"
+  state_value_template: "{{ value_json.value }}"
+
+- platform: mqtt
   name: "LED yellow"
   unique_id: "light.led_yellow"
   command_topic: "mega2/cmd"

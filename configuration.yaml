@@ -124,6 +124,7 @@ homekit:
       - sensor.outdoor
       - light.led_yellow
       - light.led
+      - light.bulbs
 
 telegram_bot:
   - platform: polling
