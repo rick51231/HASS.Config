@@ -57,3 +57,16 @@
   action:
     service: light.turn_off
     entity_id: light.toilet_light_led
+
+- alias: Toilet LED sync brightness
+  trigger:
+    platform: state
+    entity_id: input_number.toilet_led_bri
+  condition:
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('light.toilet_light_led', 'on') }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.toilet_light_led
+      brightness_pct: "{{ states('input_number.toilet_led_bri') | int }}"

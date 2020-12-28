@@ -23,3 +23,16 @@
   action:
     service: light.turn_off
     entity_id: light.corner_light_led
+
+- alias: Corner LED sync brightness
+  trigger:
+    platform: state
+    entity_id: input_number.corner_led_bri
+  condition:
+    - "{{ is_state('input_boolean.corner_led_auto', 'on') }}"
+    - "{{ is_state('light.corner_light_led', 'on') }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.corner_light_led
+      brightness_pct: "{{ states('input_number.corner_led_bri') | int }}"

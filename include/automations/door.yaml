@@ -58,6 +58,19 @@
     service: light.turn_off
     entity_id: light.door_light_led
 
+- alias: Door LED sync brightness
+  trigger:
+    platform: state
+    entity_id: input_number.door_led_bri
+  condition:
+    - "{{ is_state('input_boolean.door_led_auto', 'on') }}"
+    - "{{ is_state('light.door_light_led', 'on') }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.door_light_led
+      brightness_pct: "{{ states('input_number.door_led_bri') | int }}"
+
 - alias: Door open notification
   trigger:
     platform: state
