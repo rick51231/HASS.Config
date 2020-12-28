@@ -6,8 +6,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.led_yellow
-      brightness_pct: 100
+      entity_id: light.bulbs
 
 - alias: Room 1 switch left OFF
   trigger:
@@ -17,7 +16,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.led_yellow
+      entity_id: light.bulbs
 
 - alias: Room 1 switch right ON
   trigger:
@@ -27,7 +26,9 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.led
+      entity_id:
+        - light.led
+        - light.led_yellow
       brightness_pct: 100
 
 - alias: Room 1 switch right OFF
@@ -38,4 +39,6 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.led
+      entity_id:
+        - light.led
+        - light.led_yellow
