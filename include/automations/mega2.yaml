@@ -57,8 +57,6 @@
       entity_id:
         - light.led
         - light.led_yellow
-        - light.corner_light_led
-        - light.door_light_led
     - service: input_number.set_value
       data:
         value: 10
