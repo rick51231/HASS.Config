@@ -18,11 +18,6 @@ hall_led_auto:
   name: "Авто свет коридор"
   icon: mdi:brightness-5
 
-
-tion_power:
-  name: "TION Power"
-  icon: mdi:fan
-
 tion_auto:
   name: "TION Auto"
   icon: mdi:fan
