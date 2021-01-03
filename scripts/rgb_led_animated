@@ -3,7 +3,7 @@
 declare(ticks = 1);
 error_reporting (E_ALL ^ E_NOTICE);
 
-preg_match('/mega3_ip: *"(.*?)"/i', file_get_contents(__DIR__.'/secrets.yaml'), $m);
+preg_match('/mega3_ip: *"(.*?)"/i', file_get_contents(__DIR__.'/../secrets.yaml'), $m);
 $ip = $m[1];
 
 $url = "http://{$ip}/sec/?pt=35&ws=";
@@ -17,7 +17,7 @@ function sig_handler($signo)
 }
 
 pcntl_signal(SIGTERM, "sig_handler");
-pcntl_signal(SIGKILL,  "sig_handler");
+//pcntl_signal(SIGKILL,  "sig_handler");
 
 function rgb_smooth()
 {
