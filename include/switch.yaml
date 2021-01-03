@@ -36,5 +36,5 @@
     balcony_rgb_light:
       friendly_name: "Balcony animated light"
       command_on: !secret balcony_rgb_light_script
-      command_off: "pkill -f rgb_led_animated || true"
-      command_state: "pgrep -f rgb_led_animated"
+      ccommand_off: "/usr/bin/pkill -f rgb_led_animated || /bin/true"
+      command_state: "ps x | grep -v grep | grep rgb_led_animated"
