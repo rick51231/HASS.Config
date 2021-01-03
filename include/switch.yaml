@@ -34,6 +34,7 @@
 - platform: command_line
   switches:
     balcony_rgb_light:
-      command_on: "scripts/rgb_led_animated"
-      command_off: "pkill -f rgb_led_animated"
+      friendly_name: "Balcony animated light"
+      command_on: !secret balcony_rgb_light_script
+      command_off: "pkill -f rgb_led_animated || true"
       command_state: "pgrep -f rgb_led_animated"
