@@ -30,3 +30,10 @@
   icon: mdi:fire
   state_topic: "bt_bridge/rhf3310s/heater"
   command_topic: "bt_bridge/rhf3310s/heater/set"
+
+- platform: command_line
+  switches:
+    balcony_rgb_light:
+      command_on: "scripts/rgb_led_animated"
+      command_off: "pkill -f rgb_led_animated"
+      command_state: "pgrep -f rgb_led_animated"
