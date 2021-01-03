@@ -67,7 +67,7 @@
 - alias: Mega-2 notify on AC change
   trigger:
     platform: state
-    entity_id: binary_sensor.mega_1_ac
+    entity_id: binary_sensor.mega_2_ac
   action:
     - service: notify.notify_all
       data:
@@ -76,7 +76,7 @@
 - alias: Mega-2 notify on battery change
   trigger:
     platform: state
-    entity_id: binary_sensor.mega_1_battery
+    entity_id: binary_sensor.mega_2_battery
   action:
     - service: notify.notify_all
       data:
