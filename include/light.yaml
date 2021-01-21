@@ -61,7 +61,7 @@
   payload_off: "14:0"
   payload_on: "14:1"
   state_topic: "mega2/14"
-  state_value_template: "{{ value_json.value }}"
+  state_value_template: "14:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
 
 - platform: mqtt
   name: "LED yellow"
