@@ -1,0 +1,26 @@
+- platform: rest
+  resource: !secret mega1_light_room3
+  name: "Room 3 light"
+  unit_of_measurement: "lx"
+  device_class: illuminance
+
+- platform: mqtt
+  state_topic: "mega1/1"
+  value_template: "{{ value_json.value.temp }}"
+  name: "Room 3 temp"
+  unit_of_measurement: "°C"
+  device_class: temperature
+  unique_id: "sensor.room3_temp"
+
+- platform: mqtt
+  state_topic: "mega1/1"
+  value_template: "{{ value_json.value.hum }}"
+  name: "Room 3 humidity"
+  unit_of_measurement: "%"
+  device_class: humidity
+  unique_id: "sensor.room3_humidity"
+
+- platform: rest
+  resource: !secret mega1_co2_room3
+  name: "Room 3 CO2"
+  unit_of_measurement: "ppm"
