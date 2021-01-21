@@ -8,3 +8,23 @@
     data:
       entity_id: light.kitchen_work_light_led
       brightness_pct: 100
+
+- alias: Kitchen top storage light on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_top_storage_door
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_top_storage_light_led
+      brightness_pct: 100
+
+- alias: Kitchen top storage light off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_top_storage_door
+    to: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.kitchen_top_storage_light_led

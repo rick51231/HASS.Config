@@ -80,3 +80,12 @@
   brightness_command_topic: "mega1/cmd-ext-bri/32e12"
   brightness_scale: 100
   on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "Kitchen top storage light LED"
+  unique_id: "light.kitchen_top_storage_light_led"
+  command_topic: "mega1/cmd"
+  payload_off: "32e11:0"
+  brightness_command_topic: "mega1/cmd-ext-bri/32e11"
+  brightness_scale: 100
+  on_command_type: 'brightness'

@@ -26,3 +26,12 @@
   name: "Kitchen motion"
   device_class: motion
   unique_id: "binary_sensor.kitchen_motion"
+
+- platform: mqtt
+  state_topic: "mega1/30"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Kitchen top storage door"
+  device_class: door
+  unique_id: "binary_sensor.kitchen_top_storage_door"
