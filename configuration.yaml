@@ -50,7 +50,7 @@ shell_command: !include include/shell_command.yaml
 
 http:
   use_x_forwarded_for: true
-  trusted_proxies: "192.168.1.5"
+  trusted_proxies: !secret upstream_proxy
 
 history:
   exclude:
