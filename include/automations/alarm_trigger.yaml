@@ -6,6 +6,7 @@
         - binary_sensor.bathroom_door
         - binary_sensor.toilet_door
         - binary_sensor.main_door
+        - binary_sensor.kitchen_top_storage_door
         - binary_sensor.bathroom_motion
         - binary_sensor.toilet_motion
         - binary_sensor.door_motion
@@ -13,6 +14,7 @@
         - binary_sensor.room1_motion
         - binary_sensor.hall_motion
         - binary_sensor.kitchen_motion
+        - binary_sensor.room3_motion
       to: 'on'
   condition:
     - condition: state
