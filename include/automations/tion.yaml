@@ -1,36 +1,32 @@
-- alias: Tion power on
+- alias: Tion mode mixed
   trigger:
     platform: state
     entity_id: sensor.room_1_co2
   condition:
     - "{{ is_state('binary_sensor.mega_2_ac', 'on') }}"
     - "{{ is_state('input_boolean.tion_auto', 'on') }}"
-    - "{{ is_state('input_boolean.tion_power', 'off') }}"
-    - "{{ trigger.to_state.state | int >  900 }}"
-    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_on', 'last_triggered')) |int(0) ) > 540 }}"
-    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_off', 'last_triggered')) |int(0) ) > 540 }}"
+    - "{{ is_state('input_select.tion3s_mode', 'Indoor') }}"
+    - "{{ trigger.to_state.state | int > 1000 }}"
   action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.tion_power
-    - service: input_number.set_value
+    - service: input_select.select_option
       data:
-        entity_id: input_number.tion_fan_speed
-        value: 1
+        entity_id: input_select.tion3s_mode
+        value: 'Mixed'
 
-- alias: Tion power off
+- alias: Tion mode indoor
   trigger:
     platform: state
     entity_id: sensor.room_1_co2
   condition:
     - "{{ is_state('binary_sensor.mega_2_ac', 'on') }}"
     - "{{ is_state('input_boolean.tion_auto', 'on') }}"
-    - "{{ is_state('input_boolean.tion_power', 'on') }}"
-    - "{{ trigger.to_state.state | int <  900 }}"
-    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_on', 'last_triggered')) |int(0) ) > 540 }}"
-    - "{{ ( as_timestamp(now()) - as_timestamp(state_attr('automation.tion_power_off', 'last_triggered')) |int(0) ) > 540 }}"
+    - "{{ is_state('input_select.tion3s_mode', 'Mixed') or is_state('input_select.tion3s_mode', 'Outdoor') }}"
+    - "{{ trigger.to_state.state | int < 800 }}"
   action:
-    service: input_boolean.turn_off
-    entity_id: input_boolean.tion_power
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.tion3s_mode
+        value: 'Indoor'
 
 - alias: Tion auto speed
   trigger:
