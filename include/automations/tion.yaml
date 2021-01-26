@@ -11,7 +11,7 @@
     - service: input_select.select_option
       data:
         entity_id: input_select.tion3s_mode
-        value: 'Mixed'
+        option: 'Mixed'
 
 - alias: Tion mode indoor
   trigger:
@@ -26,7 +26,7 @@
     - service: input_select.select_option
       data:
         entity_id: input_select.tion3s_mode
-        value: 'Indoor'
+        option: 'Indoor'
 
 - alias: Tion auto speed
   trigger:
