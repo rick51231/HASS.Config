@@ -40,5 +40,5 @@
   action:
     service: input_number.set_value
     data:
-      entity_id: input_number.tion_fan_speed
+      entity_id: input_number.tion3s_fan_speed
       value: "{% set v = trigger.to_state.state | int %}{%if v < 1000%}1{%elif v < 1100%}2{%elif v < 1200%}3{%elif v < 1200%}4{%elif v < 1300%}5{%else%}6{%endif%}"
