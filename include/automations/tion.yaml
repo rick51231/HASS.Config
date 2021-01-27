@@ -35,10 +35,10 @@
   condition:
     - "{{ is_state('binary_sensor.mega_2_ac', 'on') }}"
     - "{{ is_state('input_boolean.tion_auto', 'on') }}"
-    - "{{ is_state('input_boolean.tion_power', 'on') }}"
+    - "{{ is_state('input_select.tion3s_mode', 'Mixed') or is_state('input_select.tion3s_mode', 'Outdoor') }}"
     - "{{ trigger.to_state.state | int >  900 }}"
   action:
     service: input_number.set_value
     data:
       entity_id: input_number.tion_fan_speed
-      value: "{% set v = trigger.to_state.state | int %}{%if v < 1000%}1{%elif v < 1100%}2{%elif v < 1200%}3{%elif v < 1200%}4{%endif%}"
+      value: "{% set v = trigger.to_state.state | int %}{%if v < 1000%}1{%elif v < 1100%}2{%elif v < 1200%}3{%elif v < 1200%}4{%elif v < 1300%}5{%else%}6{%endif%}"
