@@ -10,7 +10,9 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.led_yellow
+        entity_id:
+          - light.led
+          - light.led_yellow
         brightness_pct: 100
 
 - alias: Room 1 auto music when back home
