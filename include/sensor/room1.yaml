@@ -24,9 +24,3 @@
   resource: !secret mega2_co2_room1
   name: "Room 1 CO2"
   unit_of_measurement: "ppm"
-
-- platform: rest
-  resource: !secret mega2_water_tree
-  name: "Christmas tree water level"
-  unit_of_measurement: "%"
-  value_template: "{%set l=100-(((value|float)-4.4)/0.23)%}{%if l>100%}100{%elif l<0%}0{%else%}{{l | round}}{%endif%}"  # Lmin = 4.4, Lbucket=23, Lmax=Lmin+Lbucket=27.4, 0.23=(Lmax-Lmin)/100
