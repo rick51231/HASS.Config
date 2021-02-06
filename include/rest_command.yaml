@@ -4,7 +4,7 @@ tion_remote:
 send_narodmon:
   url: "https://narodmon.ru/post"
   method: POST
-  payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor_temp') }}&P1={{ states('sensor.mega_2_pressure') }}&H1={{ states('sensor.outdoor_humidity') }}&L1={{ states('sensor.outdoor_light') }}&U1={{ states('sensor.apc1500_input_voltage') }}&name={{ states('input_text.narodmon_name') }}"
+  payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor_temp') }}&P1={{ states('sensor.mega_2_pressure') }}&H1={{ states('sensor.outdoor_humidity') }}&name={{ states('input_text.narodmon_name') }}"
 
 send_owm:
   url: "https://openweathermap.org/data/post"
