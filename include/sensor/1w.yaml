@@ -1,88 +1,80 @@
 - platform: rest
   resource: !secret mega2_1w
   name: "mega2_1w_raw"
-  value_template: >
-    {{'{'}}
-    {% for item in value.split(';') %}
-    {% if loop.index > 1%},{%endif%}
-    {% set v = item.split(':')%}
-    {{ '"' + v[0] +'"' + ':' + v[1]}}
-    {% endfor %}
-    {{'}'}}
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.a63532020800 * 8 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'a63532020800'%}{{v[1]|float * 8}}{%endif%}{% endfor %}"
   name: "1W Room 1 temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.127f44060000 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == '127f44060000'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Outdoor temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.7fbb44060000 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == '7fbb44060000'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Vent temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.f2dc74020800 * 8 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'f2dc74020800'%}{{v[1]|float * 8}}{%endif%}{% endfor %}"
   name: "1W Heating 1 temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.888344060000 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == '888344060000'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Room 2 door temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.e66b45060000 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'e66b45060000'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Room 2 pc temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.ee6d7a1f1602 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'ee6d7a1f1602'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Heating 2 temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.798d45060000 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == '798d45060000'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Room 3 door temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.69cf74020800 * 8 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == '69cf74020800'%}{{v[1]|float * 8}}{%endif%}{% endfor %}"
   name: "1W Room 3 bed temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.eed02f231601 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'eed02f231601'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Kitchen temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
 - platform: mqtt
   state_topic: "mega2/10"
-  value_template: "{{ value_json.value.eef9901f1602 }}"
+  value_template: "{% for item in states.sensor.mega2_1w_raw.state.split(';') %}{% set v = item.split(':')%}{% if v[0] == 'eef9901f1602'%}{{v[1]|float}}{%endif%}{% endfor %}"
   name: "1W Heating 3 temp"
   unit_of_measurement: "°C"
   device_class: temperature
