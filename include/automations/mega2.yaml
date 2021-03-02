@@ -1,13 +1,3 @@
-- alias: Mega-2 Query 1W Bus
-  trigger:
-    platform: time_pattern
-    minutes: '*'
-  action:
-    service: mqtt.publish
-    data_template:
-      topic: "mega2/cmd"
-      payload: 'get:10'
-
 - alias: Query Mega-2 on start
   trigger:
     platform: homeassistant
