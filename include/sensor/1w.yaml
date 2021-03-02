@@ -1,3 +1,15 @@
+- platform: rest
+  resource: !secret mega2_1w
+  name: "mega2_1w_raw"
+  value_template: >
+    {{'{'}}
+    {% for item in value.split(';') %}
+    {% if loop.index > 1%},{%endif%}
+    {% set v = item.split(':')%}
+    {{ '"' + v[0] +'"' + ':' + v[1]}}
+    {% endfor %}
+    {{'}'}}
+
 - platform: mqtt
   state_topic: "mega2/10"
   value_template: "{{ value_json.value.a63532020800 * 8 }}"
@@ -22,7 +34,7 @@
 - platform: mqtt
   state_topic: "mega2/10"
   value_template: "{{ value_json.value.f2dc74020800 * 8 }}"
-  name: "1W Heating 1"
+  name: "1W Heating 1 temp"
   unit_of_measurement: "°C"
   device_class: temperature
 
