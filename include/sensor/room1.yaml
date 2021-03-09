@@ -28,3 +28,24 @@
   name: "Room 1 CO2"
   unit_of_measurement: "ppm"
   unique_id: "sensor.room1_co2"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/8/hm3301"
+  value_template: "{{ value_json.value.pm1 }}"
+  name: "Room 1 PM1"
+  unit_of_measurement: "µg/m3"
+  unique_id: "sensor.room1_pm1"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/8/hm3301"
+  value_template: "{{ value_json.value.pm2_5 }}"
+  name: "Room 1 PM2.5"
+  unit_of_measurement: "µg/m3"
+  unique_id: "sensor.room1_pm2_5"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/8/hm3301"
+  value_template: "{{ value_json.value.pm10 }}"
+  name: "Room 1 PM10"
+  unit_of_measurement: "µg/m3"
+  unique_id: "sensor.room1_pm10"
