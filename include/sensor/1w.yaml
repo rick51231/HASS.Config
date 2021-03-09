@@ -32,7 +32,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega2/10"
-  value_template: "{{ value_json.value.888344060000 }}"
+  value_template: "{{ value_json.value['888344060000'] }}"
   name: "1W Room 2 door temp"
   unit_of_measurement: "°C"
   device_class: temperature
