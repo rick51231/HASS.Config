@@ -24,7 +24,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega1/13/t67xx"
-  value_template: "{{ value_json.value.temp }}"
+  value_template: "{{ value_json.value.co2 }}"
   name: "Kitchen CO2"
   unit_of_measurement: "ppm"
   unique_id: "sensor.kitchen_co2"
