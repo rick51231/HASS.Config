@@ -1,0 +1,63 @@
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/Power"
+  name: "mhi power"
+  icon: mdi:power
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/Mode"
+  name: "mhi mode"
+  icon: mdi:air-conditioner
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/OUTDOOR"
+  name: "mhi outdoor temperature"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/CT"
+  name: "mhi current"
+  unit_of_measurement: 'А'
+  icon: mdi:current-ac
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/IU-FANSPEED"
+  name: "mhi indoor fan speed"
+  icon: mdi:fan-speed-1
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/OU-FANSPEED"
+  name: "mhi outdoor fan speed"
+  icon: mdi:fan-speed-2
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/TOTAL-IU-RUN"
+  name: "mhi hours indoor unit"
+  unit_of_measurement: 'h'
+  icon: mdi:clock-time-four
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/TOTAL-COMP-RUN"
+  name: "mhi hours compressor"
+  unit_of_measurement: 'h'
+  icon: mdi:clock-time-four
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/COMP"
+  name: "mhi compressor frequency"
+  unit_of_measurement: 'Hz'
+  icon: mdi:current-ac
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/Errorcode"
+  name: "mhi errorcode"
+  icon: mdi:alert-circle
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/PROTECTION-NO"
+  name: "mhi protection number compressor"
+  icon: mdi:alert-circle
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/OpData/DEFROST"
+  name: "mhi defrost control"
+  icon: mdi:car-defrost-front
