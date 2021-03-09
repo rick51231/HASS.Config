@@ -1,11 +1,13 @@
-- platform: rest
-  resource: !secret mega2_light_door
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/44"
+  value_template: "{{ value_json.value.light }}"
   name: "Door light"
   unit_of_measurement: "lx"
   device_class: illuminance
+  unique_id: "sensor.door_light"
 
 - platform: mqtt
-  state_topic: "mega2/44"
+  state_topic: "megad_mqtt_bridge/mega2/44"
   value_template: "{{ value_json.value.temp }}"
   name: "Door temp"
   unit_of_measurement: "°C"
@@ -13,7 +15,7 @@
   unique_id: "sensor.door_temp"
 
 - platform: mqtt
-  state_topic: "mega2/44"
+  state_topic: "megad_mqtt_bridge/mega2/44"
   value_template: "{{ value_json.value.hum }}"
   name: "Door humidity"
   unit_of_measurement: "%"

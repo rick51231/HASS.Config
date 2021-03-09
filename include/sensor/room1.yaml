@@ -1,11 +1,13 @@
-- platform: rest
-  resource: !secret mega2_light_room1
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/40"
+  value_template: "{{ value_json.value.light }}"
   name: "Room 1 light"
   unit_of_measurement: "lx"
   device_class: illuminance
+  unique_id: "sensor.room1_light"
 
 - platform: mqtt
-  state_topic: "mega2/40"
+  state_topic: "megad_mqtt_bridge/mega2/40"
   value_template: "{{ value_json.value.temp }}"
   name: "Room 1 temp"
   unit_of_measurement: "°C"
@@ -13,14 +15,16 @@
   unique_id: "sensor.room1_temp"
 
 - platform: mqtt
-  state_topic: "mega2/40"
+  state_topic: "megad_mqtt_bridge/mega2/40"
   value_template: "{{ value_json.value.hum }}"
   name: "Room 1 humidity"
   unit_of_measurement: "%"
   device_class: humidity
   unique_id: "sensor.room1_humidity"
 
-- platform: rest
-  resource: !secret mega2_co2_room1
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/40"
+  value_template: "{{ value_json.value.co2 }}"
   name: "Room 1 CO2"
   unit_of_measurement: "ppm"
+  unique_id: "sensor.room1_co2"

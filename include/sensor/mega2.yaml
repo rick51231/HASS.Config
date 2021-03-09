@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "mega2/8"
+  state_topic: "megad_mqtt_bridge/mega2/8"
   value_template: "{{ value_json.value.temp }}"
   name: "Mega 2 temp"
   unit_of_measurement: "°C"
@@ -7,7 +7,7 @@
   unique_id: "sensor.mega2_temp"
 
 - platform: mqtt
-  state_topic: "mega2/8"
+  state_topic: "megad_mqtt_bridge/mega2/8"
   value_template: "{{ value_json.value.hum }}"
   name: "Mega 2 humidity"
   unit_of_measurement: "%"
@@ -15,7 +15,7 @@
   unique_id: "sensor.mega2_humidity"
 
 - platform: mqtt
-  state_topic: "mega2/8"
+  state_topic: "megad_mqtt_bridge/mega2/8"
   value_template: "{{ value_json.value.press }}"
   name: "Mega 2 pressure"
   unit_of_measurement: "mm Hg"
