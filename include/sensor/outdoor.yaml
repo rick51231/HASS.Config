@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega2/9"
+  state_topic: "megad_mqtt_bridge/mega2/9/max44009"
   value_template: "{{ value_json.value.light }}"
   name: "Outdoor light"
   unit_of_measurement: "lx"
