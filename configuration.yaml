@@ -122,7 +122,7 @@ homekit:
   name: "HASS Bridge"
   filter:
     include_entities:
-      - sensor.outdoor
+      - sensor.outdoor_temp
       - light.led_yellow
       - light.led
       - light.bulbs
