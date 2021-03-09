@@ -1,7 +1,7 @@
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega1/1/max44009"
   name: "Room 3 light"
-  value_template: "{{ value_json.value.temp }}"
+  value_template: "{{ value_json.value.light }}"
   unit_of_measurement: "lx"
   device_class: illuminance
   unique_id: "sensor.room3_light"
