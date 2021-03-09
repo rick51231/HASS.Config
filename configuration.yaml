@@ -30,6 +30,13 @@ tts:
 recorder:
   db_url: !secret db_url
   auto_purge: false
+  exclude:
+    domains:
+      - automation
+      - group
+    entities:
+      - sensor.date_time
+      - sensor.time
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
