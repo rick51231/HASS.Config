@@ -2,6 +2,7 @@
   trigger:
     - platform: state
       entity_id:
+        - binary_sensor.room1_door
         - binary_sensor.kitchen_door
         - binary_sensor.bathroom_door
         - binary_sensor.toilet_door
