@@ -3,18 +3,18 @@
 - platform: mqtt
   name: "Toilet light LED"
   unique_id: "bathroom.toilet_light_led"
-  command_topic: "mega1/cmd"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
   payload_off: "32e15:0"
-  brightness_command_topic: "mega1/cmd-ext-bri/32e15"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e15"
   brightness_scale: 100
   on_command_type: 'brightness'
 
 - platform: mqtt
   name: "Bathroom light LED"
   unique_id: "light.bathroom_light_led"
-  command_topic: "mega1/cmd"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
   payload_off: "32e14:0"
-  brightness_command_topic: "mega1/cmd-ext-bri/32e14"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e14"
   brightness_scale: 100
   on_command_type: 'brightness'
 
@@ -39,9 +39,9 @@
 - platform: mqtt
   name: "Hall light LED"
   unique_id: "light.hall_light_led"
-  command_topic: "mega1/cmd"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
   payload_off: "32e13:0"
-  brightness_command_topic: "mega1/cmd-ext-bri/32e13"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e13"
   brightness_scale: 100
   on_command_type: 'brightness'
 
@@ -75,17 +75,17 @@
 - platform: mqtt
   name: "Kitchen work light LED"
   unique_id: "light.kitchen_work_light_led"
-  command_topic: "mega1/cmd"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
   payload_off: "32e12:0"
-  brightness_command_topic: "mega1/cmd-ext-bri/32e12"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e12"
   brightness_scale: 100
   on_command_type: 'brightness'
 
 - platform: mqtt
   name: "Kitchen top storage light LED"
   unique_id: "light.kitchen_top_storage_light_led"
-  command_topic: "mega1/cmd"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
   payload_off: "32e11:0"
-  brightness_command_topic: "mega1/cmd-ext-bri/32e11"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e11"
   brightness_scale: 100
   on_command_type: 'brightness'

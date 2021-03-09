@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "mega1/36"
+  state_topic: "megad_mqtt_bridge/mega1/36"
   value_template: "{{ value_json.value.ee862f231601 }}"
   name: "Water In HOT temp"
   unit_of_measurement: "°C"
@@ -7,7 +7,7 @@
   unique_id: "sensor.toilet_water1_temp"
 
 - platform: mqtt
-  state_topic: "mega1/36"
+  state_topic: "megad_mqtt_bridge/mega1/36"
   value_template: "{{ value_json.value.eed1a31f1602 }}"
   name: "Water In COLD temp"
   unit_of_measurement: "°C"

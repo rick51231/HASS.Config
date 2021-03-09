@@ -1,11 +1,13 @@
-- platform: rest
-  resource: !secret mega1_light_toilet
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega1/8/max44009"
+  value_template: "{{ value_json.value.temp }}"
   name: "Toilet light"
   unit_of_measurement: "lx"
   device_class: illuminance
+  unique_id: "sensor.toilet_light"
 
 - platform: mqtt
-  state_topic: "mega1/8"
+  state_topic: "megad_mqtt_bridge/mega1/8"
   value_template: "{{ value_json.value.temp }}"
   name: "Toilet temp"
   unit_of_measurement: "°C"
@@ -13,7 +15,7 @@
   unique_id: "sensor.toilet_temp"
 
 - platform: mqtt
-  state_topic: "mega1/8"
+  state_topic: "megad_mqtt_bridge/mega1/8"
   value_template: "{{ value_json.value.hum }}"
   name: "Toilet humidity"
   unit_of_measurement: "%"
