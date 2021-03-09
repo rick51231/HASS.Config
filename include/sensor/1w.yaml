@@ -8,7 +8,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega2/10"
-  value_template: "{{ value_json.value.127f44060000 }}"
+  value_template: "{{ value_json.value['127f44060000'] }}"
   name: "1W Outdoor temp"
   unit_of_measurement: "°C"
   device_class: temperature
@@ -16,7 +16,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega2/10"
-  value_template: "{{ value_json.value.7fbb44060000 }}"
+  value_template: "{{ value_json.value.['7fbb44060000'] }}"
   name: "1W Vent temp"
   unit_of_measurement: "°C"
   device_class: temperature
@@ -56,7 +56,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega2/10"
-  value_template: "{{ value_json.value.798d45060000 }}"
+  value_template: "{{ value_json.value.['798d45060000'] }}"
   name: "1W Room 3 door temp"
   unit_of_measurement: "°C"
   device_class: temperature
@@ -64,7 +64,7 @@
 
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega2/10"
-  value_template: "{{ value_json.value.69cf74020800|float * 8 }}"
+  value_template: "{{ value_json.value.['69cf74020800']|float * 8 }}"
   name: "1W Room 3 bed temp"
   unit_of_measurement: "°C"
   device_class: temperature
