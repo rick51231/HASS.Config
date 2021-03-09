@@ -126,6 +126,7 @@ homekit:
       - light.led_yellow
       - light.led
       - light.bulbs
+      - climate.mitsubishi_heavy
 
 telegram_bot:
   - platform: polling
