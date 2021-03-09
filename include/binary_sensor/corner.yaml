@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "mega2/43"
+  state_topic: "megad_mqtt_bridge/mega2/43"
   value_template: "{{ value_json.value }}"
   name: "Corner motion"
   device_class: motion

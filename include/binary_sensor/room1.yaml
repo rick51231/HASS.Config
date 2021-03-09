@@ -1,24 +1,24 @@
 - platform: mqtt
-  state_topic: "mega2/41"
+  state_topic: "megad_mqtt_bridge/mega2/41"
   value_template: "{{ value_json.value }}"
   name: "Room 1 motion"
   device_class: motion
   unique_id: "binary_sensor.room1_motion"
 
 - platform: mqtt
-  state_topic: "mega2/2"
+  state_topic: "megad_mqtt_bridge/mega2/2"
   value_template: "{{ value_json.value }}"
   name: "Room 1 Switch Left"
   unique_id: "binary_sensor.room1_switch_l"
 
 - platform: mqtt
-  state_topic: "mega2/0"
+  state_topic: "megad_mqtt_bridge/mega2/0"
   value_template: "{{ value_json.value }}"
   name: "Room 1 Switch Right"
   unique_id: "binary_sensor.room1_switch_r"
 
 - platform: mqtt
-  state_topic: "mega2/3"
+  state_topic: "megad_mqtt_bridge/mega2/3"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"
   payload_on: "OFF"
