@@ -16,3 +16,12 @@
   value_template: "{{ value_json.value }}"
   name: "Room 1 Switch Right"
   unique_id: "binary_sensor.room1_switch_r"
+
+- platform: mqtt
+  state_topic: "mega2/3"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Room 1 door"
+  device_class: door
+  unique_id: "binary_sensor.room1_door"
