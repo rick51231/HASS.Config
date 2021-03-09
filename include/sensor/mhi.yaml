@@ -10,6 +10,7 @@
 
 - platform: mqtt
   state_topic: "MHI-AC-Ctrl/OpData/OUTDOOR"
+  device_class: temperature
   name: "mhi outdoor temperature"
   unit_of_measurement: '°C'
 
@@ -61,3 +62,9 @@
   state_topic: "MHI-AC-Ctrl/OpData/DEFROST"
   name: "mhi defrost control"
   icon: mdi:car-defrost-front
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl/Tds1820"
+  device_class: temperature
+  name: "mhi cotroller temperature"
+  unit_of_measurement: '°C'
