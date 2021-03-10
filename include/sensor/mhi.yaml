@@ -17,7 +17,7 @@
 - platform: mqtt
   state_topic: "MHI-AC-Ctrl/OpData/CT"
   name: "mhi current"
-  unit_of_measurement: 'А'
+  unit_of_measurement: 'A'
   icon: mdi:current-ac
 
 - platform: mqtt
