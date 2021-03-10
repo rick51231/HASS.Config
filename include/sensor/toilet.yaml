@@ -1,6 +1,6 @@
 - platform: mqtt
   state_topic: "megad_mqtt_bridge/mega1/8/max44009"
-  value_template: "{{ value_json.value.temp }}"
+  value_template: "{{ value_json.value.light }}"
   name: "Toilet light"
   unit_of_measurement: "lx"
   device_class: illuminance
