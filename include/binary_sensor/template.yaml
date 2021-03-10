@@ -9,3 +9,8 @@
       value_template: "{{ is_state('binary_sensor.room_1_motion','on') }}"
       delay_off: 3000
       device_class: occupancy
+    kitchen_occupied:
+      friendly_name: "Kitchen occupied"
+      value_template: "{{ is_state('binary_sensor.kitchen_motion','on') }}"
+      delay_off: 60
+      device_class: occupancy
