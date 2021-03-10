@@ -1,0 +1,15 @@
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/32"
+  value_template: "{{ value_json.value }}"
+  name: "Room 2 motion"
+  device_class: motion
+  unique_id: "binary_sensor.room2_motion"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/11"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Room 2 door"
+  device_class: door
+  unique_id: "binary_sensor.room2_door"

@@ -3,6 +3,7 @@
     - platform: state
       entity_id:
         - binary_sensor.room1_door
+        - binary_sensor.room2_door
         - binary_sensor.room3_door
         - binary_sensor.kitchen_door
         - binary_sensor.bathroom_door
@@ -14,9 +15,10 @@
         - binary_sensor.door_motion
         - binary_sensor.corner_motion
         - binary_sensor.room1_motion
+        - binary_sensor.room2_motion
+        - binary_sensor.room3_motion
         - binary_sensor.hall_motion
         - binary_sensor.kitchen_motion
-        - binary_sensor.room3_motion
       to: 'on'
   condition:
     - condition: state
