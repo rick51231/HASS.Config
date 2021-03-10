@@ -4,3 +4,12 @@
   name: "Room 3 motion"
   device_class: motion
   unique_id: "binary_sensor.room3_motion"
+
+- platform: mqtt
+  state_topic: "mega1/44"
+  value_template: "{{ value_json.value }}"
+  payload_off: "ON"
+  payload_on: "OFF"
+  name: "Room 3 door"
+  device_class: door
+  unique_id: "binary_sensor.room3_door"
