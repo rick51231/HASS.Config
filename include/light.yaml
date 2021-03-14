@@ -89,3 +89,13 @@
   brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e11"
   brightness_scale: 100
   on_command_type: 'brightness'
+
+- platform: mqtt
+  schema: json
+  name: "Balcony RGB LED"
+  state_topic: "esp_rgb_light/rgb1"
+  command_topic: "esp_rgb_light/rgb1/set"
+  brightness: true
+  rgb: true
+  optimistic: false
+  qos: 0
