@@ -1,3 +1,0 @@
-- platform: command_line
-  name: co2_raw
-  command: !secret rpi_co2_usb
