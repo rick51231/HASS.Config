@@ -91,6 +91,15 @@
   on_command_type: 'brightness'
 
 - platform: mqtt
+  name: "Hall storage light LED"
+  unique_id: "light.hall_storage_light_led"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
+  payload_off: "32e10:0"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e10"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
   schema: json
   name: "Balcony RGB LED"
   state_topic: "esp_rgb_light/rgb1"
