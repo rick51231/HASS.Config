@@ -21,3 +21,17 @@
   unit_of_measurement: "Bar"
   device_class: pressure
   unique_id: "sensor.toilet_pressure"
+
+- platform: mqtt
+  state_topic: "esp_watermeter1/data"
+  name: "Water In COLD utility"
+  unit_of_measurement: "L"
+  icon: mdi:gauge
+  unique_id: "sensor.toilet_water1_meter"
+
+- platform: mqtt
+  state_topic: "esp_watermeter2/data"
+  name: "Water In HOT utility"
+  unit_of_measurement: "L"
+  icon: mdi:gauge
+  unique_id: "sensor.toilet_water2_meter"
