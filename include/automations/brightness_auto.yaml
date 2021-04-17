@@ -16,7 +16,7 @@
     - service: input_number.set_value
       data:
         entity_id: input_number.bathroom_led_bri
-        value: "{%set l = states('sensor.corner_light') | float%}{% if l > 20%}80{%elif l > 10%}90{%else%}70{%endif%}"
+        value: "{%set l = states('sensor.corner_light') | float%}{% if l > 5%}100{%elif l > 1%}90{%else%}80{%endif%}"
     - service: input_number.set_value
       data:
         entity_id: input_number.toilet_led_bri
