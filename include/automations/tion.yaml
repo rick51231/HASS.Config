@@ -41,4 +41,4 @@
     service: input_number.set_value
     data:
       entity_id: input_number.tion3s_fan_speed
-      value: "{% set v = trigger.to_state.state | int %}{%if v < 1000%}1{%elif v < 1100%}2{%elif v < 1200%}3{%elif v < 1200%}4{%elif v < 1300%}5{%else%}6{%endif%}"
+      value: "{%set v = trigger.to_state.state|int%}{%set s = states('input_number.tion3s_fan_speed')|int%}{%set l = s*100+800%}{%set t = ((v-900)/100)|round(0, 'ceil')%}{%if t>s or (l-50)>v%}{%if t>6%}6{%else%}{{t}}{%endif%}{%else%}{{s}}{%endif%}"
