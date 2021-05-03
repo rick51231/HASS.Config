@@ -1,12 +1,12 @@
 - platform: mqtt
-  state_topic: "mega1/15"
+  state_topic: "megad_mqtt_bridge/mega1/15"
   value_template: "{{ value_json.value }}"
   name: "Bathroom moisture"
   device_class: moisture
   unique_id: "binary_sensor.bathroom_moisture"
 
 - platform: mqtt
-  state_topic: "mega1/11"
+  state_topic: "megad_mqtt_bridge/mega1/11"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"
   payload_on: "OFF"
@@ -15,7 +15,7 @@
   unique_id: "binary_sensor.bathroom_door"
 
 - platform: mqtt
-  state_topic: "mega1/10"
+  state_topic: "megad_mqtt_bridge/mega1/10"
   value_template: "{{ value_json.value }}"
   name: "Bathroom motion"
   device_class: motion

@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "mega1/#"
+  state_topic: "megad_mqtt_bridge/mega1/#"
   value_template: "{% if value[0] == '{' %}ON{% else %}{% endif %}"
   name: "Mega 1 online"
   device_class: connectivity
@@ -7,14 +7,14 @@
   unique_id: "binary_sensor.mega1_online"
 
 - platform: mqtt
-  state_topic: "mega1/35"
+  state_topic: "megad_mqtt_bridge/mega1/35"
   value_template: "{{ value_json.value }}"
   name: "Mega 1 AC"
   device_class: power
   unique_id: "binary_sensor.mega1_ac"
 
 - platform: mqtt
-  state_topic: "mega1/34"
+  state_topic: "megad_mqtt_bridge/mega1/34"
   value_template: "{{ value_json.value }}"
   name: "Mega 1 Battery"
   device_class: battery

@@ -1,12 +1,12 @@
 - platform: mqtt
-  state_topic: "mega1/5"
+  state_topic: "megad_mqtt_bridge/mega1/5"
   value_template: "{{ value_json.value }}"
   name: "Hall motion"
   device_class: motion
   unique_id: "binary_sensor.hall_motion"
 
 - platform: mqtt
-  state_topic: "mega1/38"
+  state_topic: "megad_mqtt_bridge/mega1/38"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"
   payload_on: "OFF"
