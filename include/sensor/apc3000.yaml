@@ -2,6 +2,7 @@
   state_topic: "ups/apc3000/battery.voltage"
   name: "APC3000 Battery Voltage"
   device_class: voltage
+  unit_of_measurement: "V"
   unique_id: "sensor.apc3000_battery_voltage"
   value_template: "{{ value | int / 10 | float }}"
 
@@ -9,6 +10,7 @@
   state_topic: "ups/apc3000/battery.charge"
   name: "APC3000 Battery Charge"
   device_class: battery
+  unit_of_measurement: "%"
   unique_id: "sensor.apc3000_battery_charge"
   value_template: "{{ value | int / 10 | float }}"
 
@@ -16,12 +18,14 @@
   state_topic: "ups/apc3000/battery.current"
   name: "APC3000 Battery Current"
   device_class: current
+  unit_of_measurement: "A"
   unique_id: "sensor.apc3000_battery_current"
 
 - platform: mqtt
   state_topic: "ups/apc3000/input.voltage"
   name: "APC3000 Input Voltage"
   device_class: voltage
+  unit_of_measurement: "V"
   unique_id: "sensor.apc3000_input_voltage"
   value_template: "{{ value | int / 10 | float }}"
 
@@ -36,6 +40,7 @@
   state_topic: "ups/apc3000/output.current"
   name: "APC3000 Output Current"
   device_class: current
+  unit_of_measurement: "A"
   unique_id: "sensor.apc3000_output_current"
 
 - platform: mqtt
@@ -50,6 +55,7 @@
   state_topic: "ups/apc3000/output.voltage"
   name: "APC3000 Output Voltage"
   device_class: voltage
+  unit_of_measurement: "V"
   unique_id: "sensor.apc3000_output_voltage"
   value_template: "{{ value | int / 10 | float }}"
 
