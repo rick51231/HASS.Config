@@ -1,0 +1,74 @@
+- platform: mqtt
+  state_topic: "ups/apc1500/battery.voltage"
+  name: "APC1500 Battery Voltage"
+  device_class: voltage
+  unit_of_measurement: "V"
+  unique_id: "sensor.apc1500_battery_voltage"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/battery.charge"
+  name: "APC1500 Battery Charge"
+  device_class: battery
+  unit_of_measurement: "%"
+  unique_id: "sensor.apc1500_battery_charge"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/battery.current"
+  name: "APC1500 Battery Current"
+  device_class: current
+  unit_of_measurement: "A"
+  unique_id: "sensor.apc1500_battery_current"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/input.voltage"
+  name: "APC1500 Input Voltage"
+  device_class: voltage
+  unit_of_measurement: "V"
+  unique_id: "sensor.apc1500_input_voltage"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/ups.load"
+  name: "APC1500 Load"
+  unit_of_measurement: "%"
+  icon: "mdi:gauge"
+  unique_id: "sensor.apc1500_load"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/output.current"
+  name: "APC1500 Output Current"
+  device_class: current
+  unit_of_measurement: "A"
+  unique_id: "sensor.apc1500_output_current"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/output.frequency"
+  name: "APC1500 Output Frequency"
+  unit_of_measurement: "Hz"
+  icon: mdi:flash
+  unique_id: "sensor.apc1500_output_frequency"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/output.voltage"
+  name: "APC1500 Output Voltage"
+  device_class: voltage
+  unit_of_measurement: "V"
+  unique_id: "sensor.apc1500_output_voltage"
+  value_template: "{{ value | int / 10 | float }}"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/ups.status"
+  name: "APC1500 Status"
+  icon: mdi:information-outline
+  unique_id: "sensor.apc1500_status"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/ups.status_text"
+  name: "APC1500 Status Data"
+  icon: mdi:information-outline
+  unique_id: "sensor.apc1500_status_data"
