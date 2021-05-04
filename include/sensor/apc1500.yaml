@@ -15,13 +15,6 @@
   value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
-  state_topic: "ups/apc1500/battery.current"
-  name: "APC1500 Battery Current"
-  device_class: current
-  unit_of_measurement: "A"
-  unique_id: "sensor.apc1500_battery_current"
-
-- platform: mqtt
   state_topic: "ups/apc1500/input.voltage"
   name: "APC1500 Input Voltage"
   device_class: voltage
