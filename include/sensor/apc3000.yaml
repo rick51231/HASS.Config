@@ -35,6 +35,7 @@
   unit_of_measurement: "%"
   icon: "mdi:gauge"
   unique_id: "sensor.apc3000_load"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/output.current"
@@ -42,6 +43,7 @@
   device_class: current
   unit_of_measurement: "A"
   unique_id: "sensor.apc3000_output_current"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/output.frequency"
