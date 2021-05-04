@@ -56,12 +56,12 @@
 
 - platform: mqtt
   state_topic: "ups/apc1500/ups.status"
-  name: "APC1500 Status"
-  icon: mdi:information-outline
-  unique_id: "sensor.apc1500_status"
-
-- platform: mqtt
-  state_topic: "ups/apc1500/ups.status_text"
   name: "APC1500 Status Data"
   icon: mdi:information-outline
   unique_id: "sensor.apc1500_status_data"
+
+- platform: mqtt
+  state_topic: "ups/apc1500/ups.status_text"
+  name: "APC1500 Status"
+  icon: mdi:information-outline
+  unique_id: "sensor.apc1500_status"
