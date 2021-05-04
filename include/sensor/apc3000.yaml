@@ -3,14 +3,14 @@
   name: "APC3000 Battery Voltage"
   device_class: voltage
   unique_id: "sensor.apc3000_battery_voltage"
-  value_template: "{{ value / 10 | float }}"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/battery.charge"
   name: "APC3000 Battery Charge"
   device_class: battery
   unique_id: "sensor.apc3000_battery_charge"
-  value_template: "{{ value / 10 | float }}"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/battery.current"
@@ -23,7 +23,7 @@
   name: "APC3000 Input Voltage"
   device_class: voltage
   unique_id: "sensor.apc3000_input_voltage"
-  value_template: "{{ value / 10 | float }}"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/ups.load"
@@ -44,14 +44,14 @@
   unit_of_measurement: "Hz"
   icon: mdi:flash
   unique_id: "sensor.apc3000_output_frequency"
-  value_template: "{{ value / 10 | float }}"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/output.voltage"
   name: "APC3000 Output Voltage"
   device_class: voltage
   unique_id: "sensor.apc3000_output_voltage"
-  value_template: "{{ value / 10 | float }}"
+  value_template: "{{ value | int / 10 | float }}"
 
 - platform: mqtt
   state_topic: "ups/apc3000/ups.status"
