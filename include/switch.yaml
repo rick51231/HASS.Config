@@ -39,7 +39,7 @@
   payload_off: "14:0"
   payload_on: "14:1"
   state_topic: "megad_mqtt_bridge/mega2/14"
-  state_value_template: "14:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
+  value_template: "14:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
 
 - platform: command_line
   switches:
