@@ -1,0 +1,23 @@
+- alias: Turn off boiler from 17 to 9 hours
+  trigger:
+    platform: state
+    entity_id: sensor.time
+  condition:
+    - "{{ is_state('switch.water_boiler', 'on') }}"
+    - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour >= 17 or hour <= 9 }}"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.water_boiler
+
+- alias: Turn on boiler from 10 to 16 hours
+  trigger:
+    platform: state
+    entity_id: sensor.time
+  condition:
+    - "{{ is_state('switch.water_boiler', 'off') }}"
+    - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour < 17 and hour > 9 }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.water_boiler
