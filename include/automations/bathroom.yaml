@@ -117,13 +117,14 @@
     entity_id: switch.bathroom_mirror_heater
 
 - alias: Bathroom mirror LED button
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: state
     entity_id: binary_sensor.bathroom_mirror_switch
-  condition:
-    - "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.bathroom_mirror_switch.last_changed) |int(0) ) >= 1  }}" #switch bounce fix
   action:
-    service: light.turn_on
-    data:
-      entity_id: light.bathroom_mirror_light_led
-      brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}100{%endif%}"
+    - service: light.turn_on
+      data:
+        entity_id: light.bathroom_mirror_light_led
+        brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}100{%endif%}"
+    - delay: '00:00:01'
