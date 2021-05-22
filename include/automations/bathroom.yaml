@@ -96,7 +96,7 @@
   trigger:
     platform: state
     entity_id: light.bathroom_light_led
-    to: 'on'
+    to: 'off'
   action:
     - service: light.turn_off
       entity_id: light.bathroom_mirror_light_led
@@ -120,6 +120,8 @@
   trigger:
     platform: state
     entity_id: binary_sensor.bathroom_mirror_switch
+  condition:
+    - "{{ ( as_timestamp(now()) - as_timestamp(states.binary_sensor.bathroom_mirror_switch.last_changed) |int(0) ) >= 1  }}" #switch bounce fix
   action:
     service: light.turn_on
     data:
