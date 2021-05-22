@@ -80,3 +80,48 @@
     data:
       entity_id: light.bathroom_light_led
       brightness_pct: "{{ states('input_number.bathroom_led_bri') | int }}"
+
+- alias: Bathroom LED on
+  trigger:
+    platform: state
+    entity_id: light.bathroom_light_led
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.bathroom_mirror_light_led
+      brightness_pct: "{{ states('input_number.bathroom_led_bri') | int }}"
+
+- alias: Bathroom LED off
+  trigger:
+    platform: state
+    entity_id: light.bathroom_light_led
+    to: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.bathroom_mirror_light_led
+    - service: switch.turn_off
+      entity_id: switch.bathroom_mirror_heater
+
+- alias: Bathroom on mirror heater
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'off'
+    for:
+      seconds: 20
+  condition:
+    - "{{ is_state('light.bathroom_light_led', 'on') }}"
+  action:
+    service: switch.turn_on
+    entity_id: switch.bathroom_mirror_heater
+
+- alias: Bathroom mirror LED button
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_mirror_switch
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.bathroom_mirror_light_led
+      brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}100{%endif%}"

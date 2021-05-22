@@ -20,3 +20,9 @@
   name: "Bathroom motion"
   device_class: motion
   unique_id: "binary_sensor.bathroom_motion"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega1/42"
+  value_template: "{{ value_json.value }}"
+  name: "Bathroom mirror switch"
+  unique_id: "binary_sensor.bathroom_mirror_switch"

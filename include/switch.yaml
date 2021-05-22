@@ -32,6 +32,16 @@
   command_topic: "bt_bridge/rhf3310s/heater/set"
 
 - platform: mqtt
+  unique_id: "switch.bathroom_mirror_heater"
+  name: "Bathroom mirror heater"
+  icon: mdi:fire
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
+  payload_off: "14:0"
+  payload_on: "14:1"
+  state_topic: "megad_mqtt_bridge/mega1/14"
+  value_template: "14:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
+
+- platform: mqtt
   unique_id: "switch.water_boiler"
   name: "Water boiler"
   icon: mdi:water-boiler

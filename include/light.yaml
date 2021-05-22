@@ -19,6 +19,15 @@
   on_command_type: 'brightness'
 
 - platform: mqtt
+  name: "Bathroom mirror light LED"
+  unique_id: "light.bathroom_mirror_light_led"
+  command_topic: "megad_mqtt_bridge/mega1/cmd"
+  payload_off: "32e9:0"
+  brightness_command_topic: "megad_mqtt_bridge/mega1/cmd-ext-bri/32e9"
+  brightness_scale: 100
+  on_command_type: 'brightness'
+
+- platform: mqtt
   name: "Door light LED"
   unique_id: "light.door_light_led"
   command_topic: "megad_mqtt_bridge/mega2/cmd"
