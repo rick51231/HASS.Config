@@ -2,9 +2,9 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.room1_door
-        - binary_sensor.room2_door
-        - binary_sensor.room3_door
+        - binary_sensor.room_1_door
+        - binary_sensor.room_2_door
+        - binary_sensor.room_3_door
         - binary_sensor.kitchen_door
         - binary_sensor.bathroom_door
         - binary_sensor.toilet_door
@@ -50,9 +50,9 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.room1_door
-      - binary_sensor.room2_door
-      - binary_sensor.room3_door
+      - binary_sensor.room_1_door
+      - binary_sensor.room_2_door
+      - binary_sensor.room_3_door
       - binary_sensor.kitchen_door
       - binary_sensor.bathroom_door
       - binary_sensor.toilet_door
