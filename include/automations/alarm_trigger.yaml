@@ -57,7 +57,6 @@
       - binary_sensor.bathroom_door
       - binary_sensor.toilet_door
       - binary_sensor.hall_storage_door
-    to: 'on'
   condition: "{{ is_state('input_boolean.inhome_security', 'on') }}"
   action:
     - service: notify.notify_all
