@@ -62,4 +62,4 @@
     - service: notify.notify_all
       data:
         message: >
-          Sensor {{ trigger.to_state.attributes.friendly_name }} changed to {{ trigger.to_state.attributes.friendly_name }}!
+          Sensor {{ trigger.to_state.name }} changed to {{ trigger.to_state }} ({{ 'Open' if trigger.to_state.state == 'on' else 'Closed' }})!
