@@ -21,3 +21,7 @@ hall_led_auto:
 tion_auto:
   name: "TION Auto"
   icon: mdi:fan
+
+inhome_security:
+  name: "Inhome security"
+  icon: mdi:security

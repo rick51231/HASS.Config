@@ -45,3 +45,22 @@
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.alarm
+
+- alias: Inhome security notification
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.room1_door
+      - binary_sensor.room2_door
+      - binary_sensor.room3_door
+      - binary_sensor.kitchen_door
+      - binary_sensor.bathroom_door
+      - binary_sensor.toilet_door
+      - binary_sensor.hall_storage_door
+    to: 'on'
+  condition: "{{ is_state('input_boolean.inhome_security', 'on') }}"
+  action:
+    - service: notify.notify_all
+      data:
+        message: >
+          Sensor {{ trigger.to_state.attributes.friendly_name }} changed to {{ trigger.to_state.attributes.friendly_name }}!
