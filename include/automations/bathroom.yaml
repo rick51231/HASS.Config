@@ -122,7 +122,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.bathroom_mirror_switch
-  condition: "{{ ( as_timestamp(now()) - as_timestamp(states.switch.bathroom_mirror_heater.last_changed) |int(0) ) < 1 }}"
+  condition: "{{ ( as_timestamp(now()) - as_timestamp(states.switch.bathroom_mirror_heater.last_changed) |int(0) ) > 1 }}"
   action:
     - service: light.turn_on
       data:
