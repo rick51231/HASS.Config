@@ -5,6 +5,12 @@
   scan_interval: 60
 
 - platform: ping
+  host: !secret sw2_ip
+  name: "SW2 ping"
+  count: 2
+  scan_interval: 60
+
+- platform: ping
   host: !secret border_ip
   name: "BORDER ping"
   count: 2
