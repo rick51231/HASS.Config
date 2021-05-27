@@ -1,0 +1,16 @@
+- alias: Network monitor
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.mega_1_online
+      - binary_sensor.mega_2_online
+      - binary_sensor.mega_3_online
+      - binary_sensor.border_ping
+      - binary_sensor.sw1_ping
+      - binary_sensor.sw2_ping
+      - binary_sensor.gateway_cos
+      - binary_sensor.gateway_btk
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Warning! {{ trigger.to_state.name }} state is changed to {{ trigger.to_state.state }}"

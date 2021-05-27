@@ -35,18 +35,6 @@
       topic: "megad_mqtt_bridge/mega1/cmd"  # old bri 6.4262 (max 4095) current 7.12 (max 3003)
       payload: "{{ trigger.topic|replace('megad_mqtt_bridge/mega1/cmd-ext-bri/','') }}:{% set bri = trigger.payload | int %}{%if bri==0%}0{%else%}{% set out =  ((bri / 7.12) **  (1 / 0.33)) | round(1, 'floor') | int %}{% if out == 0 and bri > 0%}7{% else %}{{ out + 7 }}{% endif %}{% endif %}"
 
-- alias: Mega-1 online monitor
-  trigger:
-    platform: state
-    entity_id: binary_sensor.mega_1_online
-    to: 'off'
-    for:
-      seconds: 5
-  action:
-    - service: notify.notify_all
-      data:
-        message: "Warning! Mega-1 is offline"
-
 - alias: Mega-1 action on AC loss
   trigger:
     platform: state
