@@ -43,7 +43,6 @@
   action:
     - service: light.turn_off
       entity_id:
-        - light.kitchen_work_light_led
         - light.kitchen_top_storage_light_led
         - light.hall_storage_light_led
         - light.bathroom_mirror_light_led
