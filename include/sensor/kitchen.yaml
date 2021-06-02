@@ -1,5 +1,5 @@
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/13/max44009"
+  state_topic: "megad_mqtt_bridge/mega3/1/max44009"
   value_template: "{{ value_json.value.light }}"
   name: "Kitchen light"
   unit_of_measurement: "lx"
@@ -7,7 +7,7 @@
   unique_id: "sensor.kitchen_light"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/13"
+  state_topic: "megad_mqtt_bridge/mega3/1"
   value_template: "{{ value_json.value.temp }}"
   name: "Kitchen temp"
   unit_of_measurement: "°C"
@@ -15,7 +15,7 @@
   unique_id: "sensor.kitchen_temp"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/13"
+  state_topic: "megad_mqtt_bridge/mega3/1"
   value_template: "{{ value_json.value.hum }}"
   name: "Kitchen humidity"
   unit_of_measurement: "%"
@@ -23,7 +23,7 @@
   unique_id: "sensor.kitchen_humidity"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/13/t67xx"
+  state_topic: "megad_mqtt_bridge/mega3/1/t67xx"
   value_template: "{{ value_json.value.co2 }}"
   name: "Kitchen CO2"
   unit_of_measurement: "ppm"

@@ -1,11 +1,11 @@
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/3"
+  state_topic: "megad_mqtt_bridge/mega3/3"
   value_template: "{{ value_json.value }}"
   name: "Kitchen work light button"
   unique_id: "binary_sensor.kitchen_work_light_button"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/2"
+  state_topic: "megad_mqtt_bridge/mega3/4"
   value_template: "{{ value_json.value }}"
   payload_off: "ON"
   payload_on: "OFF"
@@ -21,7 +21,7 @@
   unique_id: "binary_sensor.kitchen_moisture"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/12"
+  state_topic: "megad_mqtt_bridge/mega3/2"
   value_template: "{{ value_json.value }}"
   name: "Kitchen motion"
   device_class: motion
