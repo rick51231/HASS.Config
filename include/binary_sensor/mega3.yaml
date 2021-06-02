@@ -5,3 +5,17 @@
   device_class: connectivity
   off_delay: 60
   unique_id: "binary_sensor.mega3_online"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/6"
+  value_template: "{{ value_json.value }}"
+  name: "Mega 3 AC"
+  device_class: power
+  unique_id: "binary_sensor.mega3_ac"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/5"
+  value_template: "{{ value_json.value }}"
+  name: "Mega 3 Battery"
+  device_class: battery
+  unique_id: "binary_sensor.mega3_battery"
