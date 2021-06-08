@@ -71,7 +71,7 @@
   value_template: "22:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
 
 - platform: mqtt
-  unique_id: "switch.kitchen_vent"
+  unique_id: "switch.toilet_vent"
   name: "Toilet vent"
   icon: mdi:fan
   command_topic: "megad_mqtt_bridge/mega3/cmd"
@@ -81,7 +81,7 @@
   value_template: "23:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
 
 - platform: mqtt
-  unique_id: "switch.kitchen_vent"
+  unique_id: "switch.bathroom_vent"
   name: "Bathroom vent"
   icon: mdi:fan
   command_topic: "megad_mqtt_bridge/mega3/cmd"
