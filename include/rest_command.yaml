@@ -4,11 +4,11 @@ tion_remote:
 send_narodmon:
   url: "https://narodmon.ru/post"
   method: POST
-  payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor_temp') }}&P1={{ states('sensor.mega_2_pressure') }}&H1={{ states('sensor.outdoor_humidity') }}&name={{ states('input_text.narodmon_name') }}"
+  payload: "ID={{ states('input_text.narodmon_mac') }}&T1={{ states('sensor.outdoor_temp_combo') }}&P1={{ states('sensor.mega_2_pressure') }}&H1={{ states('sensor.outdoor_hum_combo') }}&name={{ states('input_text.narodmon_name') }}"
 
 send_owm:
   url: "https://openweathermap.org/data/post"
   method: POST
   headers:
     authorization: !secret owm_auth
-  payload: "temp={{ states('sensor.outdoor') }}&pressure={{ (states('sensor.mega_2_pressure') | float * 1.33322) | round(2) }}&humidity={{ states('sensor.outdoor_humidity') }}&lat={{ state_attr('zone.home', 'latitude') }}&long={{ state_attr('zone.home', 'longitude') }}&alt={{ states('input_text.homeassistant_elevation') }}&name={{ states('input_text.narodmon_name') }}"
+  payload: "temp={{ states('sensor.outdoor_temp_combo') }}&pressure={{ (states('sensor.mega_2_pressure') | float * 1.33322) | round(2) }}&humidity={{ states('sensor.outdoor_hum_combo') }}&lat={{ state_attr('zone.home', 'latitude') }}&long={{ state_attr('zone.home', 'longitude') }}&alt={{ states('input_text.homeassistant_elevation') }}&name={{ states('input_text.narodmon_name') }}"
