@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    room_1_climate:
+      unique_id: "sensor.room_1_climate"
+      friendly_name: "Room 1 climate"
+      value_template: "{{states('sensor.room_1_temp')}}{{state_attr('sensor.room_1_temp', 'unit_of_measurement')}} / {{states('sensor.room_1_humidity')}}{{state_attr('sensor.room_1_humidity', 'unit_of_measurement')}} / {{states('sensor.room_1_light')}}{{state_attr('sensor.room_1_light', 'unit_of_measurement')}} / {{states('sensor.room_1_co2')}}{{state_attr('sensor.room_1_co2', 'unit_of_measurement')}}"
