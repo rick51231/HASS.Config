@@ -1,0 +1,22 @@
+- platform: min_max
+  type: min
+  name: "Outdoor temp combo"
+  entity_ids:
+    - sensor.outdoor_temp
+    - sensor.outdoor_2_temp
+    - sensor.1w_vent_temp
+    - sensor.1w_outdoor_temp
+
+- platform: min_max
+  type: mean
+  name: "Outdoor hum combo"
+  entity_ids:
+    - sensor.outdoor_humidity
+    - sensor.outdoor_2_humidity
+
+- platform: min_max
+  type: min
+  name: "Outdoor light combo"
+  entity_ids:
+    - sensor.outdoor_light
+    - sensor.outdoor_2_light
