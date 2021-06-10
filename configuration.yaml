@@ -37,6 +37,7 @@ recorder:
     entities:
       - sensor.date_time
       - sensor.time
+      - sensor.room_1_climate
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
@@ -74,6 +75,7 @@ history:
       - input_text.narodmon_name
       - input_text.homeassistant_elevation
       - binary_sensor.room_1_occupied
+      - sensor.room_1_climate
 
 logbook:
   exclude:
@@ -91,6 +93,7 @@ logbook:
       - input_text.narodmon_name
       - input_text.homeassistant_elevation
       - binary_sensor.room_1_occupied
+      - sensor.room_1_climate
 
 mqtt:
   broker: !secret mqtt_host
