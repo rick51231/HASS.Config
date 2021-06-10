@@ -4,3 +4,35 @@
       unique_id: "sensor.room_1_climate"
       friendly_name: "Room 1 climate"
       value_template: "{{states('sensor.room_1_temp')}}{{state_attr('sensor.room_1_temp', 'unit_of_measurement')}} / {{states('sensor.room_1_humidity')}}{{state_attr('sensor.room_1_humidity', 'unit_of_measurement')}} / {{states('sensor.room_1_light')}}{{state_attr('sensor.room_1_light', 'unit_of_measurement')}} / {{states('sensor.room_1_co2')}}{{state_attr('sensor.room_1_co2', 'unit_of_measurement')}}"
+    room_2_climate:
+      unique_id: "sensor.room_2_climate"
+      friendly_name: "Room 2 climate"
+      value_template: "{{states('sensor.room_2_temp')}}{{state_attr('sensor.room_2_temp', 'unit_of_measurement')}} / {{states('sensor.room_2_humidity')}}{{state_attr('sensor.room_2_humidity', 'unit_of_measurement')}} / {{states('sensor.room_2_light')}}{{state_attr('sensor.room_2_light', 'unit_of_measurement')}}"
+    room_3_climate:
+      unique_id: "sensor.room_3_climate"
+      friendly_name: "Room 3 climate"
+      value_template: "{{states('sensor.room_3_temp')}}{{state_attr('sensor.room_3_temp', 'unit_of_measurement')}} / {{states('sensor.room_3_humidity')}}{{state_attr('sensor.room_3_humidity', 'unit_of_measurement')}} / {{states('sensor.room_3_light')}}{{state_attr('sensor.room_3_light', 'unit_of_measurement')}} / {{states('sensor.room_3_co2')}}{{state_attr('sensor.room_3_co2', 'unit_of_measurement')}}"
+    kitchen_climate:
+      unique_id: "sensor.kitchen_climate"
+      friendly_name: "Kitchen climate"
+      value_template: "{{states('sensor.kitchen_temp')}}{{state_attr('sensor.kitchen_temp', 'unit_of_measurement')}} / {{states('sensor.kitchen_humidity')}}{{state_attr('sensor.kitchen_humidity', 'unit_of_measurement')}} / {{states('sensor.kitchen_light')}}{{state_attr('sensor.kitchen_light', 'unit_of_measurement')}} / {{states('sensor.kitchen_co2')}}{{state_attr('sensor.kitchen_co2', 'unit_of_measurement')}}"
+    toilet_climate:
+      unique_id: "sensor.toilet_climate"
+      friendly_name: "Toilet climate"
+      value_template: "{{states('sensor.toilet_temp')}}{{state_attr('sensor.toilet_temp', 'unit_of_measurement')}} / {{states('sensor.toilet_humidity')}}{{state_attr('sensor.toilet_humidity', 'unit_of_measurement')}} / {{states('sensor.toilet_light')}}{{state_attr('sensor.toilet_light', 'unit_of_measurement')}}"
+    bathroom_climate:
+      unique_id: "sensor.bathroom_climate"
+      friendly_name: "Bathroom climate"
+      value_template: "{{states('sensor.bathroom_temp')}}{{state_attr('sensor.bathroom_temp', 'unit_of_measurement')}} / {{states('sensor.bathroom_humidity')}}{{state_attr('sensor.bathroom_humidity', 'unit_of_measurement')}} / {{states('sensor.bathroom_light')}}{{state_attr('sensor.bathroom_light', 'unit_of_measurement')}}"
+    hall_climate:
+      unique_id: "sensor.hall_climate"
+      friendly_name: "Hall climate"
+      value_template: "{{states('sensor.hall_temp')}}{{state_attr('sensor.hall_temp', 'unit_of_measurement')}} / {{states('sensor.hall_humidity')}}{{state_attr('sensor.hall_humidity', 'unit_of_measurement')}} / {{states('sensor.hall_light')}}{{state_attr('sensor.hall_light', 'unit_of_measurement')}}"
+    corner_climate:
+      unique_id: "sensor.corner_climate"
+      friendly_name: "Corner climate"
+      value_template: "{{states('sensor.corner_temp')}}{{state_attr('sensor.corner_temp', 'unit_of_measurement')}} / {{states('sensor.corner_humidity')}}{{state_attr('sensor.corner_humidity', 'unit_of_measurement')}} / {{states('sensor.corner_light')}}{{state_attr('sensor.corner_light', 'unit_of_measurement')}}"
+    door_climate:
+      unique_id: "sensor.door_climate"
+      friendly_name: "Door climate"
+      value_template: "{{states('sensor.door_temp')}}{{state_attr('sensor.door_temp', 'unit_of_measurement')}} / {{states('sensor.door_humidity')}}{{state_attr('sensor.door_humidity', 'unit_of_measurement')}} / {{states('sensor.door_light')}}{{state_attr('sensor.door_light', 'unit_of_measurement')}}"

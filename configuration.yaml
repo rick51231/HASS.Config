@@ -38,6 +38,14 @@ recorder:
       - sensor.date_time
       - sensor.time
       - sensor.room_1_climate
+      - sensor.room_2_climate
+      - sensor.room_3_climate
+      - sensor.kitchen_climate
+      - sensor.toilet_climate
+      - sensor.bathroom_climate
+      - sensor.hall_climate
+      - sensor.corner_climate
+      - sensor.door_climate
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
@@ -76,6 +84,14 @@ history:
       - input_text.homeassistant_elevation
       - binary_sensor.room_1_occupied
       - sensor.room_1_climate
+      - sensor.room_2_climate
+      - sensor.room_3_climate
+      - sensor.kitchen_climate
+      - sensor.toilet_climate
+      - sensor.bathroom_climate
+      - sensor.hall_climate
+      - sensor.corner_climate
+      - sensor.door_climate
 
 logbook:
   exclude:
@@ -94,6 +110,14 @@ logbook:
       - input_text.homeassistant_elevation
       - binary_sensor.room_1_occupied
       - sensor.room_1_climate
+      - sensor.room_2_climate
+      - sensor.room_3_climate
+      - sensor.kitchen_climate
+      - sensor.toilet_climate
+      - sensor.bathroom_climate
+      - sensor.hall_climate
+      - sensor.corner_climate
+      - sensor.door_climate
 
 mqtt:
   broker: !secret mqtt_host
