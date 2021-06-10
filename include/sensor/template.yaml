@@ -36,3 +36,7 @@
       unique_id: "sensor.door_climate"
       friendly_name: "Door climate"
       value_template: "{{states('sensor.door_temp')}}{{state_attr('sensor.door_temp', 'unit_of_measurement')}} / {{states('sensor.door_humidity')}}{{state_attr('sensor.door_humidity', 'unit_of_measurement')}} / {{states('sensor.door_light')}}{{state_attr('sensor.door_light', 'unit_of_measurement')}}"
+    outdoor_climate:
+      unique_id: "sensor.outdoor_climate"
+      friendly_name: "Outdoor climate"
+      value_template: "{{states('sensor.outdoor_temp_combo')}}{{state_attr('sensor.outdoor_temp_combo', 'unit_of_measurement')}} / {{states('sensor.outdoor_hum_combo')}}{{state_attr('sensor.outdoor_hum_combo', 'unit_of_measurement')}} / {{states('sensor.outdoor_light_combo')}}{{state_attr('sensor.outdoor_light_combo', 'unit_of_measurement')}} / {{states('sensor.mega_2_pressure')}}{{state_attr('sensor.mega_2_pressure', 'unit_of_measurement')}}"
