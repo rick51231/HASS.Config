@@ -148,13 +148,12 @@
 - alias: Bathroom vent off
   trigger:
     platform: state
-    entity_id: binary_sensor.bathroom_door
+    entity_id: light.bathroom_light_led
     to: 'off'
     for:
       minutes: 10
   condition:
     - "{{ is_state('input_boolean.bathroom_led_auto', 'on') }}"
-    - "{{ is_state('light.bathroom_light_led', 'off') }}"
   action:
     - service: switch.turn_off
       data:
