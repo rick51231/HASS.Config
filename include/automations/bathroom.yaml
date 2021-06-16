@@ -129,3 +129,52 @@
         entity_id: light.bathroom_mirror_light_led
         brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}100{%endif%}"
     - delay: '00:00:01'
+
+- alias: Bathroom vent on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'off'
+    for:
+      seconds: 30
+  condition:
+    - "{{ is_state('input_boolean.bathroom_led_auto', 'on') }}"
+    - "{{ is_state('light.bathroom_light_led', 'on') }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bathroom_vent
+
+- alias: Bathroom vent off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+    - "{{ is_state('input_boolean.bathroom_led_auto', 'on') }}"
+    - "{{ is_state('light.bathroom_light_led', 'off') }}"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bathroom_vent
+
+- alias: Bathroom vent by humidity
+  mode: restart
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.bathroom_humidity
+      - sensor.hall_humidity
+  condition:
+    - "{{ is_state('input_boolean.bathroom_led_auto', 'on') }}"
+    - "{{ states('sensor.bathroom_humidity') | float - states('sensor.hall_humidity') | float > 10 }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bathroom_vent
+    - delay: '00:30:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bathroom_vent
