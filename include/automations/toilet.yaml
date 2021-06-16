@@ -70,3 +70,33 @@
     data:
       entity_id: light.toilet_light_led
       brightness_pct: "{{ states('input_number.toilet_led_bri') | int }}"
+
+- alias: Toilet vent on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.toilet_door
+    to: 'off'
+    for:
+      seconds: 10
+  condition:
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('light.toilet_light_led', 'on') }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.toilet_vent
+
+- alias: Toilet vent off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.toilet_door
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('light.toilet_light_led', 'off') }}"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.toilet_vent
