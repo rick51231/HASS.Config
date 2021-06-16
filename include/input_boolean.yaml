@@ -18,6 +18,10 @@ hall_led_auto:
   name: "Авто свет коридор"
   icon: mdi:brightness-5
 
+kitchen_led_auto:
+  name: "Авто свет кухня"
+  icon: mdi:brightness-5
+
 tion_auto:
   name: "TION Auto"
   icon: mdi:fan
