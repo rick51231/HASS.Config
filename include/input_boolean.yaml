@@ -29,3 +29,7 @@ tion_auto:
 inhome_security:
   name: "Inhome security"
   icon: mdi:security
+
+water_boiler_auto:
+  name: "Авто бойлер"
+  icon: mdi:water-boiler

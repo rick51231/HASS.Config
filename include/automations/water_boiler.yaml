@@ -3,8 +3,9 @@
     platform: state
     entity_id: sensor.time
   condition:
+    - "{{ is_state('input_boolean.water_boiler_auto', 'on') }}"
     - "{{ is_state('switch.water_boiler', 'on') }}"
-    - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour >= 17 or hour <= 9 }}"
+    - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ (hour >= 17 or hour <= 9) or states('sensor.toilet_water_1_temp') | int > 30 }}"
   action:
     - service: switch.turn_off
       data:
@@ -15,8 +16,10 @@
     platform: state
     entity_id: sensor.time
   condition:
+    - "{{ is_state('input_boolean.water_boiler_auto', 'on') }}"
     - "{{ is_state('switch.water_boiler', 'off') }}"
     - "{% set hour = states('sensor.time').split(':')[0] | int %}{{ hour < 17 and hour > 9 }}"
+    - "{{ states('sensor.toilet_water_1_temp') | int < 30 }}"
   action:
     - service: switch.turn_on
       data:
