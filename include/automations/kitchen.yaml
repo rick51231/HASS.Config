@@ -28,3 +28,20 @@
   action:
     service: light.turn_off
     entity_id: light.kitchen_top_storage_light_led
+
+- alias: Kitchen vent by CO2
+  mode: restart
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_co2
+  condition:
+    - "{{ is_state('input_boolean.kitchen_led_auto', 'on') }}"
+    - "{{ states('sensor.kitchen_co2') | float > 1000 }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_vent
+    - delay: '00:10:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_vent
