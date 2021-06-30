@@ -127,7 +127,7 @@
     - service: light.turn_on
       data:
         entity_id: light.bathroom_mirror_light_led
-        brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}100{%endif%}"
+        brightness_pct: "{%if state_attr('light.bathroom_mirror_light_led', 'brightness')|int == 255%}{%if is_state('light.bathroom_light_led', 'on')%}{{ states('input_number.bathroom_led_bri') | int }}{%else%}0{%endif%}{%else%}{%if is_state('light.bathroom_light_led', 'on')%}100{%else%}0{%endif%}{%endif%}"
     - delay: '00:00:01'
 
 - alias: Bathroom vent on
