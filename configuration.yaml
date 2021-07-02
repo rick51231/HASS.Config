@@ -46,6 +46,7 @@ recorder:
       - sensor.hall_climate
       - sensor.corner_climate
       - sensor.door_climate
+      - sensor.outdoor_climate
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
@@ -92,6 +93,7 @@ history:
       - sensor.hall_climate
       - sensor.corner_climate
       - sensor.door_climate
+      - sensor.outdoor_climate
 
 logbook:
   exclude:
@@ -118,6 +120,7 @@ logbook:
       - sensor.hall_climate
       - sensor.corner_climate
       - sensor.door_climate
+      - sensor.outdoor_climate
 
 mqtt:
   broker: !secret mqtt_host
