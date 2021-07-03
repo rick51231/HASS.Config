@@ -45,3 +45,13 @@
     - service: switch.turn_off
       data:
         entity_id: switch.kitchen_vent
+
+- alias: Kitchen fridge storage light
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_fridge_storage_door
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_fridge_storage_light_led
+      brightness_pct: "{%if trigger.to_state.state == 'off' %}0{%else%}100{%endif%}"
