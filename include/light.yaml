@@ -117,3 +117,12 @@
   rgb: true
   optimistic: false
   qos: 0
+
+- platform: mqtt
+  name: "Kitchen fridge storage light LED"
+  unique_id: "light.kitchen_fridge_storage_light_led"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  payload_off: "39e14:0"
+  brightness_command_topic: "megad_mqtt_bridge/mega3/cmd-ext-bri/39e14"
+  brightness_scale: 100
+  on_command_type: 'brightness'
