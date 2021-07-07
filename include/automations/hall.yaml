@@ -57,6 +57,30 @@
     service: light.turn_off
     entity_id: light.hall_storage_light_led
 
+- alias: Hall light switch toilet
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_light_switch_toilet
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.toilet_bulb
+        - light.toilet_light_led
+      brightness_pct: "{%if trigger.to_state.state == 'off' %}0{%else%}100{%endif%}"
+
+- alias: Hall light switch bathroom
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_light_switch_bathroom
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.bathroom_bulb
+        - light.bathroom_light_led
+      brightness_pct: "{%if trigger.to_state.state == 'off' %}0{%else%}100{%endif%}"
+
 - alias: Hall light switch hall
   trigger:
     platform: state
