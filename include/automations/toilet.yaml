@@ -3,7 +3,9 @@
     platform: state
     entity_id: binary_sensor.toilet_door
     to: 'on'
-  condition: "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+  condition:
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
   action:
     service: light.turn_on
     data:
@@ -19,6 +21,7 @@
       seconds: 7
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
     - condition: state
       entity_id: binary_sensor.toilet_motion
       state: 'off'
@@ -33,6 +36,7 @@
     to: 'on'
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
     - condition: state
       entity_id: binary_sensor.toilet_door
       state: 'off'
@@ -51,6 +55,7 @@
       minutes: 1
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
     - condition: state
       entity_id: binary_sensor.toilet_door
       state: 'off'
@@ -64,6 +69,7 @@
     entity_id: input_number.toilet_led_bri
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
     - "{{ is_state('light.toilet_light_led', 'on') }}"
   action:
     service: light.turn_on
