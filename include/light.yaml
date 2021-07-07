@@ -126,3 +126,30 @@
   brightness_command_topic: "megad_mqtt_bridge/mega3/cmd-ext-bri/39e14"
   brightness_scale: 100
   on_command_type: 'brightness'
+
+- platform: mqtt
+  name: "Toilet bulb"
+  unique_id: "light.toilet_bulb"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  payload_off: "10:0"
+  payload_on: "10:1"
+  state_topic: "megad_mqtt_bridge/mega3/10"
+  state_value_template: "10:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
+
+- platform: mqtt
+  name: "Bathroom bulb"
+  unique_id: "light.bathroom_bulb"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  payload_off: "11:0"
+  payload_on: "11:1"
+  state_topic: "megad_mqtt_bridge/mega3/11"
+  state_value_template: "11:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
+
+- platform: mqtt
+  name: "Hall bulb"
+  unique_id: "light.hall_bulb"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  payload_off: "12:0"
+  payload_on: "12:1"
+  state_topic: "megad_mqtt_bridge/mega3/12"
+  state_value_template: "12:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
