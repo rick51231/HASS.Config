@@ -23,7 +23,7 @@
   unique_id: "sensor.outdoor_humidity"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/43/max44009"
+  state_topic: "megad_mqtt_bridge/mega3/44/max44009"
   value_template: "{{ value_json.value.light }}"
   name: "Outdoor 2 light"
   unit_of_measurement: "lx"
@@ -31,7 +31,7 @@
   unique_id: "sensor.outdoor_2_light"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/43"
+  state_topic: "megad_mqtt_bridge/mega3/44"
   value_template: "{{ value_json.value.temp }}"
   name: "Outdoor 2 temp"
   unit_of_measurement: "°C"
@@ -39,7 +39,7 @@
   unique_id: "sensor.outdoor_2_temp"
 
 - platform: mqtt
-  state_topic: "megad_mqtt_bridge/mega1/43"
+  state_topic: "megad_mqtt_bridge/mega3/44"
   value_template: "{{ value_json.value.hum }}"
   name: "Outdoor 2 humidity"
   unit_of_measurement: "%"
