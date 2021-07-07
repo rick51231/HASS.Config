@@ -13,3 +13,21 @@
   name: "Hall storage door"
   device_class: door
   unique_id: "binary_sensor.hall_storage_door"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/15"
+  value_template: "{{ value_json.value }}"
+  name: "Hall Light Switch Toilet"
+  unique_id: "binary_sensor.hall_light_switch_toilet"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/16"
+  value_template: "{{ value_json.value }}"
+  name: "Hall Light Switch Bathroom"
+  unique_id: "binary_sensor.hall_light_switch_bathroom"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/17"
+  value_template: "{{ value_json.value }}"
+  name: "Hall Light Switch Hall"
+  unique_id: "binary_sensor.hall_light_switch_hall"
