@@ -56,3 +56,15 @@
   action:
     service: light.turn_off
     entity_id: light.hall_storage_light_led
+
+- alias: Hall light switch hall
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall_light_switch_hall
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.hall_bulb
+        - light.hall_light_led
+      brightness_pct: "{%if trigger.to_state.state == 'off' %}0{%else%}100{%endif%}"
