@@ -46,6 +46,25 @@
       data:
         entity_id: switch.kitchen_vent
 
+- alias: Kitchen vent by humidity
+  mode: restart
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.kitchen_humidity
+      - sensor.hall_humidity
+  condition:
+    - "{{ is_state('input_boolean.kitchen_led_auto', 'on') }}"
+    - "{{ states('sensor.kitchen_humidity') | float - states('sensor.hall_humidity') | float > 10 }}"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kitchen_vent
+    - delay: '00:10:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.kitchen_vent
+
 - alias: Kitchen fridge storage light
   trigger:
     platform: state
