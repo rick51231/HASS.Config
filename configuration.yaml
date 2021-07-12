@@ -10,6 +10,14 @@ homeassistant:
   time_zone: !secret homeassistant_timezone
   external_url: !secret homeassistant_external_url
   internal_url: !secret homeassistant_internal_url
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.147/32
+      trusted_users:
+        192.168.1.147: 387e66a8ee7342d59914ff295ad6f78d
+      allow_bypass_login: true
 
 # lovelace:
 #   mode: yaml
