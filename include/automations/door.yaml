@@ -96,3 +96,15 @@
     - service: notify.notify_all
       data:
         message: "Warning! Door is opened for too long"
+
+- alias: Unifi doorbell ring
+  trigger:
+    platform: event
+    event_type: unifiprotect_doorbell
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Somebody ringing!"
+    - service: script.ring
+      data:
+        duration: 20
