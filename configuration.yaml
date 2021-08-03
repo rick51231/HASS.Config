@@ -18,6 +18,8 @@ homeassistant:
       trusted_users:
         192.168.1.147: 387e66a8ee7342d59914ff295ad6f78d
       allow_bypass_login: true
+  whitelist_external_dirs:
+    - /tmp
 
 # lovelace:
 #   mode: yaml
