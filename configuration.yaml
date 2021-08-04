@@ -20,6 +20,7 @@ homeassistant:
       allow_bypass_login: true
   whitelist_external_dirs:
     - /tmp
+    - /home/user/.homeassistant/deepstack
 
 # lovelace:
 #   mode: yaml
@@ -184,3 +185,19 @@ telegram_bot:
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
+
+image_processing:
+  - platform: deepstack_face
+    ip_address: localhost
+    port: 80
+    api_key: mysecretkey
+    timeout: 5
+    detect_only: False
+    save_file_folder: /home/user/.homeassistant/deepstack/snapshots/
+    save_timestamped_file: True
+    save_faces: True
+    save_faces_folder: /home/user/.homeassistant/deepstack/faces/
+    show_boxes: False
+    source:
+      - entity_id: camera.floor_5
+        name: face_floor_5
