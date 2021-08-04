@@ -102,9 +102,17 @@
     platform: event
     event_type: unifiprotect_doorbell
   action:
-    - service: notify.notify_all
-      data:
-        message: "Somebody ringing!"
     - service: script.ring
       data:
         duration: 20
+    - service: notify.notify_all
+      data:
+        message: "Somebody ringing!"
+    - service: unifiprotect.save_thumbnail_image
+      data:
+        entity_id: camera.uvc_g4_doorbell
+        filename: /tmp/camera_doorbell.jpg
+    - service: notify.tg_me
+      data:
+        photo:
+          - file: /tmp/camera_doorbell.jpg
