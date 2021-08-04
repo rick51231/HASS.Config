@@ -120,3 +120,14 @@
         data:
           photo:
             - file: /tmp/camera_doorbell.jpg
+
+- alias: Face test
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  action:
+    - service: unifiprotect.set_doorbell_lcd_message
+      data:
+        entity_id: camera.floor_5
+        message: "Hi, {{ event_data.name }}"
+        duration: 1
