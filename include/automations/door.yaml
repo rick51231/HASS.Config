@@ -114,5 +114,7 @@
         filename: /tmp/camera_doorbell.jpg
     - service: notify.tg_me
       data:
-        photo:
-          - file: /tmp/camera_doorbell.jpg
+        message: "Somebody ringing!"
+        data:
+          photo:
+            - file: /tmp/camera_doorbell.jpg
