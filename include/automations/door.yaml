@@ -110,7 +110,7 @@
         message: "Somebody ringing!"
     - service: unifiprotect.save_thumbnail_image
       data:
-        entity_id: camera.uvc_g4_doorbell
+        entity_id: camera.floor_5
         filename: /tmp/camera_doorbell.jpg
     - service: notify.tg_me
       data:
