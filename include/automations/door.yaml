@@ -129,5 +129,5 @@
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
-        message: "Hi, {{ event_data.name }}"
+        message: "Hi, {{ trigger.event.data.name }}"
         duration: 1
