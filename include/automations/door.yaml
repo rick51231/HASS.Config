@@ -108,6 +108,8 @@
     - service: notify.notify_all
       data:
         message: "Somebody ringing!"
+        data:
+          entity_id: camera.floor_5
     - service: unifiprotect.save_thumbnail_image
       data:
         entity_id: camera.floor_5
