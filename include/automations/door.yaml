@@ -131,7 +131,7 @@
     platform: event
     event_type: image_processing.detect_face
   condition:
-    - "{{ trigger.event.data.confidence | int > 70 }}"
+    - "{{ trigger.event.data.confidence | int > 80 }}"
   action:
     - service: script.open_main_door
     - service: unifiprotect.set_doorbell_lcd_message
