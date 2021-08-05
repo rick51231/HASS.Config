@@ -81,6 +81,16 @@
   state_topic: "megad_mqtt_bridge/mega3/24"
   value_template: "24:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
 
+- platform: mqtt
+  unique_id: "switch.ring"
+  name: "Ring"
+  icon: mdi:bell
+  command_topic: "megad_mqtt_bridge/mega2/cmd"
+  payload_off: "35:0"
+  payload_on: "35:1"
+  state_topic: "megad_mqtt_bridge/mega2/35"
+  value_template: "35:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
+
 - platform: command_line
   switches:
     balcony_rgb_light:
