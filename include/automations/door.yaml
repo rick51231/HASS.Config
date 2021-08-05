@@ -133,6 +133,7 @@
   condition:
     - "{{ trigger.event.data.confidence | int > 70 }}"
   action:
+    - service: script.open_main_door
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
