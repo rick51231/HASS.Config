@@ -150,3 +150,14 @@
         entity_id: camera.floor_5
         message: ""
         duration: 0
+
+- alias: Face test
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  condition:
+    - "{{ trigger.event.data.confidence | int <= 70 }}"
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Scanned {{ trigger.event.data.name }} face with confidence {{ trigger.event.data.confidence }}"
