@@ -110,9 +110,14 @@
         message: "Somebody ringing!"
         data:
           entity_id: camera.floor_5
-    - service: unifiprotect.save_thumbnail_image
-      data:
+    - service: image_processing.scan
+      target:
+        entity_id:
+          - image_processing.face_floor_5
+    - service: camera.snapshot
+      target:
         entity_id: camera.floor_5
+      data:
         filename: /tmp/camera_doorbell.jpg
     - service: notify.tg_me
       data:
