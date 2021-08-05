@@ -102,9 +102,6 @@
     platform: event
     event_type: unifiprotect_doorbell
   action:
-    - service: script.ring
-      data:
-        duration: 20
     - service: notify.notify_all
       data:
         message: "Somebody ringing!"
@@ -125,6 +122,11 @@
         data:
           photo:
             - file: /tmp/camera_doorbell.jpg
+    - service: switch.turn_on
+      entity_id: switch.ring
+    - delay: '00:00:02'
+    - service: switch.turn_off
+      entity_id: switch.ring
 
 - alias: Face test
   trigger:
