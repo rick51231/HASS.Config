@@ -130,9 +130,17 @@
   trigger:
     platform: event
     event_type: image_processing.detect_face
+  condition:
+    - "{{ trigger.event.data.confidence | int > 70 }}"
   action:
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
         message: "Hi, {{ trigger.event.data.name }}"
         duration: 1
+    - delay: "00:00:10"
+    - service: unifiprotect.set_doorbell_lcd_message
+      data:
+        entity_id: camera.floor_5
+        message: ""
+        duration: 0
