@@ -136,6 +136,9 @@
     - "{{ trigger.event.data.confidence | int > 70 }}"
   action:
     - service: script.open_main_door
+    - service: notify.notify_all
+      data:
+        message: "Opened door for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
