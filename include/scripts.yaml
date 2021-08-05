@@ -29,3 +29,10 @@ ring:
       data:
         topic: "megad_mqtt_bridge/mega2/cmd"
         payload: "35:1;p{{ duration }};35:0"
+
+open_main_door:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "megad_mqtt_bridge/mega2/cmd"
+        payload: "38e8:4095;p10;38e8:0"
