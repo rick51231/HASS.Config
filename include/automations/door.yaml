@@ -139,10 +139,11 @@
     - service: notify.notify_all
       data:
         message: "Opened door for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
-    - service: notify.tg_me
+    - service: system_log.write
       data:
         message: "Face debug: {{ trigger.event.data }}"
-        parse_mode: "html"
+        level: warning
+        logger: deepstack
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
@@ -165,7 +166,8 @@
     - service: notify.notify_all
       data:
         message: "Scanned {{ trigger.event.data.name }} face with confidence {{ trigger.event.data.confidence }}"
-    - service: notify.tg_me
+    - service: system_log.write
       data:
         message: "Face debug: {{ trigger.event.data }}"
-        parse_mode: "html"
+        level: warning
+        logger: deepstack
