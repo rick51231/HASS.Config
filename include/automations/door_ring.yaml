@@ -1,0 +1,105 @@
+- alias: Unifi doorbell ring
+  trigger:
+    platform: event
+    event_type: unifiprotect_doorbell
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Somebody ringing!"
+        data:
+          entity_id: camera.floor_5
+    - service: image_processing.scan
+      target:
+        entity_id:
+          - image_processing.face_floor_5
+    - service: camera.snapshot
+      target:
+        entity_id: camera.floor_5
+      data:
+        filename: /tmp/camera_doorbell.jpg
+    - service: notify.tg_me
+      data:
+        message: "Somebody ringing!"
+        data:
+          photo:
+            - file: /tmp/camera_doorbell.jpg
+    - service: timer.start
+      target:
+        entity_id: timer.door_face_scan
+
+- alias: Door face scanner timeout
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.door_face_scan
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ring
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.ring
+    - delay: '00:00:01'
+    - service: switch.turn_on
+      entity_id: switch.ring
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.ring
+
+- alias: Face successful scan
+  mode: restart
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  condition:
+    - "{{ trigger.event.data.confidence | int > 70 }}"
+  action:
+    - service: script.open_main_door
+    - service: timer.stop
+      target:
+        entity_id: timer.door_face_scan
+    - service: notify.notify_all
+      data:
+        message: "Opened door for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
+    - service: system_log.write
+      data:
+        message: "Face debug: {{ trigger.event.data }}"
+        level: warning
+        logger: deepstack
+    - service: unifiprotect.set_doorbell_lcd_message
+      data:
+        entity_id: camera.floor_5
+        message: "Hi, {{ trigger.event.data.name }}"
+        duration: 1
+    - delay: "00:00:10"
+    - service: unifiprotect.set_doorbell_lcd_message
+      data:
+        entity_id: camera.floor_5
+        message: ""
+        duration: 0
+
+- alias: Face unsuccessful scan
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  condition:
+    - "{{ trigger.event.data.confidence | int <= 70 }}"
+  action:
+    - service: timer.finish
+      target:
+        entity_id: timer.door_face_scan
+    - service: notify.notify_all
+      data:
+        message: "Scanned {{ trigger.event.data.name }} face with confidence {{ trigger.event.data.confidence }}"
+
+- alias: Face scan debug
+  mode: parallel
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  action:
+    - service: system_log.write
+      data:
+        message: "Face debug: {{ trigger.event.data }}"
+        level: warning
+        logger: deepstack
