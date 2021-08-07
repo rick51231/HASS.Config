@@ -55,7 +55,7 @@
     - "{{ trigger.event.data.confidence | int > 70 }}"
   action:
     - service: script.open_main_door
-    - service: timer.stop
+    - service: timer.cancel
       target:
         entity_id: timer.door_face_scan
     - service: notify.notify_all
