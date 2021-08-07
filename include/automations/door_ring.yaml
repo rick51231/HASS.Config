@@ -36,13 +36,13 @@
   action:
     - service: switch.turn_on
       entity_id: switch.ring
-    - delay: '00:00:01'
+    - delay: '00:00:00.500'
     - service: switch.turn_off
       entity_id: switch.ring
-    - delay: '00:00:01'
+    - delay: '00:00:00.500'
     - service: switch.turn_on
       entity_id: switch.ring
-    - delay: '00:00:01'
+    - delay: '00:00:00.500'
     - service: switch.turn_off
       entity_id: switch.ring
 
