@@ -61,11 +61,6 @@
     - service: notify.notify_all
       data:
         message: "Opened door for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
-    - service: system_log.write
-      data:
-        message: "Face debug: {{ trigger.event.data }}"
-        level: warning
-        logger: deepstack
     - service: unifiprotect.set_doorbell_lcd_message
       data:
         entity_id: camera.floor_5
