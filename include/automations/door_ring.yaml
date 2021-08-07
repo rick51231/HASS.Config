@@ -54,10 +54,10 @@
   condition:
     - "{{ trigger.event.data.confidence | int > 70 }}"
   action:
-    - service: script.open_main_door
     - service: timer.cancel
       target:
         entity_id: timer.door_face_scan
+    - service: script.open_main_door
     - service: notify.notify_all
       data:
         message: "Opened door for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
