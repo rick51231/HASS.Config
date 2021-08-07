@@ -8,6 +8,9 @@
         message: "Somebody ringing!"
         data:
           entity_id: camera.floor_5
+    - service: timer.start
+      target:
+        entity_id: timer.door_face_scan
     - service: image_processing.scan
       target:
         entity_id:
@@ -23,9 +26,6 @@
         data:
           photo:
             - file: /tmp/camera_doorbell.jpg
-    - service: timer.start
-      target:
-        entity_id: timer.door_face_scan
 
 - alias: Door face scanner timeout
   trigger:
@@ -53,6 +53,7 @@
     event_type: image_processing.detect_face
   condition:
     - "{{ trigger.event.data.confidence | int > 70 }}"
+    - "{{ is_state('timer.door_face_scan', 'active') }}"
   action:
     - service: timer.cancel
       target:
@@ -72,6 +73,19 @@
         entity_id: camera.floor_5
         message: ""
         duration: 0
+
+- alias: Face successful scan delayed
+  mode: restart
+  trigger:
+    platform: event
+    event_type: image_processing.detect_face
+  condition:
+    - "{{ trigger.event.data.confidence | int > 70 }}"
+    - "{{ not is_state('timer.door_face_scan', 'active') }}"
+  action:
+    - service: notify.notify_all
+      data:
+        message: "Delayed face scan for {{ trigger.event.data.name }} with confidence {{ trigger.event.data.confidence }}"
 
 - alias: Face unsuccessful scan
   trigger:
