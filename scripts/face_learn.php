@@ -5,7 +5,7 @@ $d = opendir($learn_dir);
 
 
 while($face = readdir($d)) {
-	if(!preg_match('/^([a-z]*)$/i', $d))
+	if(!preg_match('/^([a-z]*)$/i', $face))
 		continue;
 
 	learn_face($face);
@@ -45,4 +45,5 @@ function learn_face($name) {
 	curl_close($ch);
 
 	echo "Done in ".round(microtime(true)-$start, 3)."s, result: ".$result."\n";
+	system('docker restart deepstack');
 }
