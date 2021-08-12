@@ -1,4 +1,6 @@
 - alias: Unifi doorbell ring
+  mode: single
+  max_exceeded: silent
   trigger:
     platform: event
     event_type: unifiprotect_doorbell
@@ -26,6 +28,7 @@
         data:
           photo:
             - file: /tmp/camera_doorbell.jpg
+    - delay: '00:00:02'
 
 - alias: Door face scanner timeout
   trigger:
