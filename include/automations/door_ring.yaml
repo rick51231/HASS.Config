@@ -83,7 +83,7 @@
     platform: event
     event_type: image_processing.detect_face
   condition:
-    - "{{ trigger.event.data.confidence | int > 70 }}"
+    - "{{ trigger.event.data.confidence | int > 80 }}"
     - "{{ not is_state('timer.door_face_scan', 'active') }}"
   action:
     - service: notify.notify_all
@@ -95,7 +95,7 @@
     platform: event
     event_type: image_processing.detect_face
   condition:
-    - "{{ trigger.event.data.confidence | int <= 70 }}"
+    - "{{ trigger.event.data.confidence | int <= 80 }}"
   action:
     - service: timer.finish
       target:
