@@ -202,3 +202,19 @@ image_processing:
     source:
       - entity_id: camera.floor_5
         name: face_floor_5
+
+  - platform: deepstack_object
+    ip_address: localhost
+    port: 5000
+    api_key: mysecretkey
+    # custom_model: mask
+    # confidence: 80
+    save_file_folder: /home/user/.homeassistant/deepstack/snapshots_objects/
+    save_file_format: png
+    save_timestamped_file: True
+    always_save_latest_file: True
+    source:
+      - entity_id: camera.floor_5
+        name: object_floor_5
+      - entity_id: camera.floor_4_5
+        name: object_floor_4_5
