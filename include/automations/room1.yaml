@@ -55,6 +55,12 @@
         entity_id: !secret spotify_media_player
         source: Yamaha
     - delay: '00:00:01'
+    - service: media_player.shuffle_set
+      data:
+        shuffle: true
+      target:
+        entity_id: !secret spotify_media_player
+    - delay: '00:00:01'
     - service: media_player.play_media
       data:
         entity_id: !secret spotify_media_player
