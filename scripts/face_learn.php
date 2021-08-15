@@ -46,4 +46,5 @@ function learn_face($name) {
 
 	echo "Done in ".round(microtime(true)-$start, 3)."s, result: ".$result."\n";
 	system('docker restart deepstack');
+	sleep(1);
 }
