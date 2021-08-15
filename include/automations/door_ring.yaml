@@ -55,7 +55,7 @@
     platform: event
     event_type: image_processing.detect_face
   condition:
-    - "{{ trigger.event.data.confidence | int > 70 }}"
+    - "{{ trigger.event.data.confidence | int > 80 }}"
     - "{{ is_state('timer.door_face_scan', 'active') }}"
   action:
     - service: timer.cancel
