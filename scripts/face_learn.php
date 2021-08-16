@@ -1,11 +1,16 @@
 <?php
 $learn_dir = '/home/user/.homeassistant/deepstack/learn';
 
+$dstName = trim(@$argv[1]);
+
 $d = opendir($learn_dir);
 
 
 while($face = readdir($d)) {
 	if(!preg_match('/^([a-z]*)$/i', $face))
+		continue;
+
+	if($dstName!='' && $dstName!=$face)
 		continue;
 
 	learn_face($face);
