@@ -47,12 +47,8 @@ set_timer:
       description: 'Duration in seconds'
       example: '30'
   sequence:
-    - condition: not
-      conditions:
-        - condition: template
-          value_template: "{{ is_state(entity_id, 'active') }}"
-        - condition: template
-          value_template: "{{ as_timestamp(state_attr(entity_id, 'finishes_at'))  - as_timestamp(now()) > duration }}"
+    - condition: template
+      value_template: "{{ not is_state(entity_id, 'active') or as_timestamp(state_attr(entity_id, 'finishes_at'))  - as_timestamp(now()) < duration }}"
     - service: timer.start
       data:
         duration: "{{ duration }}"
