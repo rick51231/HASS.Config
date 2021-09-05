@@ -36,3 +36,26 @@ open_main_door:
       data:
         topic: "megad_mqtt_bridge/mega2/cmd"
         payload: "38e8:4095;p10;38e8:0"
+
+set_timer:
+  alias: 'Set timer duration but no more than current duration'
+  fields:
+    entity_id:
+      description: 'Name(s) of entity of timer'
+      example: 'timer.bathroom_vent'
+    duration:
+      description: 'Duration in seconds'
+      example: '30'
+  sequence:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: "{{ entity_id }}"
+          state: "active"
+        - condition: template
+          value_template: "{{ as_timestamp(state_attr(entity_id, 'finishes_at')  - as_timestamp(now()) > duration }}"
+    - service: timer.start
+      data:
+        duration: "{{ duration }}"
+      target:
+        entity_id: "{{ entity_id }}"
