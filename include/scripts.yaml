@@ -52,7 +52,7 @@ set_timer:
         - condition: tmeplate
           value_template: "{{ is_state(entity_id, 'active') }}"
         - condition: template
-          value_template: "{{ as_timestamp(state_attr(entity_id, 'finishes_at')  - as_timestamp(now()) > duration }}"
+          value_template: "{{ as_timestamp(state_attr(entity_id, 'finishes_at'))  - as_timestamp(now()) > duration }}"
     - service: timer.start
       data:
         duration: "{{ duration }}"
