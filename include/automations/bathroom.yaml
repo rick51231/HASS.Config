@@ -173,5 +173,5 @@
     platform: state
     entity_id: timer.bathroom_vent
   action:
-    - service: "switch.turn_{% if is_state(entity_id, 'active') %}on{%else%}off{%endif%}"
+    - service: "switch.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
       entity_id: timer.bathroom_vent
