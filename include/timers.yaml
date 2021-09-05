@@ -1,2 +1,5 @@
 door_face_scan:
   duration: '00:00:02'
+
+bathroom_vent:
+  duration: '00:30:00'
