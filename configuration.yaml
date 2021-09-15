@@ -171,11 +171,12 @@ homekit:
   name: "HASS Bridge"
   filter:
     include_entities:
-      - sensor.outdoor_temp
+      - sensor.outdoor_temp_combo
       - light.led_yellow
       - light.led
       - light.bulbs
-      - climate.mitsubishi_heavy
+      - climate.mhi_room_1
+      - climate.mhi_room_2
 
 telegram_bot:
   - platform: polling
