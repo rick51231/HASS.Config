@@ -1,70 +1,105 @@
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/Power"
-  name: "mhi power"
+  state_topic: "MHI-AC-Ctrl-Room1/Power"
+  name: "mhi 1 power"
   icon: mdi:power
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/Mode"
-  name: "mhi mode"
+  state_topic: "MHI-AC-Ctrl-Room1/Mode"
+  name: "mhi 1 mode"
   icon: mdi:air-conditioner
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/OUTDOOR"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/OUTDOOR"
   device_class: temperature
-  name: "mhi outdoor temperature"
+  name: "mhi 1 outdoor temperature"
   unit_of_measurement: '°C'
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/CT"
-  name: "mhi current"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/CT"
+  name: "mhi 1 current"
   unit_of_measurement: 'A'
   icon: mdi:current-ac
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/IU-FANSPEED"
-  name: "mhi indoor fan speed"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/IU-FANSPEED"
+  name: "mhi 1 indoor fan speed"
   icon: mdi:fan-speed-1
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/OU-FANSPEED"
-  name: "mhi outdoor fan speed"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/OU-FANSPEED"
+  name: "mhi 1 outdoor fan speed"
   icon: mdi:fan-speed-2
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/TOTAL-IU-RUN"
-  name: "mhi hours indoor unit"
-  unit_of_measurement: 'h'
-  icon: mdi:clock-time-four
-
-- platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/TOTAL-COMP-RUN"
-  name: "mhi hours compressor"
-  unit_of_measurement: 'h'
-  icon: mdi:clock-time-four
-
-- platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/COMP"
-  name: "mhi compressor frequency"
-  unit_of_measurement: 'Hz'
-  icon: mdi:current-ac
-
-- platform: mqtt
-  state_topic: "MHI-AC-Ctrl/Errorcode"
-  name: "mhi errorcode"
+  state_topic: "MHI-AC-Ctrl-Room1/Errorcode"
+  name: "mhi 1 errorcode"
   icon: mdi:alert-circle
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/PROTECTION-NO"
-  name: "mhi protection number compressor"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/PROTECTION-NO"
+  name: "mhi 1 protection number compressor"
   icon: mdi:alert-circle
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/OpData/DEFROST"
-  name: "mhi defrost control"
+  state_topic: "MHI-AC-Ctrl-Room1/OpData/DEFROST"
+  name: "mhi 1 defrost control"
   icon: mdi:car-defrost-front
 
 - platform: mqtt
-  state_topic: "MHI-AC-Ctrl/Tds1820"
+  state_topic: "MHI-AC-Ctrl-Room1/Tds1820"
   device_class: temperature
-  name: "mhi cotroller temperature"
+  name: "mhi 1 cotroller temperature"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/Power"
+  name: "mhi 2 power"
+  icon: mdi:power
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/Mode"
+  name: "mhi 2 mode"
+  icon: mdi:air-conditioner
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/OUTDOOR"
+  device_class: temperature
+  name: "mhi 2 outdoor temperature"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/CT"
+  name: "mhi 2 current"
+  unit_of_measurement: 'A'
+  icon: mdi:current-ac
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/IU-FANSPEED"
+  name: "mhi 2 indoor fan speed"
+  icon: mdi:fan-speed-1
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/OU-FANSPEED"
+  name: "mhi 2 outdoor fan speed"
+  icon: mdi:fan-speed-2
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/Errorcode"
+  name: "mhi 2 errorcode"
+  icon: mdi:alert-circle
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/PROTECTION-NO"
+  name: "mhi 2 protection number compressor"
+  icon: mdi:alert-circle
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/OpData/DEFROST"
+  name: "mhi 2 defrost control"
+  icon: mdi:car-defrost-front
+
+- platform: mqtt
+  state_topic: "MHI-AC-Ctrl-Room2/Tds1820"
+  device_class: temperature
+  name: "mhi 2 cotroller temperature"
   unit_of_measurement: '°C'
