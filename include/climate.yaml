@@ -1,6 +1,6 @@
 - platform: mqtt
   unique_id: mhi0001
-  name: "Mitsubishi Heavy"
+  name: "MHI Room 1"
   initial: 22
   min_temp: 18
   max_temp: 30
@@ -22,12 +22,46 @@
     - "2"
     - "3"
     - "4"
-  mode_command_topic: "MHI-AC-Ctrl/set/Mode"
-  mode_state_topic: "MHI-AC-Ctrl/Mode"
-  temperature_command_topic: "MHI-AC-Ctrl/set/Tsetpoint"
-  temperature_state_topic: "MHI-AC-Ctrl/Tsetpoint"
-  fan_mode_command_topic: "MHI-AC-Ctrl/set/Fan"
-  fan_mode_state_topic: "MHI-AC-Ctrl/Fan"
-  swing_mode_command_topic: "MHI-AC-Ctrl/set/Vanes"
-  swing_mode_state_topic: "MHI-AC-Ctrl/Vanes"
-  current_temperature_topic: "MHI-AC-Ctrl/Troom"
+  mode_command_topic: "MHI-AC-Ctrl-Room1/set/Mode"
+  mode_state_topic: "MHI-AC-Ctrl-Room1/Mode"
+  temperature_command_topic: "MHI-AC-Ctrl-Room1/set/Tsetpoint"
+  temperature_state_topic: "MHI-AC-Ctrl-Room1/Tsetpoint"
+  fan_mode_command_topic: "MHI-AC-Ctrl-Room1/set/Fan"
+  fan_mode_state_topic: "MHI-AC-Ctrl-Room1/Fan"
+  swing_mode_command_topic: "MHI-AC-Ctrl-Room1/set/Vanes"
+  swing_mode_state_topic: "MHI-AC-Ctrl-Room1/Vanes"
+  current_temperature_topic: "MHI-AC-Ctrl-Room1/Troom"
+
+- platform: mqtt
+  unique_id: mhi0002
+  name: "MHI Room 2"
+  initial: 22
+  min_temp: 18
+  max_temp: 30
+  modes:
+    - "auto"
+    - "dry"
+    - "cool"
+    - "fan_only"
+    - "heat"
+    - "off"
+  swing_modes:
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "swing"
+  fan_modes:
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+  mode_command_topic: "MHI-AC-Ctrl-Room2/set/Mode"
+  mode_state_topic: "MHI-AC-Ctrl-Room2/Mode"
+  temperature_command_topic: "MHI-AC-Ctrl-Room2/set/Tsetpoint"
+  temperature_state_topic: "MHI-AC-Ctrl-Room2/Tsetpoint"
+  fan_mode_command_topic: "MHI-AC-Ctrl-Room2/set/Fan"
+  fan_mode_state_topic: "MHI-AC-Ctrl-Room2/Fan"
+  swing_mode_command_topic: "MHI-AC-Ctrl-Room2/set/Vanes"
+  swing_mode_state_topic: "MHI-AC-Ctrl-Room2/Vanes"
+  current_temperature_topic: "MHI-AC-Ctrl-Room2/Troom"
