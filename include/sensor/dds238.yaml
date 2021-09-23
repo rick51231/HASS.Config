@@ -1,0 +1,39 @@
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/rs485/dds238"
+  name: "DDS328 Voltage"
+  device_class: voltage
+  unit_of_measurement: "V"
+  unique_id: "sensor.dds328_voltage"
+  value_template: "{{ value_json.value.voltage | float }}"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/rs485/dds238"
+  name: "DDS328 Current"
+  device_class: current
+  unit_of_measurement: "A"
+  unique_id: "sensor.dds328_current"
+  value_template: "{{ value_json.value.current | float }}"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/rs485/dds238"
+  name: "DDS328 Frequency"
+  unit_of_measurement: "Hz"
+  icon: mdi:flash
+  unique_id: "sensor.dds328_frequency"
+  value_template: "{{ value_json.value.frequency | float }}"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/rs485/dds238"
+  name: "DDS328 Power Active"
+  unit_of_measurement: "W"
+  icon: "mdi:gauge"
+  unique_id: "sensor.dds328_power_active"
+  value_template: "{{ value_json.value.power_active | int }}"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/rs485/dds238"
+  name: "DDS328 Power Reactive"
+  unit_of_measurement: "var"
+  icon: "mdi:gauge"
+  unique_id: "sensor.dds328_power_reactive"
+  value_template: "{{ value_json.value.power_reactive | int }}"
