@@ -1,0 +1,9 @@
+- alias: Energy meter tick
+  mode: queued
+  trigger:
+    platform: mqtt
+    topic: "megad_mqtt_bridge/mega2/4"
+  action:
+    service: counter.increment
+    data_template:
+      entity_id: "{%if is_state('binary_sensor.energy_cheap', 'on') %}counter.energy_cheap{%else%}counter.energy_expensive{%endif%}"

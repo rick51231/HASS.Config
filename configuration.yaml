@@ -58,6 +58,8 @@ recorder:
       - sensor.corner_climate
       - sensor.door_climate
       - sensor.outdoor_climate
+      - counter.energy_cheap
+      - counter.energy_expensive
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
@@ -106,6 +108,8 @@ history:
       - sensor.corner_climate
       - sensor.door_climate
       - sensor.outdoor_climate
+      - counter.energy_cheap
+      - counter.energy_expensive
 
 logbook:
   exclude:
@@ -133,6 +137,8 @@ logbook:
       - sensor.corner_climate
       - sensor.door_climate
       - sensor.outdoor_climate
+      - counter.energy_cheap
+      - counter.energy_expensive
 
 mqtt:
   broker: !secret mqtt_host
@@ -190,6 +196,14 @@ telegram_bot:
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
+
+counter:
+  energy_cheap:
+    restore: true
+    step: 1
+  energy_expensive:
+    restore: true
+    step: 1
 
 image_processing:
   - platform: deepstack_face
