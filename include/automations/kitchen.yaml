@@ -89,3 +89,27 @@
     - service: light.turn_off
       data:
         entity_id: light.kitchen_work_light_led
+
+- alias: Kitchen light left
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_switch_left
+  action:
+    - service: "switch.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
+      entity_id: light.kitchen_left
+
+- alias: Kitchen light center
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_switch_center
+  action:
+    - service: "switch.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
+      entity_id: light.kitchen_center
+
+- alias: Kitchen light right
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_switch_right
+  action:
+    - service: "switch.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
+      entity_id: light.kitchen_right

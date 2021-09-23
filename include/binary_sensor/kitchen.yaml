@@ -51,3 +51,21 @@
   name: "Kitchen workspace motion"
   device_class: motion
   unique_id: "binary_sensor.kitchen_workspace_motion"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/11"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen Switch Left"
+  unique_id: "binary_sensor.kitchen_switch_l"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/10"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen Switch Center"
+  unique_id: "binary_sensor.kitchen_switch_c"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/9"
+  value_template: "{{ value_json.value }}"
+  name: "Kitchen Switch Right"
+  unique_id: "binary_sensor.kitchen_switch_r"
