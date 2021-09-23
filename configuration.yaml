@@ -177,6 +177,9 @@ homekit:
       - light.bulbs
       - climate.mhi_room_1
       - climate.mhi_room_2
+      - light.kitchen_left
+      - light.kitchen_center
+      - light.kitchen_right
 
 telegram_bot:
   - platform: polling
