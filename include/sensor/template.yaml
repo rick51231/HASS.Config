@@ -40,3 +40,15 @@
       unique_id: "sensor.outdoor_climate"
       friendly_name: "Outdoor climate"
       value_template: "{{states('sensor.outdoor_temp_combo')}}{{state_attr('sensor.outdoor_temp_combo', 'unit_of_measurement')}} / {{states('sensor.outdoor_hum_combo')}}{{state_attr('sensor.outdoor_hum_combo', 'unit_of_measurement')}} / {{states('sensor.outdoor_light_combo')}}{{state_attr('sensor.outdoor_light_combo', 'unit_of_measurement')}} / {{states('sensor.mega_2_pressure')}}{{state_attr('sensor.mega_2_pressure', 'unit_of_measurement')}}"
+    cheap_energy_total:
+      unique_id: "sensor.cheap_energy_total"
+      friendly_name: "Cheap energy total"
+      value_template: "{{ (states('counter.energy_cheap') | int / 2000) | round(2) }}"
+      icon_template: "mdi:gauge"
+      unit_of_measurement: "kWh"
+    expensive_energy_total:
+      unique_id: "sensor.expensive_energy_total"
+      friendly_name: "Expensive energy total"
+      value_template: "{{ (states('counter.energy_expensive') | int / 2000) | round(2) }}"
+      icon_template: "mdi:gauge"
+      unit_of_measurement: "kWh"

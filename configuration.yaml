@@ -60,6 +60,8 @@ recorder:
       - sensor.outdoor_climate
       - counter.energy_cheap
       - counter.energy_expensive
+      - sensor.cheap_energy_total
+      - sensor.expensive_energy_total
 
 climate: !include include/climate.yaml
 light: !include include/light.yaml
@@ -110,6 +112,8 @@ history:
       - sensor.outdoor_climate
       - counter.energy_cheap
       - counter.energy_expensive
+      - sensor.cheap_energy_total
+      - sensor.expensive_energy_total
 
 logbook:
   exclude:
@@ -139,6 +143,8 @@ logbook:
       - sensor.outdoor_climate
       - counter.energy_cheap
       - counter.energy_expensive
+      - sensor.cheap_energy_total
+      - sensor.expensive_energy_total
 
 mqtt:
   broker: !secret mqtt_host
