@@ -38,13 +38,10 @@
     - "{{ is_state('input_boolean.kitchen_led_auto', 'on') }}"
     - "{{ states('sensor.kitchen_co2') | float > 1400 }}"
   action:
-    - service: switch.turn_on
+    - service: script.set_timer
       data:
-        entity_id: switch.kitchen_vent
-    - delay: '00:10:00'
-    - service: switch.turn_off
-      data:
-        entity_id: switch.kitchen_vent
+        entity_id: timer.kitchen_vent
+        duration: 600
 
 - alias: Kitchen vent by humidity
   mode: restart
@@ -57,13 +54,10 @@
     - "{{ is_state('input_boolean.kitchen_led_auto', 'on') }}"
     - "{{ states('sensor.kitchen_humidity') | float - states('sensor.hall_humidity') | float > 10 }}"
   action:
-    - service: switch.turn_on
+    - service: script.set_timer
       data:
-        entity_id: switch.kitchen_vent
-    - delay: '00:10:00'
-    - service: switch.turn_off
-      data:
-        entity_id: switch.kitchen_vent
+        entity_id: timer.kitchen_vent
+        duration: 600
 
 - alias: Kitchen fridge storage light
   trigger:

@@ -167,11 +167,3 @@
       data:
         entity_id: timer.bathroom_vent
         duration: 1800
-
-- alias: Bathroom vent sync with timer
-  trigger:
-    platform: state
-    entity_id: timer.bathroom_vent
-  action:
-    - service: "switch.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
-      entity_id: switch.bathroom_vent

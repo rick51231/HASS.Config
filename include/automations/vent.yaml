@@ -1,4 +1,23 @@
+- alias: Bathroom vent sync with timer
+  trigger:
+    platform: state
+    entity_id: timer.bathroom_vent
+  action:
+    - service: "fan.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
+      data:
+        entity_id: fan.bathroom
+
+- alias: Kitchen vent sync with timer
+  trigger:
+    platform: state
+    entity_id: timer.kitchen_vent
+  action:
+    - service: "fan.turn_{% if trigger.to_state.state == 'active' %}on{%else%}off{%endif%}"
+      data:
+        entity_id: fan.kitchen
+
 - alias: Adjust bathroom vent speed
+  mode: restart
   trigger:
     platform: state
     entity_id:
@@ -7,13 +26,15 @@
   condition:
     - "{{ is_state('fan.bathroom', 'on') }}"
   action:
-    service: fan.set_percentage
-    target:
-      entity_id: fan.bathroom
-    data:
-      percentage: "{%if is_state('light.bathroom_light_led', 'on') %}40{%else%}100{%endif%}"
+    - delay: '00:00:01'
+    - service: fan.set_percentage
+      target:
+        entity_id: fan.bathroom
+      data:
+        percentage: "{%if is_state('light.bathroom_light_led', 'on') %}40{%else%}100{%endif%}"
 
 - alias: Adjust toilet vent speed
+  mode: restart
   trigger:
     platform: state
     entity_id:
@@ -22,8 +43,9 @@
   condition:
     - "{{ is_state('fan.toilet', 'on') }}"
   action:
-    service: fan.set_percentage
-    target:
-      entity_id: fan.toilet
-    data:
-      percentage: "{%if is_state('light.toilet_light_led', 'on' %}40{%else%}100{%endif%}"
+    - delay: '00:00:01'
+    - service: fan.set_percentage
+      target:
+        entity_id: fan.toilet
+      data:
+        percentage: "{%if is_state('light.toilet_light_led', 'on') %}40{%else%}100{%endif%}"

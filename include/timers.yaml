@@ -3,3 +3,6 @@ door_face_scan:
 
 bathroom_vent:
   duration: '00:30:00'
+
+kitchen_vent:
+  duration: '00:30:00'

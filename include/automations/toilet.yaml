@@ -88,9 +88,10 @@
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
     - "{{ is_state('light.toilet_light_led', 'on') }}"
   action:
-    - service: switch.turn_on
+    - service: fan.turn_on
       data:
-        entity_id: switch.toilet_vent
+        entity_id: fan.toilet
+        percentage: 10
 
 - alias: Toilet vent off
   trigger:
@@ -102,6 +103,6 @@
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
   action:
-    - service: switch.turn_off
+    - service: fan.turn_off
       data:
-        entity_id: switch.toilet_vent
+        entity_id: fan.toilet
