@@ -1,0 +1,35 @@
+- platform: mqtt
+  name: "Bathroom"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  state_topic: "megad_mqtt_bridge/mega3/39e1"
+  percentage_command_topic: "megad_mqtt_bridge/mega3/cmd"
+  speed_range_min: 1
+  speed_range_max: 20
+  state_value_template: "{%if value_json.value | int > 0 %}ON{%else%}OFF{%endif%}"
+  percentage_command_template: "{%set v = value%}39e1:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  command_template: "{%if value == 'OFF'%}{%set v = 0 %}{%else%}{%set v = ((state_attr('fan.bathroom', 'percentage') | int(50)) / state_attr('fan.bathroom', 'percentage_step')) | int %}{%endif%}39e1:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  unique_id: "fan.bathroom"
+
+- platform: mqtt
+  name: "Toilet"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  state_topic: "megad_mqtt_bridge/mega3/39e0"
+  percentage_command_topic: "megad_mqtt_bridge/mega3/cmd"
+  speed_range_min: 1
+  speed_range_max: 20
+  state_value_template: "{%if value_json.value | int > 0 %}ON{%else%}OFF{%endif%}"
+  percentage_command_template: "{%set v = value%}39e0:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  command_template: "{%if value == 'OFF'%}{%set v = 0 %}{%else%}{%set v = ((state_attr('fan.toilet', 'percentage') | int(50)) / state_attr('fan.toilet', 'percentage_step')) | int %}{%endif%}39e0:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  unique_id: "fan.toilet"
+
+- platform: mqtt
+  name: "Kitchen"
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  state_topic: "megad_mqtt_bridge/mega3/39e8"
+  percentage_command_topic: "megad_mqtt_bridge/mega3/cmd"
+  speed_range_min: 1
+  speed_range_max: 20
+  state_value_template: "{%if value_json.value | int > 0 %}ON{%else%}OFF{%endif%}"
+  percentage_command_template: "{%set v = value%}39e8:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  command_template: "{%if value == 'OFF'%}{%set v = 0 %}{%else%}{%set v = ((state_attr('fan.kitchen', 'percentage') | int(50)) / state_attr('fan.kitchen', 'percentage_step')) | int %}{%endif%}39e8:{%if v == 20 %}4095{%else%}{%if v == 0%}0{%else%}{{ v*100 + 500 }}{%endif%}{%endif%}"
+  unique_id: "fan.kitchen"
