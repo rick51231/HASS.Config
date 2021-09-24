@@ -1,0 +1,29 @@
+- alias: Adjust bathroom vent speed
+  trigger:
+    platform: state
+    entity_id:
+      - light.bathroom_light_led
+      - fan.bathroom
+  condition:
+    - "{{ is_state('fan.bathroom', 'on') }}"
+  action:
+    service: fan.set_percentage
+    target:
+      entity_id: fan.bathroom
+    data:
+      percentage: "{%if is_state('light.bathroom_light_led', 'on') %}40{%else%}100{%endif%}"
+
+- alias: Adjust toilet vent speed
+  trigger:
+    platform: state
+    entity_id:
+      - light.toilet_light_led
+      - fan.toilet
+  condition:
+    - "{{ is_state('fan.toilet', 'on') }}"
+  action:
+    service: fan.set_percentage
+    target:
+      entity_id: fan.toilet
+    data:
+      percentage: "{%if is_state('light.toilet_light_led', 'on' %}40{%else%}100{%endif%}"
