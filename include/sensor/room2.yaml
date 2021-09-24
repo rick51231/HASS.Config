@@ -21,3 +21,10 @@
   unit_of_measurement: "%"
   device_class: humidity
   unique_id: "sensor.room2_humidity"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega2/13/t67xx"
+  value_template: "{{ value_json.value.co2 }}"
+  name: "Room 2 CO2"
+  unit_of_measurement: "ppm"
+  unique_id: "sensor.room2_co2"

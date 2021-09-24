@@ -7,7 +7,7 @@
     room_2_climate:
       unique_id: "sensor.room_2_climate"
       friendly_name: "Room 2 climate"
-      value_template: "{{states('sensor.room_2_temp')}}{{state_attr('sensor.room_2_temp', 'unit_of_measurement')}} / {{states('sensor.room_2_humidity')}}{{state_attr('sensor.room_2_humidity', 'unit_of_measurement')}} / {{states('sensor.room_2_light')}}{{state_attr('sensor.room_2_light', 'unit_of_measurement')}}"
+      value_template: "{{states('sensor.room_2_temp')}}{{state_attr('sensor.room_2_temp', 'unit_of_measurement')}} / {{states('sensor.room_2_humidity')}}{{state_attr('sensor.room_2_humidity', 'unit_of_measurement')}} / {{states('sensor.room_2_light')}}{{state_attr('sensor.room_2_light', 'unit_of_measurement')}} / {{states('sensor.room_2_co2')}}{{state_attr('sensor.room_2_co2', 'unit_of_measurement')}}"
     room_3_climate:
       unique_id: "sensor.room_3_climate"
       friendly_name: "Room 3 climate"
