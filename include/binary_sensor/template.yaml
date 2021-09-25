@@ -11,6 +11,6 @@
       device_class: occupancy
     kitchen_occupied:
       friendly_name: "Kitchen occupied"
-      value_template: "{{ is_state('binary_sensor.kitchen_motion','on') }}"
-      delay_off: 60
+      value_template: "{{ is_state('binary_sensor.kitchen_motion','on') or is_state('binary_sensor.kitchen_workspace_motion','on') }}"
+      delay_off: 300
       device_class: occupancy
