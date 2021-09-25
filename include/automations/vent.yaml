@@ -49,3 +49,20 @@
         entity_id: fan.toilet
       data:
         percentage: "{%if is_state('light.toilet_light_led', 'on') %}40{%else%}100{%endif%}"
+
+- alias: Adjust kitchen vent speed
+  mode: restart
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.kitchen_occupied
+      - fan.kitchen
+  condition:
+    - "{{ is_state('fan.kitchen', 'on') }}"
+  action:
+    - delay: '00:00:01'
+    - service: fan.set_percentage
+      target:
+        entity_id: fan.kitchen
+      data:
+        percentage: "{%if is_state('binary_sensor.kitchen_occupied', 'on') %}20{%else%}100{%endif%}"
