@@ -1,0 +1,3 @@
+# My Home Assistant config
+
+Description text will be available soon...
