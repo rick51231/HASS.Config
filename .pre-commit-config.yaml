@@ -1,4 +1,4 @@
-repos:
+repos: # install via pre-commit install ( https://pre-commit.com )
   - repo: local
     hooks:
       - id: yamllint
