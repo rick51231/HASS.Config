@@ -54,3 +54,27 @@ set_timer:
         duration: "{{ duration }}"
       target:
         entity_id: "{{ entity_id }}"
+
+set_bathroom_vent_1h:
+  alias: 'Run Set timer for 1h on bathroom vent'
+  sequence:
+    - service: script.set_timer
+      data:
+        entity_id: timer.bathroom_vent
+        duration: 600
+
+set_toilet_vent_1h:
+  alias: 'Run Set timer for 1h on toilet vent'
+  sequence:
+    - service: script.set_timer
+      data:
+        entity_id: timer.toilet_vent
+        duration: 600
+
+set_kitchen_vent_1h:
+  alias: 'Run Set timer for 1h on kitchen vent'
+  sequence:
+    - service: script.set_timer
+      data:
+        entity_id: timer.kitchen_vent
+        duration: 600

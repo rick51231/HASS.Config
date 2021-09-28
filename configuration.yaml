@@ -193,6 +193,10 @@ homekit:
       - light.kitchen_left
       - light.kitchen_center
       - light.kitchen_right
+      - script.set_bathroom_vent_1h
+      - script.set_toilet_vent_1h
+      - script.set_kitchen_vent_1h
+
 
 telegram_bot:
   - platform: polling
