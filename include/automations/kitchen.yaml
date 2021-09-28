@@ -107,3 +107,20 @@
   action:
     - service: "light.turn_{% if trigger.to_state.state == 'on' %}on{%else%}off{%endif%}"
       entity_id: light.kitchen_right
+
+- alias: Kitchen light auto off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_occupied
+    to: 'off'
+  condition:
+    - "{{ is_state('input_boolean.kitchen_led_auto', 'on') }}"
+  action:
+    - service: "light.turn_off"
+      entity_id:
+        - light.kitchen_left
+        - light.kitchen_center
+        - light.kitchen_right
+        - light.kitchen_work_light_led
+        - light.kitchen_top_storage_light_led
+        - light.kitchen_fridge_storage_light_led
