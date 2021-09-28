@@ -77,32 +77,17 @@
       entity_id: light.toilet_light_led
       brightness_pct: "{{ states('input_number.toilet_led_bri') | int }}"
 
-- alias: Toilet vent on
+- alias: Toilet vent by motion
   trigger:
     platform: state
-    entity_id: binary_sensor.toilet_door
-    to: 'off'
-    for:
-      seconds: 10
+    entity_id: binary_sensor.toilet_motion
+    to: 'on'
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
     - "{{ is_state('light.toilet_light_led', 'on') }}"
+    - "{{ is_state('binary_sensor.toilet_door', 'off') }}"
   action:
-    - service: fan.turn_on
+    - service: script.set_timer
       data:
-        entity_id: fan.toilet
-        percentage: 10
-
-- alias: Toilet vent off
-  trigger:
-    platform: state
-    entity_id: light.toilet_light_led
-    to: 'off'
-    for:
-      minutes: 10
-  condition:
-    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
-  action:
-    - service: fan.turn_off
-      data:
-        entity_id: fan.toilet
+        entity_id: timer.toilet_vent
+        duration: 600

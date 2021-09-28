@@ -6,3 +6,6 @@ bathroom_vent:
 
 kitchen_vent:
   duration: '00:30:00'
+
+toilet_vent:
+  duration: '00:30:00'
