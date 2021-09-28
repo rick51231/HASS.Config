@@ -34,6 +34,7 @@
       - fan.bathroom
   condition:
     - "{{ is_state('fan.bathroom', 'on') }}"
+    - "{{ is_state('input_boolean.bathroom_led_auto', 'on') }}"
   action:
     - delay: '00:00:01'
     - service: fan.set_percentage
@@ -51,6 +52,7 @@
       - fan.toilet
   condition:
     - "{{ is_state('fan.toilet', 'on') }}"
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
   action:
     - delay: '00:00:01'
     - service: fan.set_percentage
@@ -68,6 +70,7 @@
       - fan.kitchen
   condition:
     - "{{ is_state('fan.kitchen', 'on') }}"
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
   action:
     - delay: '00:00:01'
     - service: fan.set_percentage
