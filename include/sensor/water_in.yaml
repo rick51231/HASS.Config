@@ -15,12 +15,20 @@
   unique_id: "sensor.toilet_water12_temp"
 
 - platform: mqtt
-  state_topic: "mega1/30"
-  value_template: "{{ value_json.value }}"
-  name: "Toilet pressure"
+  state_topic: "megad_mqtt_bridge/mega3/40"
+  value_template: "{{ value_json.value.press }}"
+  name: "Water In HOT press"
   unit_of_measurement: "Bar"
   device_class: pressure
-  unique_id: "sensor.toilet_pressure"
+  unique_id: "sensor.toilet_water1_press"
+
+- platform: mqtt
+  state_topic: "megad_mqtt_bridge/mega3/41"
+  value_template: "{{ value_json.value.press }}"
+  name: "Water In COLD press"
+  unit_of_measurement: "Bar"
+  device_class: pressure
+  unique_id: "sensor.toilet_water2_press"
 
 - platform: mqtt
   state_topic: "esp_watermeter1/data"
