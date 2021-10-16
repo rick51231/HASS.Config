@@ -68,3 +68,13 @@
       command_on: !secret balcony_rgb_light_script
       command_off: "/usr/bin/pkill -f rgb_led_animated || /bin/true"
       command_state: "ps x | grep -v grep | grep rgb_led_animated"
+
+- platform: mqtt
+  unique_id: "switch.humidifier"
+  name: "Humidifier"
+  icon: mdi:fire
+  command_topic: "megad_mqtt_bridge/mega3/cmd"
+  payload_off: "28:0"
+  payload_on: "28:1"
+  state_topic: "megad_mqtt_bridge/mega3/28"
+  value_template: "28:{%if value_json.value == 'ON'%}1{%else%}0{%endif%}"
