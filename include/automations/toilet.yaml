@@ -2,7 +2,6 @@
   trigger:
     platform: state
     entity_id: binary_sensor.toilet_door
-    to: 'on'
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
     - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
@@ -12,11 +11,10 @@
       entity_id: light.toilet_light_led
       brightness_pct: "{{ states('input_number.toilet_led_bri') | int }}"
 
-- alias: Toilet door off trigger
+- alias: Toilet door timeout trigger
   trigger:
     platform: state
     entity_id: binary_sensor.toilet_door
-    to: 'off'
     for:
       seconds: 7
   condition:
@@ -37,28 +35,42 @@
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
     - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
-    - condition: state
-      entity_id: binary_sensor.toilet_door
-      state: 'off'
   action:
     service: light.turn_on
     data:
       entity_id: light.toilet_light_led
       brightness_pct: "{{ states('input_number.toilet_led_bri') | int }}"
 
-- alias: Toilet motion off trigger
+- alias: Toilet closed motion off trigger
   trigger:
     platform: state
     entity_id: binary_sensor.toilet_motion
     to: 'off'
     for:
-      minutes: 1
+      minutes: 5
   condition:
     - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
     - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
     - condition: state
       entity_id: binary_sensor.toilet_door
       state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.toilet_light_led
+
+- alias: Toilet open motion off trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.toilet_motion
+    to: 'off'
+    for:
+      seconds: 30
+  condition:
+    - "{{ is_state('input_boolean.toilet_led_auto', 'on') }}"
+    - "{{ is_state('binary_sensor.hall_light_switch_toilet', 'off') }}"
+    - condition: state
+      entity_id: binary_sensor.toilet_door
+      state: 'on'
   action:
     service: light.turn_off
     entity_id: light.toilet_light_led
