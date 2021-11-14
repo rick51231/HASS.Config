@@ -10,6 +10,7 @@
       - binary_sensor.sw2_ping
       - binary_sensor.gateway_cos
       - binary_sensor.gateway_btk
+      - binary_sensor.unifi_controller
   condition: "{{ trigger.to_state.state != trigger.from_state.state }}"
   action:
     - service: notify.notify_all

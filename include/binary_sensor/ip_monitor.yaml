@@ -27,3 +27,9 @@
   name: !secret gw2_name
   count: 2
   scan_interval: 60
+
+- platform: ping
+  host: !secret unifi_ip
+  name: "UniFi Controller"
+  count: 2
+  scan_interval: 60
