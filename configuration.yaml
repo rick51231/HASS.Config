@@ -196,6 +196,7 @@ homekit:
       - script.set_bathroom_vent_1h
       - script.set_toilet_vent_1h
       - script.set_kitchen_vent_1h
+      - switch.humidifier
 
 
 telegram_bot:
