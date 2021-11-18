@@ -1,7 +1,7 @@
 - alias: "Humidifier"
   trigger:
     platform: time_pattern
-    hours: '/1'
+    minutes: '/30'
   action:
     - service: switch.turn_on
       data:
