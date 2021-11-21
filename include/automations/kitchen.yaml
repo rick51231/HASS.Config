@@ -80,6 +80,9 @@
         entity_id: light.kitchen_work_light_led
         brightness_pct: 100
     - delay: '00:01:00'
+    - condition: state
+      entity_id: binary_sensor.kitchen_workspace_motion
+      state: 'off'
     - service: light.turn_off
       data:
         entity_id: light.kitchen_work_light_led
