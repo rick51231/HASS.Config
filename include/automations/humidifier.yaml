@@ -1,12 +1,17 @@
-- alias: "Humidifier"
+- alias: "Room humidifier"
+  mode: restart
   trigger:
-    platform: time_pattern
-    minutes: '/30'
+    platform: state
+    entity_id:
+      - sensor.room_humidity_combo
+      - input_number.rooms_target_humidity
+  condition:
+    - "{{ states('input_number.rooms_target_humidity') | float - states('sensor.room_humidity_combo') | float > 5 }}"
   action:
     - service: switch.turn_on
       data:
         entity_id: switch.humidifier
-    - delay: '00:02:00'
+    - delay: '00:01:00'
     - service: switch.turn_off
       data:
         entity_id: switch.humidifier

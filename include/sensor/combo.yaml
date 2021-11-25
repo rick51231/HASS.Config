@@ -20,3 +20,11 @@
   entity_ids:
     - sensor.outdoor_light
     - sensor.outdoor_2_light
+
+- platform: min_max
+  type: mean
+  name: "Room humidity combo"
+  entity_ids:
+    - sensor.room_1_humidity
+    - sensor.room_2_humidity
+    - sensor.room_3_humidity
